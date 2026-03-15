@@ -11,11 +11,15 @@ def two_sum(nums, target)
   l = nums.length
 
   while i < l
-    complement = target - nums[i]
-    return [i, seen[complement]] if seen.key? complement
+    return [i, seen[target - nums[i]]] if seen.key?(target - nums[i])
 
     seen[nums[i]] = i
     i += 1
   end
   false
+end
+
+if __FILE__ == $PROGRAM_NAME
+  p two_sum([1, 2, 3], 3)
+  p two_sum([1, 1, 3], 3)
 end
