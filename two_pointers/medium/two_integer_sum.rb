@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# arrays/medium/two_integer_sum.rb
+# two_pointers/medium/two_integer_sum.rb
 
 # Problem
 # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/

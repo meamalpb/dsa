@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# arrays/medium/three_sum.rb
+# two_pointers/medium/three_sum.rb
 
 # Problem
 # https://leetcode.com/problems/3sum/
