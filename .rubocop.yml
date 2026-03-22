@@ -9,3 +9,9 @@ Metrics/AbcSize:
 
 Naming/MethodParameterName:
   Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false

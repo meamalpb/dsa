@@ -13,27 +13,27 @@
 # Optimised but still can be improved
 # ----------------
 
-def longest_consecutive(nums)
-  ss = {}
-  result = 0
-  # added this after failing a timeout with 100 0s
-  nums = nums.uniq
-  nums.each do |num|
-    ss[num] = 1
-  end
-  nums.each do |i|
-    next unless ss[i - 1].nil?
+# def longest_consecutive(nums)
+#   ss = {}
+#   result = 0
+#   # added this after failing a timeout with 100 0s
+#   nums = nums.uniq
+#   nums.each do |num|
+#     ss[num] = 1
+#   end
+#   nums.each do |i|
+#     next unless ss[i - 1].nil?
 
-    temp = 0
-    t = i
-    while ss[t]&.positive?
-      temp += 1
-      t += 1
-    end
-    result = [result, temp].max
-  end
-  result
-end
+#     temp = 0
+#     t = i
+#     while ss[t]&.positive?
+#       temp += 1
+#       t += 1
+#     end
+#     result = [result, temp].max
+#   end
+#   result
+# end
 
 # ----------------
 # Approach - 2
