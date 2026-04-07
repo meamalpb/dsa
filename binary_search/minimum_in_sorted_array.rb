@@ -28,6 +28,25 @@ def find_min(nums)
   end
 end
 
+def standard_template(nums)
+  l = 0
+  r = nums.length - 1
+
+  while l < r
+    mid = (l + r) / 2
+
+    if nums[mid] > nums[r]
+      # minimum is strictly to the right of mid
+      l = mid + 1
+    else
+      # minimum is at mid or to the left of mid
+      r = mid
+    end
+  end
+
+  nums[l]
+end
+
 if __FILE__ == $PROGRAM_NAME
   p find_min([3, 4, 5, 1, 2])
   p find_min([4, 5, 6, 7, 0, 1, 2])
@@ -35,4 +54,11 @@ if __FILE__ == $PROGRAM_NAME
   p find_min([1])
   p find_min([2, 1])
   p find_min([3, 1, 2])
+
+  p standard_template([3, 4, 5, 1, 2])
+  p standard_template([4, 5, 6, 7, 0, 1, 2])
+  p standard_template([11, 13, 15, 17])
+  p standard_template([1])
+  p standard_template([2, 1])
+  p standard_template([3, 1, 2])
 end
