@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# binary_search/easy/minimum_in_sorted_array.rb
+# binary_search/medium/minimum_in_sorted_array.rb
 
 # Problem
 # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/

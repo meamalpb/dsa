@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# binary_search/easy/binary_search.rb
+# binary_search/medium/binary_search.rb
 
 # Problem
-# http://leetcode.com/problems/binary-search/description/
+# https://leetcode.com/problems/search-in-rotated-sorted-array/
 
 # @param {Integer[]} nums
 # @param {Integer} target

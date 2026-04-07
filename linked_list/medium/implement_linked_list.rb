@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# linked_list/medium/implement_linked_list.rb
+
+# Problem
+# https://leetcode.com/problems/design-linked-list/
+
 class Node
   attr_accessor :val, :next
 
