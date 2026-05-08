@@ -6,17 +6,19 @@ module LinkedListUtils
   module_function
 
   # array -> linked list
-  def build_list(arr)
+  def build_list(arr, cycle_pos: nil)
     return nil if arr.empty?
 
+    cycle_head = nil
     head = ListNode.new(arr[0])
     current = head
-
+    index = 0
     arr[1..].each do |val|
+      cycle_head = current if index == cycle_pos
       current.next = ListNode.new(val)
       current = current.next
     end
-
+    current.next = cycle_head
     head
   end
 

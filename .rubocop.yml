@@ -1,4 +1,4 @@
-Naming/PredicateName:
+Naming/PredicatePrefix:
   Enabled: false
 
 Metrics/MethodLength:
