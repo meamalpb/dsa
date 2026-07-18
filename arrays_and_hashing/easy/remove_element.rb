@@ -9,16 +9,16 @@
 # @param {Integer} val
 # @return {Integer}
 def remove_element(nums, val)
-    i=0
-    j=0
-    while i<nums.length
-        if nums[i]!=val
-            nums[j]=nums[i]
-            j+=1
-        end
-        i+=1
+  i = 0
+  j = 0
+  while i < nums.length
+    if nums[i] != val
+      nums[j] = nums[i]
+      j += 1
     end
-    j
+    i += 1
+  end
+  j
 end
 
 if __FILE__ == $PROGRAM_NAME
