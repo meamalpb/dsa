@@ -33,18 +33,16 @@ def min_window(s, t)
       formed += 1 if window[s[right]] == need[s[right]]
     end
 
-    while formed==required
-        if result_count> right-left+1
-            result = s[left..right] 
-            result_count = right-left+1
-        end
+    while formed == required
+      if result_count > right - left + 1
+        result = s[left..right]
+        result_count = right - left + 1
+      end
 
-        window[s[left]]-=1
-        if need[s[left]] && window[s[left]]<need[s[left]]
-            formed-=1
-        end
+      window[s[left]] -= 1
+      formed -= 1 if need[s[left]] && window[s[left]] < need[s[left]]
 
-        left+=1 
+      left += 1
     end
     right += 1
   end
