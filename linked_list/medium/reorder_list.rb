@@ -18,36 +18,35 @@ require_relative '../helpers/utils'
 # @param {ListNode} head
 # @return {Void} Do not return anything, modify head in-place instead.
 def reorder_list(head)
-    slow = head
-    fast = head.next
-    while fast && fast.next
-        slow = slow.next
-        fast = fast.next.next 
-    end
+  slow = head
+  fast = head.next
+  while fast&.next
+    slow = slow.next
+    fast = fast.next.next
+  end
 
-    reverse_head = slow.next
-    slow.next=nil
-    previous = nil
-    while reverse_head
-        temp = reverse_head.next
-        reverse_head.next = previous
-        previous = reverse_head
-        reverse_head = temp
-    end
-    reverse_head = previous
-    new_head = head
-    while new_head && reverse_head
-        temp1 = new_head.next
-        temp2 = reverse_head.next
+  reverse_head = slow.next
+  slow.next = nil
+  previous = nil
+  while reverse_head
+    temp = reverse_head.next
+    reverse_head.next = previous
+    previous = reverse_head
+    reverse_head = temp
+  end
+  reverse_head = previous
+  new_head = head
+  while new_head && reverse_head
+    temp1 = new_head.next
+    temp2 = reverse_head.next
 
-        new_head.next = reverse_head
-        reverse_head.next = temp1
-        new_head= temp1
-        reverse_head = temp2
-    end
-    head
+    new_head.next = reverse_head
+    reverse_head.next = temp1
+    new_head = temp1
+    reverse_head = temp2
+  end
+  head
 end
-
 
 def runner(input)
   head = LinkedListUtils.build_list(input)
