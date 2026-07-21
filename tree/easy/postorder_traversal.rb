@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Definition for a binary tree node.
 # class TreeNode
 #     attr_accessor :val, :left, :right
@@ -10,13 +12,14 @@
 # @param {TreeNode} root
 # @return {Integer[]}
 def postorder_traversal(root)
-        res=[]
-    def postorder(root,res)
+  res = []
+  def postorder(root, res)
     return if root.nil?
-        postorder(root.left,res)
-        postorder(root.right,res)
-        res<<root.val
-    end
-    postorder(root,res)
-    res
+
+    postorder(root.left, res)
+    postorder(root.right, res)
+    res << root.val
+  end
+  postorder(root, res)
+  res
 end
