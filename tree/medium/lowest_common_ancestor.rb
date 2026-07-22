@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Definition for a binary tree node.
 # class TreeNode
 #     attr_accessor :val, :left, :right
@@ -12,13 +14,13 @@
 # @param {TreeNode} q
 # @return {TreeNode}
 def lowest_common_ancestor(root, p, q)
-    while root do
-        if root.val< p.val && root.val<q.val
-            root=root.right
-        elsif root.val>p.val && root.val>q.val
-            root=root.left
-        else
-            return root
-        end
+  while root
+    if root.val < p.val && root.val < q.val
+      root = root.right
+    elsif root.val > p.val && root.val > q.val
+      root = root.left
+    else
+      return root
     end
+  end
 end
