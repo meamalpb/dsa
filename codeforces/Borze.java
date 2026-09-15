@@ -1,4 +1,5 @@
 // https://codeforces.com/problemset/problem/32/B
+package codeforces;
 
 import java.util.Scanner;
 
