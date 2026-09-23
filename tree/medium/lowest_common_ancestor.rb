@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# tree/medium/lowest_common_ancestor.rb
+
+# Problem
+# https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
+
 # Definition for a binary tree node.
 # class TreeNode
 #     attr_accessor :val, :left, :right

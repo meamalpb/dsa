@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# tree/easy/invert_binary_tree.rb
+
+# Problem
+# https://leetcode.com/problems/invert-binary-tree/description/
+
 # Definition for a binary tree node.
 # class TreeNode
 #     attr_accessor :val, :left, :right
