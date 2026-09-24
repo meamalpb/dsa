@@ -1,23 +1,27 @@
 ---
 problems:
   contains-duplicate:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-14
-    next_review: 2026-03-15
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-24
+    next_review: 2026-09-30
     history:
     - date: 2026-03-14
       grade: seed
+    - date: 2026-09-24
+      grade: easy
   valid-anagram:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-14
-    next_review: 2026-03-15
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-24
+    next_review: 2026-09-30
     history:
     - date: 2026-03-14
       grade: seed
+    - date: 2026-09-24
+      grade: easy
   two-sum:
     reps: 1
     ease: 2.5
@@ -297,19 +301,33 @@ problems:
     history:
     - date: 2026-07-17
       grade: seed
-last_new_on:
-next_forced_pool: medium_hard
+  valid-sudoku:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-09-24
+      grade: good
+    last_reviewed: 2026-09-24
+    next_review: 2026-09-25
+last_new_on: 2026-09-24
+next_forced_pool: easy
 session:
-  date: 2026-09-23
-  bonus_unlocked: false
+  date: 2026-09-24
+  bonus_unlocked: true
   slots:
     B:
       slug: valid-sudoku
       kind: new
       forced: true
-      grade:
+      grade: good
     A:
       slug: contains-duplicate
       kind: review
       forced: false
-      grade:
+      grade: easy
+    C:
+      slug: valid-anagram
+      kind: review
+      forced: false
+      grade: easy
