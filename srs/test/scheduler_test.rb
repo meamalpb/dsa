@@ -147,4 +147,18 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
     scheduler.unlock_bonus
     assert_equal(%w[e1 m1 e2], scheduler.session['slots'].values_at('A', 'B', 'C').map { |e| e['slug'] })
   end
+
+  def test_extra_new_slots_after_everything_graded
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    add('e2', 'arrays', 'Easy')
+    add('m2', 'arrays', 'Medium')
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session['slots'].each_value { |e| e['grade'] = 'good' }
+    assert sched.all_graded?
+    assert_equal 'D', sched.add_extra_new.first
+    assert_equal 'E', sched.add_extra_new.first
+    refute sched.all_graded?
+    assert_nil sched.add_extra_new
+  end
 end

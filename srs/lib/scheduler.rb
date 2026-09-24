@@ -34,6 +34,22 @@ module Srs
       slots['C'] ||= pick('C')
     end
 
+    # Extra new problem (slots D, E, …) once everything else is done. Alternates
+    # between the pools, falling back to the other one. Returns [slot, entry] or nil.
+    def add_extra_new
+      first = POOLS.keys[extra_count.even? ? 0 : 1]
+      slug = next_new(first) || next_new(self.class.other_pool(first))
+      return unless slug
+
+      slot = [slots.keys.max, 'C'].max.succ
+      slots[slot] = entry(slug, 'new')
+      [slot, slots[slot]]
+    end
+
+    def all_graded?
+      slots.values.all? { |e| e['grade'] || e['slug'].nil? }
+    end
+
     def new_problem_overdue?
       last = @state['last_new_on']
       last.nil? || (@today - last) >= FORCE_NEW_AFTER
@@ -43,6 +59,10 @@ module Srs
 
     def slots
       @state['session']['slots']
+    end
+
+    def extra_count
+      slots.keys.count { |k| k > 'C' }
     end
 
     # Rule 1: put a new problem in next_forced_pool's slot, or the other one if

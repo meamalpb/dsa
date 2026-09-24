@@ -20,6 +20,20 @@ module Srs
       @out.puts "#{@today} — #{session['slots'].size} problems"
       session['slots'].sort.each { |slot, entry| show(slot, entry) }
       @out.puts "\nGrade any of these `easy` to unlock a 3rd problem (slot C)." unless session['bonus_unlocked']
+      @out.puts "\nDone with all of them? `bin/srs more` gives you a new problem." if @scheduler.all_graded?
+    end
+
+    # Add another new problem to today's session (only once everything is graded).
+    def more
+      @scheduler.session
+      raise Error, 'Finish and grade today\'s problems first.' unless @scheduler.all_graded?
+
+      added = @scheduler.add_extra_new
+      save
+      return @out.puts('No new problem is eligible right now.') unless added
+
+      @out.puts 'Extra problem:'
+      show(*added)
     end
 
     def start(slot)
@@ -55,6 +69,7 @@ module Srs
       unlock_bonus if grade == 'easy'
       save
       offer_attempt_cleanup(@problems[slug]['file']) unless entry['kind'] == 'new'
+      offer_more
     end
 
     def status
@@ -98,6 +113,13 @@ module Srs
       @scheduler.unlock_bonus
       @out.puts "\nBonus unlocked:"
       show('C', @state['session']['slots']['C'])
+    end
+
+    def offer_more
+      return unless @scheduler.all_graded?
+
+      @out.print "\nAll of today's problems are done. Try a new one? [y/N] "
+      more if @in.gets.to_s.strip.downcase.start_with?('y')
     end
 
     def offer_attempt_cleanup(file)

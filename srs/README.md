@@ -12,6 +12,7 @@ Full design and the reasoning behind it: [DESIGN.md](DESIGN.md).
 bin/srs today            # today's slots A (Easy) and B (Medium/Hard)
 bin/srs start A          # new problem → scaffold file; review → name.attempt.rb next to the original
 bin/srs grade A good     # again | hard | good | easy — `easy` unlocks a bonus slot C
+bin/srs more              # all graded? get an extra new problem (slots D, E, …); `grade` also offers this
 bin/srs status           # coverage per topic, what's open/locked, what's due
 bin/srs setup            # one-time: build problems.yml, seed state.yml (safe to re-run)
 ```
