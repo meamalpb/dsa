@@ -17,7 +17,7 @@ def is_valid_sudoku(board)
     (0..8).each do |j|
       element = board[i][j]
       element2 = board[j][i]
-      square_key = (i / 3).to_s + (j / 3).to_s
+      square_key = (i / 3) * 3 + j / 3
       return false if k.key?(element)
       return false if kk.key?(element2)
 
@@ -33,10 +33,7 @@ def is_valid_sudoku(board)
         kkk[square_key] << element if element != '.'
       end
     end
-    p kkk
   end
-
-  # smaller rectangles
   true
 end
 
