@@ -7,14 +7,17 @@ module Srs
 
     def coverage(problems, state, out)
       progress = Progress.new(problems, state)
-      out.puts "\n#{'Topic'.ljust(17)} #{'Seen'.rjust(7)}  E+M seen   E / M / H     Status"
+      bar_head = 'Progress'.ljust(Charts::BAR_WIDTH)
+      out.puts "\n#{'Topic'.ljust(17)} #{'Seen'.rjust(7)}  E+M seen   #{bar_head}  E / M / H     Status"
       Topics::ROADMAP.each_key do |topic|
         all = progress.in_topic(topic).keys
         seen = "#{all.count { |s| progress.seen?(s) }}/#{all.size}"
         counts = %w[Easy Medium Hard].map { |d| progress.in_topic(topic, [d]).size }.join(' / ')
         pct = "#{(progress.core_ratio(topic) * 100).round}%"
-        status = progress.open?(topic) ? 'open' : "locked (needs #{Topics.prereqs(topic).join(' + ')})"
-        out.puts "#{topic.ljust(17)} #{seen.rjust(7)}  #{pct.rjust(8)}   #{counts.ljust(13)} #{status}"
+        open = progress.open?(topic)
+        status = open ? 'open' : "locked (needs #{Topics.prereqs(topic).join(' + ')})"
+        bar = Charts.bar(progress.core_ratio(topic))
+        out.puts "#{topic.ljust(17)} #{seen.rjust(7)}  #{pct.rjust(8)}   #{bar}  #{counts.ljust(13)} #{status}"
       end
     end
 

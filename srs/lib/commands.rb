@@ -80,6 +80,10 @@ module Srs
       last = @state['last_new_on']
       @out.puts "\nSeen #{cards.size}/#{@problems.size} · due now #{due} · due in the next 7 days #{week}"
       @out.puts "Last new problem: #{last ? "#{last} (#{(@today - last).to_i}d ago)" : 'none yet'}"
+      days = Charts.activity(@state['problems'].values)
+      @out.puts "\nActivity, last #{Charts::WEEKS} weeks"
+      @out.puts Charts.heatmap(days, @today)
+      @out.puts Charts.summary(days, @today)
     end
 
     private
