@@ -1,0 +1,315 @@
+---
+problems:
+  contains-duplicate:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-14
+    next_review: 2026-03-15
+    history:
+    - date: 2026-03-14
+      grade: seed
+  valid-anagram:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-14
+    next_review: 2026-03-15
+    history:
+    - date: 2026-03-14
+      grade: seed
+  two-sum:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-14
+    next_review: 2026-03-15
+    history:
+    - date: 2026-03-14
+      grade: seed
+  group-anagrams:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-15
+    next_review: 2026-03-16
+    history:
+    - date: 2026-03-15
+      grade: seed
+  top-k-frequent-elements:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-15
+    next_review: 2026-03-16
+    history:
+    - date: 2026-03-15
+      grade: seed
+  product-of-array-except-self:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-16
+    next_review: 2026-03-17
+    history:
+    - date: 2026-03-16
+      grade: seed
+  longest-consecutive-sequence:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-18
+    next_review: 2026-03-19
+    history:
+    - date: 2026-03-18
+      grade: seed
+  valid-palindrome:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-16
+    next_review: 2026-03-17
+    history:
+    - date: 2026-03-16
+      grade: seed
+  two-sum-ii-input-array-is-sorted:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-18
+    next_review: 2026-03-19
+    history:
+    - date: 2026-03-18
+      grade: seed
+  3sum:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-22
+    next_review: 2026-03-23
+    history:
+    - date: 2026-03-22
+      grade: seed
+  container-with-most-water:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-22
+    next_review: 2026-03-23
+    history:
+    - date: 2026-03-22
+      grade: seed
+  best-time-to-buy-and-sell-stock:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-25
+    next_review: 2026-03-26
+    history:
+    - date: 2026-03-25
+      grade: seed
+  longest-substring-without-repeating-characters:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-25
+    next_review: 2026-03-26
+    history:
+    - date: 2026-03-25
+      grade: seed
+  longest-repeating-character-replacement:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-04-01
+    next_review: 2026-04-02
+    history:
+    - date: 2026-04-01
+      grade: seed
+  permutation-in-string:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-22
+    next_review: 2026-07-23
+    history:
+    - date: 2026-07-22
+      grade: seed
+  minimum-window-substring:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-19
+    next_review: 2026-07-20
+    history:
+    - date: 2026-07-19
+      grade: seed
+  valid-parentheses:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-21
+    next_review: 2026-03-22
+    history:
+    - date: 2026-03-21
+      grade: seed
+  min-stack:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-03-24
+    next_review: 2026-03-25
+    history:
+    - date: 2026-03-24
+      grade: seed
+  daily-temperatures:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-20
+    next_review: 2026-07-21
+    history:
+    - date: 2026-07-20
+      grade: seed
+  binary-search:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-04-07
+    next_review: 2026-04-08
+    history:
+    - date: 2026-04-07
+      grade: seed
+  search-a-2d-matrix:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-21
+    next_review: 2026-07-22
+    history:
+    - date: 2026-07-21
+      grade: seed
+  search-in-rotated-sorted-array:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-04-07
+    next_review: 2026-04-08
+    history:
+    - date: 2026-04-07
+      grade: seed
+  find-minimum-in-rotated-sorted-array:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-04-07
+    next_review: 2026-04-08
+    history:
+    - date: 2026-04-07
+      grade: seed
+  reverse-linked-list:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-04-08
+    next_review: 2026-04-09
+    history:
+    - date: 2026-04-08
+      grade: seed
+  merge-two-sorted-lists:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-05-08
+    next_review: 2026-05-09
+    history:
+    - date: 2026-05-08
+      grade: seed
+  reorder-list:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-20
+    next_review: 2026-07-21
+    history:
+    - date: 2026-07-20
+      grade: seed
+  remove-nth-node-from-end-of-list:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-20
+    next_review: 2026-07-21
+    history:
+    - date: 2026-07-20
+      grade: seed
+  linked-list-cycle:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-05-08
+    next_review: 2026-05-09
+    history:
+    - date: 2026-05-08
+      grade: seed
+  invert-binary-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-21
+    next_review: 2026-07-22
+    history:
+    - date: 2026-07-21
+      grade: seed
+  lowest-common-ancestor-of-a-binary-search-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-21
+    next_review: 2026-07-22
+    history:
+    - date: 2026-07-21
+      grade: seed
+  binary-tree-level-order-traversal:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-21
+    next_review: 2026-07-22
+    history:
+    - date: 2026-07-21
+      grade: seed
+  validate-binary-search-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-21
+    next_review: 2026-07-22
+    history:
+    - date: 2026-07-21
+      grade: seed
+  merge-intervals:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    last_reviewed: 2026-07-17
+    next_review: 2026-07-18
+    history:
+    - date: 2026-07-17
+      grade: seed
+last_new_on:
+next_forced_pool: medium_hard
+session:
+  date: 2026-09-23
+  bonus_unlocked: false
+  slots:
+    B:
+      slug: valid-sudoku
+      kind: new
+      forced: true
+      grade:
+    A:
+      slug: contains-duplicate
+      kind: review
+      forced: false
+      grade:

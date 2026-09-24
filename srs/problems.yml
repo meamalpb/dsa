@@ -1,0 +1,1501 @@
+---
+contains-duplicate:
+  name: Contains Duplicate
+  topic: arrays
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/contains-duplicate/
+  alt_link:
+  file: arrays_and_hashing/easy/contains_duplicate.rb
+  order: 1
+  notes: hashset to get unique values in array, to check for duplicates easily
+valid-anagram:
+  name: Valid Anagram
+  topic: arrays
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/valid-anagram/
+  alt_link:
+  file: arrays_and_hashing/easy/valid_anagram.rb
+  order: 2
+  notes:
+two-sum:
+  name: Two Sum
+  topic: arrays
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/two-sum/
+  alt_link:
+  file: arrays_and_hashing/easy/two_sum.rb
+  order: 3
+  notes: use hash map to instantly check for difference value, map will add index of last occurrence of a num, don’t use same element twice;
+group-anagrams:
+  name: Group Anagrams
+  topic: arrays
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/group-anagrams/
+  alt_link:
+  file: arrays_and_hashing/medium/group_anagrams.rb
+  order: 4
+  notes:
+top-k-frequent-elements:
+  name: Top K Frequent Elements
+  topic: arrays
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/top-k-frequent-elements/
+  alt_link:
+  file: arrays_and_hashing/medium/top_k_frequent.rb
+  order: 5
+  notes:
+product-of-array-except-self:
+  name: Product of Array Except Self
+  topic: arrays
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/product-of-array-except-self/
+  alt_link:
+  file: arrays_and_hashing/medium/product_of_array_except_self.rb
+  order: 6
+  notes:
+valid-sudoku:
+  name: Valid Sudoku
+  topic: arrays
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/valid-sudoku/
+  alt_link:
+  file: arrays_and_hashing/medium/valid_sudoku.rb
+  order: 7
+  notes:
+encode-and-decode-strings:
+  name: Encode and Decode Strings
+  topic: arrays
+  difficulty: Medium
+  paid_only: true
+  link: https://leetcode.com/problems/encode-and-decode-strings/
+  alt_link: https://neetcode.io/problems/string-encode-and-decode
+  file: arrays_and_hashing/medium/encode_and_decode_strings.rb
+  order: 8
+  notes:
+longest-consecutive-sequence:
+  name: Longest Consecutive Sequence
+  topic: arrays
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/longest-consecutive-sequence/
+  alt_link:
+  file: arrays_and_hashing/medium/longest_consecutive_sequence.rb
+  order: 9
+  notes:
+valid-palindrome:
+  name: Valid Palindrome
+  topic: two_pointers
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/valid-palindrome/
+  alt_link:
+  file: two_pointers/easy/valid_palindrome.rb
+  order: 10
+  notes:
+two-sum-ii-input-array-is-sorted:
+  name: Two Sum II
+  topic: two_pointers
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+  alt_link:
+  file: two_pointers/medium/two_integer_sum.rb
+  order: 11
+  notes:
+3sum:
+  name: 3Sum
+  topic: two_pointers
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/3sum/
+  alt_link:
+  file: two_pointers/medium/three_sum.rb
+  order: 12
+  notes:
+container-with-most-water:
+  name: Container with Most Water
+  topic: two_pointers
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/container-with-most-water/
+  alt_link:
+  file: two_pointers/medium/container_with_most_water.rb
+  order: 13
+  notes:
+trapping-rain-water:
+  name: Trapping Rain Water
+  topic: two_pointers
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/trapping-rain-water/
+  alt_link:
+  file: two_pointers/hard/trapping_rain_water.rb
+  order: 14
+  notes:
+best-time-to-buy-and-sell-stock:
+  name: Best Time to Buy & Sell Stock
+  topic: sliding_window
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+  alt_link:
+  file: sliding_window/easy/buy_sell_stocks.rb
+  order: 15
+  notes:
+longest-substring-without-repeating-characters:
+  name: Longest Substring Without Repeating Characters
+  topic: sliding_window
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/longest-substring-without-repeating-characters/
+  alt_link:
+  file: sliding_window/medium/longest_substring_without_repeating_characters.rb
+  order: 16
+  notes:
+longest-repeating-character-replacement:
+  name: Longest Repeating Character Replacement
+  topic: sliding_window
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/longest-repeating-character-replacement/
+  alt_link:
+  file: sliding_window/medium/longest_repeating_character_replacement.rb
+  order: 17
+  notes:
+permutation-in-string:
+  name: Permutation in String
+  topic: sliding_window
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/permutation-in-string/
+  alt_link:
+  file: sliding_window/medium/string_permutations.rb
+  order: 18
+  notes:
+minimum-window-substring:
+  name: Minimum Window Substring
+  topic: sliding_window
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/minimum-window-substring/
+  alt_link:
+  file: sliding_window/hard/minimum_window_substring.rb
+  order: 19
+  notes:
+sliding-window-maximum:
+  name: Sliding Window Maximum
+  topic: sliding_window
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/sliding-window-maximum/
+  alt_link:
+  file: sliding_window/hard/sliding_window_maximum.rb
+  order: 20
+  notes:
+valid-parentheses:
+  name: Valid Parentheses
+  topic: stack
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/valid-parentheses/
+  alt_link:
+  file: stack/easy/valid_parentheses.rb
+  order: 21
+  notes: Use a stack to push open parentheses, if close parentheses is encountered then use a dictionary and check if it's a match, check edge cases, and empty queues, valid input and inputs where closing parentheses
+min-stack:
+  name: Min Stack
+  topic: stack
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/min-stack/
+  alt_link:
+  file: stack/medium/min_stack.rb
+  order: 22
+  notes:
+evaluate-reverse-polish-notation:
+  name: Evaluate Reverse Polish Notation
+  topic: stack
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/evaluate-reverse-polish-notation/
+  alt_link:
+  file: stack/medium/evaluate_reverse_polish_notation.rb
+  order: 23
+  notes:
+generate-parentheses:
+  name: Generate Parentheses
+  topic: stack
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/generate-parentheses/
+  alt_link:
+  file: stack/medium/generate_parentheses.rb
+  order: 24
+  notes:
+daily-temperatures:
+  name: Daily Temperatures
+  topic: stack
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/daily-temperatures/
+  alt_link:
+  file: stack/medium/daily_temperatures.rb
+  order: 25
+  notes:
+car-fleet:
+  name: Car Fleet
+  topic: stack
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/car-fleet/
+  alt_link:
+  file: stack/medium/car_fleet.rb
+  order: 26
+  notes:
+largest-rectangle-in-histogram:
+  name: Largest Rectangle in Histogram
+  topic: stack
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/largest-rectangle-in-histogram/
+  alt_link:
+  file: stack/hard/largest_rectangle_in_histogram.rb
+  order: 27
+  notes:
+binary-search:
+  name: Binary Search
+  topic: binary_search
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/binary-search/
+  alt_link:
+  file: binary_search/easy/binary_search.rb
+  order: 28
+  notes:
+search-a-2d-matrix:
+  name: Search a 2D Matrix
+  topic: binary_search
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/search-a-2d-matrix/
+  alt_link:
+  file: binary_search/medium/search_in_2d_matrix.rb
+  order: 29
+  notes:
+koko-eating-bananas:
+  name: Koko Eating Bananas
+  topic: binary_search
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/koko-eating-bananas/
+  alt_link:
+  file: binary_search/medium/koko_eating_bananas.rb
+  order: 30
+  notes:
+search-in-rotated-sorted-array:
+  name: Search Rotated Sorted Array
+  topic: binary_search
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/search-in-rotated-sorted-array/
+  alt_link:
+  file: binary_search/medium/search_in_rotated_array.rb
+  order: 31
+  notes:
+find-minimum-in-rotated-sorted-array:
+  name: Find Minimum in Rotated Sorted Array
+  topic: binary_search
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+  alt_link:
+  file: binary_search/medium/minimum_in_sorted_array.rb
+  order: 32
+  notes:
+time-based-key-value-store:
+  name: Time Based Key-Value Store
+  topic: binary_search
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/time-based-key-value-store/
+  alt_link:
+  file: binary_search/medium/time_based_key_value_store.rb
+  order: 33
+  notes:
+median-of-two-sorted-arrays:
+  name: Find Median of Two Sorted Arrays
+  topic: binary_search
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/median-of-two-sorted-arrays/
+  alt_link:
+  file: binary_search/hard/median_of_two_sorted_arrays.rb
+  order: 34
+  notes:
+reverse-linked-list:
+  name: Reverse Linked List
+  topic: linked_list
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/reverse-linked-list/
+  alt_link:
+  file: linked_list/easy/reveral_of_linked_list.rb
+  order: 35
+  notes:
+merge-two-sorted-lists:
+  name: Merge Two Linked Lists
+  topic: linked_list
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/merge-two-sorted-lists/
+  alt_link:
+  file: linked_list/easy/merge_two_lists.rb
+  order: 36
+  notes:
+reorder-list:
+  name: Reorder List
+  topic: linked_list
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/reorder-list/
+  alt_link:
+  file: linked_list/medium/reorder_list.rb
+  order: 37
+  notes:
+remove-nth-node-from-end-of-list:
+  name: Remove Nth Node from End of List
+  topic: linked_list
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+  alt_link:
+  file: linked_list/medium/remove_nth_from_end.rb
+  order: 38
+  notes:
+copy-list-with-random-pointer:
+  name: Copy List with Random Pointer
+  topic: linked_list
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/copy-list-with-random-pointer/
+  alt_link:
+  file: linked_list/medium/copy_list_with_random_pointer.rb
+  order: 39
+  notes:
+add-two-numbers:
+  name: Add Two Numbers
+  topic: linked_list
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/add-two-numbers/
+  alt_link:
+  file: linked_list/medium/add_two_numbers.rb
+  order: 40
+  notes:
+linked-list-cycle:
+  name: Linked List Cycle
+  topic: linked_list
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/linked-list-cycle/
+  alt_link:
+  file: linked_list/easy/linked_list_cycle.rb
+  order: 41
+  notes:
+find-the-duplicate-number:
+  name: Find the Duplicate Number
+  topic: linked_list
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/find-the-duplicate-number/
+  alt_link:
+  file: linked_list/medium/find_the_duplicate_number.rb
+  order: 42
+  notes:
+lru-cache:
+  name: LRU Cache
+  topic: linked_list
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/lru-cache/
+  alt_link:
+  file: linked_list/medium/lru_cache.rb
+  order: 43
+  notes:
+merge-k-sorted-lists:
+  name: Merge K Sorted Lists
+  topic: linked_list
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/merge-k-sorted-lists/
+  alt_link:
+  file: linked_list/hard/merge_k_sorted_lists.rb
+  order: 44
+  notes:
+reverse-nodes-in-k-group:
+  name: Reverse Nodes in K-Group
+  topic: linked_list
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/reverse-nodes-in-k-group/
+  alt_link:
+  file: linked_list/hard/reverse_nodes_in_k_group.rb
+  order: 45
+  notes:
+invert-binary-tree:
+  name: Invert Binary Tree
+  topic: trees
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/invert-binary-tree/
+  alt_link:
+  file: tree/easy/invert_binary_tree.rb
+  order: 46
+  notes:
+maximum-depth-of-binary-tree:
+  name: Maximum Depth of Binary Tree
+  topic: trees
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/maximum-depth-of-binary-tree/
+  alt_link:
+  file: tree/easy/maximum_depth_of_binary_tree.rb
+  order: 47
+  notes:
+diameter-of-binary-tree:
+  name: Diameter of a Binary Tree
+  topic: trees
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/diameter-of-binary-tree/
+  alt_link:
+  file: tree/easy/diameter_of_binary_tree.rb
+  order: 48
+  notes:
+balanced-binary-tree:
+  name: Balanced Binary Tree
+  topic: trees
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/balanced-binary-tree/
+  alt_link:
+  file: tree/easy/balanced_binary_tree.rb
+  order: 49
+  notes:
+same-tree:
+  name: Same Tree
+  topic: trees
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/same-tree/
+  alt_link:
+  file: tree/easy/same_tree.rb
+  order: 50
+  notes:
+subtree-of-another-tree:
+  name: Subtree of Another Tree
+  topic: trees
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/subtree-of-another-tree/
+  alt_link:
+  file: tree/easy/subtree_of_another_tree.rb
+  order: 51
+  notes:
+lowest-common-ancestor-of-a-binary-search-tree:
+  name: Lowest Common Ancestor of a BST
+  topic: trees
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+  alt_link:
+  file: tree/medium/lowest_common_ancestor.rb
+  order: 52
+  notes:
+binary-tree-level-order-traversal:
+  name: Binary Tree Level Order Traversal
+  topic: trees
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/binary-tree-level-order-traversal/
+  alt_link:
+  file: tree/medium/level_order_traversal.rb
+  order: 53
+  notes:
+binary-tree-right-side-view:
+  name: Binary Tree Right Side View
+  topic: trees
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/binary-tree-right-side-view/
+  alt_link:
+  file: tree/medium/binary_tree_right_side_view.rb
+  order: 54
+  notes:
+count-good-nodes-in-binary-tree:
+  name: Count Good Nodes in a Binary Tree
+  topic: trees
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/count-good-nodes-in-binary-tree/
+  alt_link:
+  file: tree/medium/count_good_nodes_in_binary_tree.rb
+  order: 55
+  notes:
+validate-binary-search-tree:
+  name: Validate Binary Search Tree
+  topic: trees
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/validate-binary-search-tree/
+  alt_link:
+  file: tree/medium/valid_bst.rb
+  order: 56
+  notes:
+kth-smallest-element-in-a-bst:
+  name: Kth Smallest Element in a BST
+  topic: trees
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+  alt_link:
+  file: tree/medium/kth_smallest_element_in_a_bst.rb
+  order: 57
+  notes:
+construct-binary-tree-from-preorder-and-inorder-traversal:
+  name: Construct Tree from Preorder and Inorder Traversal
+  topic: trees
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+  alt_link:
+  file: tree/medium/construct_binary_tree_from_preorder_and_inorder_traversal.rb
+  order: 58
+  notes:
+binary-tree-maximum-path-sum:
+  name: Binary Tree Max Path Sum
+  topic: trees
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/binary-tree-maximum-path-sum/
+  alt_link:
+  file: tree/hard/binary_tree_maximum_path_sum.rb
+  order: 59
+  notes:
+serialize-and-deserialize-binary-tree:
+  name: Serialize and Deserialize Binary Tree
+  topic: trees
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
+  alt_link:
+  file: tree/hard/serialize_and_deserialize_binary_tree.rb
+  order: 60
+  notes:
+implement-trie-prefix-tree:
+  name: Implement Trie
+  topic: tries
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/implement-trie-prefix-tree/
+  alt_link:
+  file: tries/medium/implement_trie_prefix_tree.rb
+  order: 61
+  notes:
+design-add-and-search-words-data-structure:
+  name: Design Add and Search Word Data Structure
+  topic: tries
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/design-add-and-search-words-data-structure/
+  alt_link:
+  file: tries/medium/design_add_and_search_words_data_structure.rb
+  order: 62
+  notes:
+word-search-ii:
+  name: Word Search II
+  topic: tries
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/word-search-ii/
+  alt_link:
+  file: tries/hard/word_search_ii.rb
+  order: 63
+  notes:
+kth-largest-element-in-a-stream:
+  name: Kth Largest Element in a Stream
+  topic: heap
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/kth-largest-element-in-a-stream/
+  alt_link:
+  file: heap/easy/kth_largest_element_in_a_stream.rb
+  order: 64
+  notes:
+last-stone-weight:
+  name: Last Stone Weight
+  topic: heap
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/last-stone-weight/
+  alt_link:
+  file: heap/easy/last_stone_weight.rb
+  order: 65
+  notes:
+k-closest-points-to-origin:
+  name: K Closest Points to Origin
+  topic: heap
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/k-closest-points-to-origin/
+  alt_link:
+  file: heap/medium/k_closest_points_to_origin.rb
+  order: 66
+  notes:
+kth-largest-element-in-an-array:
+  name: Kth Largest Element in an Array
+  topic: heap
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/kth-largest-element-in-an-array/
+  alt_link:
+  file: heap/medium/kth_largest_element_in_an_array.rb
+  order: 67
+  notes:
+task-scheduler:
+  name: Task Scheduler
+  topic: heap
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/task-scheduler/
+  alt_link:
+  file: heap/medium/task_scheduler.rb
+  order: 68
+  notes:
+design-twitter:
+  name: Design Twitter
+  topic: heap
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/design-twitter/
+  alt_link:
+  file: heap/medium/design_twitter.rb
+  order: 69
+  notes:
+find-median-from-data-stream:
+  name: Find Median from Data Stream
+  topic: heap
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/find-median-from-data-stream/
+  alt_link:
+  file: heap/hard/find_median_from_data_stream.rb
+  order: 70
+  notes:
+subsets:
+  name: Subsets
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/subsets/
+  alt_link:
+  file: backtracking/medium/subsets.rb
+  order: 71
+  notes:
+combination-sum:
+  name: Combination Sum
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/combination-sum/
+  alt_link:
+  file: backtracking/medium/combination_sum.rb
+  order: 72
+  notes:
+permutations:
+  name: Permutations
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/permutations/
+  alt_link:
+  file: backtracking/medium/permutations.rb
+  order: 73
+  notes:
+subsets-ii:
+  name: Subsets II
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/subsets-ii/
+  alt_link:
+  file: backtracking/medium/subsets_ii.rb
+  order: 74
+  notes:
+combination-sum-ii:
+  name: Combination Sum II
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/combination-sum-ii/
+  alt_link:
+  file: backtracking/medium/combination_sum_ii.rb
+  order: 75
+  notes:
+word-search:
+  name: Word Search
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/word-search/
+  alt_link:
+  file: backtracking/medium/word_search.rb
+  order: 76
+  notes:
+palindrome-partitioning:
+  name: Palindrome Partitioning
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/palindrome-partitioning/
+  alt_link:
+  file: backtracking/medium/palindrome_partitioning.rb
+  order: 77
+  notes:
+letter-combinations-of-a-phone-number:
+  name: Letter Combinations of a Phone Number
+  topic: backtracking
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+  alt_link:
+  file: backtracking/medium/letter_combinations_of_a_phone_number.rb
+  order: 78
+  notes:
+n-queens:
+  name: N-Queens
+  topic: backtracking
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/n-queens/
+  alt_link:
+  file: backtracking/hard/n_queens.rb
+  order: 79
+  notes:
+number-of-islands:
+  name: Number of Islands
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/number-of-islands/
+  alt_link:
+  file: graphs/medium/number_of_islands.rb
+  order: 80
+  notes:
+clone-graph:
+  name: Clone Graph
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/clone-graph/
+  alt_link:
+  file: graphs/medium/clone_graph.rb
+  order: 81
+  notes:
+max-area-of-island:
+  name: Max Area of Island
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/max-area-of-island/
+  alt_link:
+  file: graphs/medium/max_area_of_island.rb
+  order: 82
+  notes:
+pacific-atlantic-water-flow:
+  name: Pacific Atlantic Waterflow
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/pacific-atlantic-water-flow/
+  alt_link:
+  file: graphs/medium/pacific_atlantic_water_flow.rb
+  order: 83
+  notes:
+surrounded-regions:
+  name: Surrounded Regions
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/surrounded-regions/
+  alt_link:
+  file: graphs/medium/surrounded_regions.rb
+  order: 84
+  notes:
+rotting-oranges:
+  name: Rotting Oranges
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/rotting-oranges/
+  alt_link:
+  file: graphs/medium/rotting_oranges.rb
+  order: 85
+  notes:
+walls-and-gates:
+  name: Walls and Gates
+  topic: graphs
+  difficulty: Medium
+  paid_only: true
+  link: https://leetcode.com/problems/walls-and-gates/
+  alt_link: https://neetcode.io/problems/islands-and-treasure
+  file: graphs/medium/walls_and_gates.rb
+  order: 86
+  notes:
+course-schedule:
+  name: Course Schedule
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/course-schedule/
+  alt_link:
+  file: graphs/medium/course_schedule.rb
+  order: 87
+  notes:
+course-schedule-ii:
+  name: Course Schedule II
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/course-schedule-ii/
+  alt_link:
+  file: graphs/medium/course_schedule_ii.rb
+  order: 88
+  notes:
+redundant-connection:
+  name: Redundant Connection
+  topic: graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/redundant-connection/
+  alt_link:
+  file: graphs/medium/redundant_connection.rb
+  order: 89
+  notes:
+number-of-connected-components-in-an-undirected-graph:
+  name: Number of Connected Components in Graph
+  topic: graphs
+  difficulty: Medium
+  paid_only: true
+  link: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
+  alt_link: https://neetcode.io/problems/count-connected-components
+  file: graphs/medium/number_of_connected_components_in_an_undirected_graph.rb
+  order: 90
+  notes:
+graph-valid-tree:
+  name: Graph Valid Tree
+  topic: graphs
+  difficulty: Medium
+  paid_only: true
+  link: https://leetcode.com/problems/graph-valid-tree/
+  alt_link: https://neetcode.io/problems/valid-tree
+  file: graphs/medium/graph_valid_tree.rb
+  order: 91
+  notes:
+word-ladder:
+  name: Word Ladder
+  topic: graphs
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/word-ladder/
+  alt_link:
+  file: graphs/hard/word_ladder.rb
+  order: 92
+  notes:
+reconstruct-itinerary:
+  name: Reconstruct Itinerary
+  topic: advanced_graphs
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/reconstruct-itinerary/
+  alt_link:
+  file: advanced_graphs/hard/reconstruct_itinerary.rb
+  order: 93
+  notes:
+min-cost-to-connect-all-points:
+  name: Min Cost to Connect all Points
+  topic: advanced_graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/min-cost-to-connect-all-points/
+  alt_link:
+  file: advanced_graphs/medium/min_cost_to_connect_all_points.rb
+  order: 94
+  notes:
+network-delay-time:
+  name: Network Delay Time
+  topic: advanced_graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/network-delay-time/
+  alt_link:
+  file: advanced_graphs/medium/network_delay_time.rb
+  order: 95
+  notes:
+swim-in-rising-water:
+  name: Swim in Rising Water
+  topic: advanced_graphs
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/swim-in-rising-water/
+  alt_link:
+  file: advanced_graphs/hard/swim_in_rising_water.rb
+  order: 96
+  notes:
+alien-dictionary:
+  name: Alien Dictionary
+  topic: advanced_graphs
+  difficulty: Hard
+  paid_only: true
+  link: https://leetcode.com/problems/alien-dictionary/
+  alt_link: https://neetcode.io/problems/foreign-dictionary
+  file: advanced_graphs/hard/alien_dictionary.rb
+  order: 97
+  notes:
+cheapest-flights-within-k-stops:
+  name: Cheapest Flights with K Stops
+  topic: advanced_graphs
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/cheapest-flights-within-k-stops/
+  alt_link:
+  file: advanced_graphs/medium/cheapest_flights_within_k_stops.rb
+  order: 98
+  notes:
+climbing-stairs:
+  name: Climbing Stairs
+  topic: dp_1d
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/climbing-stairs/
+  alt_link:
+  file: dp_1d/easy/climbing_stairs.rb
+  order: 99
+  notes:
+min-cost-climbing-stairs:
+  name: Min Cost Climbing Stairs
+  topic: dp_1d
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/min-cost-climbing-stairs/
+  alt_link:
+  file: dp_1d/easy/min_cost_climbing_stairs.rb
+  order: 100
+  notes:
+house-robber:
+  name: House Robber
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/house-robber/
+  alt_link:
+  file: dp_1d/medium/house_robber.rb
+  order: 101
+  notes:
+house-robber-ii:
+  name: House Robber II
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/house-robber-ii/
+  alt_link:
+  file: dp_1d/medium/house_robber_ii.rb
+  order: 102
+  notes:
+longest-palindromic-substring:
+  name: Longest Palindroming Substring
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/longest-palindromic-substring/
+  alt_link:
+  file: dp_1d/medium/longest_palindromic_substring.rb
+  order: 103
+  notes:
+palindromic-substrings:
+  name: Palindrome Substrings
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/palindromic-substrings/
+  alt_link:
+  file: dp_1d/medium/palindromic_substrings.rb
+  order: 104
+  notes:
+decode-ways:
+  name: Decode Ways
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/decode-ways/
+  alt_link:
+  file: dp_1d/medium/decode_ways.rb
+  order: 105
+  notes:
+coin-change:
+  name: Coin Change
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/coin-change/
+  alt_link:
+  file: dp_1d/medium/coin_change.rb
+  order: 106
+  notes:
+maximum-product-subarray:
+  name: Maximum Product Subarray
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/maximum-product-subarray/
+  alt_link:
+  file: dp_1d/medium/maximum_product_subarray.rb
+  order: 107
+  notes:
+word-break:
+  name: Word Break
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/word-break/
+  alt_link:
+  file: dp_1d/medium/word_break.rb
+  order: 108
+  notes:
+longest-increasing-subsequence:
+  name: Longest Increasing Subsequence
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/longest-increasing-subsequence/
+  alt_link:
+  file: dp_1d/medium/longest_increasing_subsequence.rb
+  order: 109
+  notes:
+partition-equal-subset-sum:
+  name: Partition Equal Subset Sum
+  topic: dp_1d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/partition-equal-subset-sum/
+  alt_link:
+  file: dp_1d/medium/partition_equal_subset_sum.rb
+  order: 110
+  notes:
+unique-paths:
+  name: Unique Paths
+  topic: dp_2d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/unique-paths/
+  alt_link:
+  file: dp_2d/medium/unique_paths.rb
+  order: 111
+  notes:
+longest-common-subsequence:
+  name: Longest Common Subsequence
+  topic: dp_2d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/longest-common-subsequence/
+  alt_link:
+  file: dp_2d/medium/longest_common_subsequence.rb
+  order: 112
+  notes:
+best-time-to-buy-and-sell-stock-with-cooldown:
+  name: Best Time to Buy/Sell Stock With Cooldown
+  topic: dp_2d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+  alt_link:
+  file: dp_2d/medium/best_time_to_buy_and_sell_stock_with_cooldown.rb
+  order: 113
+  notes:
+coin-change-ii:
+  name: Coin Change II
+  topic: dp_2d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/coin-change-ii/
+  alt_link:
+  file: dp_2d/medium/coin_change_ii.rb
+  order: 114
+  notes:
+target-sum:
+  name: Target SUm
+  topic: dp_2d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/target-sum/
+  alt_link:
+  file: dp_2d/medium/target_sum.rb
+  order: 115
+  notes:
+interleaving-string:
+  name: Interleaving String
+  topic: dp_2d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/interleaving-string/
+  alt_link:
+  file: dp_2d/medium/interleaving_string.rb
+  order: 116
+  notes:
+longest-increasing-path-in-a-matrix:
+  name: Longest Increasing Path in a Matrix
+  topic: dp_2d
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+  alt_link:
+  file: dp_2d/hard/longest_increasing_path_in_a_matrix.rb
+  order: 117
+  notes:
+distinct-subsequences:
+  name: Distinct Subsequences
+  topic: dp_2d
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/distinct-subsequences/
+  alt_link:
+  file: dp_2d/hard/distinct_subsequences.rb
+  order: 118
+  notes:
+edit-distance:
+  name: Edit Distance
+  topic: dp_2d
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/edit-distance/
+  alt_link:
+  file: dp_2d/medium/edit_distance.rb
+  order: 119
+  notes:
+burst-balloons:
+  name: Burst Balloons
+  topic: dp_2d
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/burst-balloons/
+  alt_link:
+  file: dp_2d/hard/burst_balloons.rb
+  order: 120
+  notes:
+regular-expression-matching:
+  name: Regular Expression Matching
+  topic: dp_2d
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/regular-expression-matching/
+  alt_link:
+  file: dp_2d/hard/regular_expression_matching.rb
+  order: 121
+  notes:
+maximum-subarray:
+  name: Maximum Subarray
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/maximum-subarray/
+  alt_link:
+  file: greedy/medium/maximum_subarray.rb
+  order: 122
+  notes:
+jump-game:
+  name: Jump Game
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/jump-game/
+  alt_link:
+  file: greedy/medium/jump_game.rb
+  order: 123
+  notes:
+jump-game-ii:
+  name: Jump Game II
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/jump-game-ii/
+  alt_link:
+  file: greedy/medium/jump_game_ii.rb
+  order: 124
+  notes:
+gas-station:
+  name: Gas Station
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/gas-station/
+  alt_link:
+  file: greedy/medium/gas_station.rb
+  order: 125
+  notes:
+hand-of-straights:
+  name: Hand of Straights
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/hand-of-straights/
+  alt_link:
+  file: greedy/medium/hand_of_straights.rb
+  order: 126
+  notes:
+merge-triplets-to-form-target-triplet:
+  name: Merge Triplets to Form Target Triplet
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/merge-triplets-to-form-target-triplet/
+  alt_link:
+  file: greedy/medium/merge_triplets_to_form_target_triplet.rb
+  order: 127
+  notes:
+partition-labels:
+  name: Partition Labels
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/partition-labels/
+  alt_link:
+  file: greedy/medium/partition_labels.rb
+  order: 128
+  notes:
+valid-parenthesis-string:
+  name: Valid Parenthesis String
+  topic: greedy
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/valid-parenthesis-string/
+  alt_link:
+  file: greedy/medium/valid_parenthesis_string.rb
+  order: 129
+  notes:
+insert-interval:
+  name: Insert Interval
+  topic: intervals
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/insert-interval/
+  alt_link:
+  file: intervals/medium/insert_interval.rb
+  order: 130
+  notes:
+merge-intervals:
+  name: Merge Intervals
+  topic: arrays
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/merge-intervals/
+  alt_link:
+  file: arrays_and_hashing/medium/merge_intervals.rb
+  order: 131
+  notes:
+non-overlapping-intervals:
+  name: Non-Overlapping Intervals
+  topic: intervals
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/non-overlapping-intervals/
+  alt_link:
+  file: intervals/medium/non_overlapping_intervals.rb
+  order: 132
+  notes:
+meeting-rooms:
+  name: Meeting Rooms
+  topic: intervals
+  difficulty: Easy
+  paid_only: true
+  link: https://leetcode.com/problems/meeting-rooms/
+  alt_link: https://neetcode.io/problems/meeting-schedule
+  file: intervals/easy/meeting_rooms.rb
+  order: 133
+  notes:
+meeting-rooms-ii:
+  name: Meeting Rooms II
+  topic: intervals
+  difficulty: Medium
+  paid_only: true
+  link: https://leetcode.com/problems/meeting-rooms-ii/
+  alt_link: https://neetcode.io/problems/meeting-schedule-ii
+  file: intervals/medium/meeting_rooms_ii.rb
+  order: 134
+  notes:
+minimum-interval-to-include-each-query:
+  name: Minimum Interval to Include Each Query
+  topic: intervals
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/minimum-interval-to-include-each-query/
+  alt_link:
+  file: intervals/hard/minimum_interval_to_include_each_query.rb
+  order: 135
+  notes:
+rotate-image:
+  name: Rotate Image
+  topic: math_geometry
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/rotate-image/
+  alt_link:
+  file: math_geometry/medium/rotate_image.rb
+  order: 136
+  notes:
+spiral-matrix:
+  name: Spiral Matrix
+  topic: math_geometry
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/spiral-matrix/
+  alt_link:
+  file: math_geometry/medium/spiral_matrix.rb
+  order: 137
+  notes:
+set-matrix-zeroes:
+  name: Set Matrix Zeroes
+  topic: math_geometry
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/set-matrix-zeroes/
+  alt_link:
+  file: math_geometry/medium/set_matrix_zeroes.rb
+  order: 138
+  notes:
+happy-number:
+  name: Happy Number
+  topic: math_geometry
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/happy-number/
+  alt_link:
+  file: math_geometry/easy/happy_number.rb
+  order: 139
+  notes:
+plus-one:
+  name: Plus One
+  topic: math_geometry
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/plus-one/
+  alt_link:
+  file: math_geometry/easy/plus_one.rb
+  order: 140
+  notes:
+powx-n:
+  name: Pow(x, n)
+  topic: math_geometry
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/powx-n/
+  alt_link:
+  file: math_geometry/medium/powx_n.rb
+  order: 141
+  notes:
+multiply-strings:
+  name: Multiply Strings
+  topic: math_geometry
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/multiply-strings/
+  alt_link:
+  file: math_geometry/medium/multiply_strings.rb
+  order: 142
+  notes:
+detect-squares:
+  name: Detect Squares
+  topic: math_geometry
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/detect-squares/
+  alt_link:
+  file: math_geometry/medium/detect_squares.rb
+  order: 143
+  notes:
+single-number:
+  name: Single Number
+  topic: bit_manipulation
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/single-number/
+  alt_link:
+  file: bit_manipulation/easy/single_number.rb
+  order: 144
+  notes:
+number-of-1-bits:
+  name: Number of 1 Bits
+  topic: bit_manipulation
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/number-of-1-bits/
+  alt_link:
+  file: bit_manipulation/easy/number_of_1_bits.rb
+  order: 145
+  notes:
+counting-bits:
+  name: Counting Bits
+  topic: bit_manipulation
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/counting-bits/
+  alt_link:
+  file: bit_manipulation/easy/counting_bits.rb
+  order: 146
+  notes:
+reverse-bits:
+  name: Reverse Bits
+  topic: bit_manipulation
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/reverse-bits/
+  alt_link:
+  file: bit_manipulation/easy/reverse_bits.rb
+  order: 147
+  notes:
+missing-number:
+  name: Missing Number
+  topic: bit_manipulation
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/missing-number/
+  alt_link:
+  file: bit_manipulation/easy/missing_number.rb
+  order: 148
+  notes:
+sum-of-two-integers:
+  name: Sum of Two Integers
+  topic: bit_manipulation
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/sum-of-two-integers/
+  alt_link:
+  file: bit_manipulation/medium/sum_of_two_integers.rb
+  order: 149
+  notes:
+reverse-integer:
+  name: Reverse Integer
+  topic: bit_manipulation
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/reverse-integer/
+  alt_link:
+  file: bit_manipulation/medium/reverse_integer.rb
+  order: 150
+  notes:
