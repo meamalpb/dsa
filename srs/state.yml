@@ -23,23 +23,27 @@ problems:
     - date: 2026-09-24
       grade: easy
   two-sum:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-14
-    next_review: 2026-03-15
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-25
+    next_review: 2026-10-01
     history:
     - date: 2026-03-14
       grade: seed
+    - date: 2026-09-25
+      grade: easy
   group-anagrams:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-15
-    next_review: 2026-03-16
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-25
+    next_review: 2026-10-01
     history:
     - date: 2026-03-15
       grade: seed
+    - date: 2026-09-25
+      grade: easy
   top-k-frequent-elements:
     reps: 1
     ease: 2.5
@@ -68,14 +72,16 @@ problems:
     - date: 2026-03-18
       grade: seed
   valid-palindrome:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-16
-    next_review: 2026-03-17
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-25
+    next_review: 2026-10-01
     history:
     - date: 2026-03-16
       grade: seed
+    - date: 2026-09-25
+      grade: easy
   two-sum-ii-input-array-is-sorted:
     reps: 1
     ease: 2.5
@@ -313,21 +319,21 @@ problems:
 last_new_on: 2026-09-24
 next_forced_pool: easy
 session:
-  date: 2026-09-24
+  date: 2026-09-25
   bonus_unlocked: true
   slots:
-    B:
-      slug: valid-sudoku
-      kind: new
-      forced: true
-      grade: good
     A:
-      slug: contains-duplicate
+      slug: two-sum
+      kind: review
+      forced: false
+      grade: easy
+    B:
+      slug: group-anagrams
       kind: review
       forced: false
       grade: easy
     C:
-      slug: valid-anagram
+      slug: valid-palindrome
       kind: review
       forced: false
       grade: easy
