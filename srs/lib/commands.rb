@@ -104,7 +104,7 @@ module Srs
       entry
     end
 
-    # A graded new problem resets the 3-day clock; a forced one also hands the
+    # A graded new problem resets the 2-day clock; a forced one also hands the
     # next forced pick to the other pool.
     def record_new(slot, entry)
       @state['last_new_on'] = @today

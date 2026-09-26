@@ -229,7 +229,7 @@ Pools: **easy** = LeetCode Easy; **medium_hard** = Medium + Hard.
 
 Each slot is filled by the first rule that gives a problem:
 
-1. **Forced new** — if `today - last_new_on >= 3` and no new problem is in today's session yet:
+1. **Forced new** — if `today - last_new_on >= 2` and no new problem is in today's session yet:
    the slot whose pool is `next_forced_pool` takes the next eligible new problem (if that pool
    has none, the other slot tries). `next_forced_pool` flips when that new problem is graded.
    *Not for slot C.*

@@ -33,7 +33,7 @@ module Srs
     def detail(entry)
       card = @state['problems'][entry['slug']]
       return "next review #{card['next_review']}" if entry['grade']
-      return (entry['forced'] ? 'no new problem in 3 days, so this one is required' : nil) if entry['kind'] == 'new'
+      return (entry['forced'] ? 'no new problem in 2 days, so this one is required' : nil) if entry['kind'] == 'new'
 
       due = (card['next_review'] - @today).to_i
       timing = if due.negative? then "#{-due}d overdue"

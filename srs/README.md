@@ -61,7 +61,7 @@ ruby srs/test/run_all.rb                                     # tests
 - **Topics unlock** when every prerequisite topic has 80% of its Easy + Medium problems solved,
   or when you already have a solution in that topic. A topic's Hards wait until 80% of its
   Mediums are solved.
-- **A new problem at least every 3 days**, even if reviews are piling up.
+- **A new problem at least every 2 days**, even if reviews are piling up.
 - **Premium problems** link to NeetCode's free version.
 
 ## Adding things

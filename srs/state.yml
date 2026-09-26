@@ -337,3 +337,8 @@ session:
       kind: review
       forced: false
       grade: easy
+    D:
+      slug: maximum-depth-of-binary-tree
+      kind: new
+      forced: false
+      grade:

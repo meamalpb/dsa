@@ -5,7 +5,7 @@ module Srs
   class Scheduler
     POOLS = { 'easy' => %w[Easy], 'medium_hard' => %w[Medium Hard] }.freeze
     SLOT_POOLS = { 'A' => 'easy', 'B' => 'medium_hard', 'C' => 'easy' }.freeze
-    FORCE_NEW_AFTER = 3 # days
+    FORCE_NEW_AFTER = 2 # days
 
     def self.other_pool(pool)
       (POOLS.keys - [pool]).first

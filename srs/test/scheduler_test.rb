@@ -50,22 +50,22 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
     assert_equal %w[e1 new], picks['A']
   end
 
-  def test_forced_new_after_three_days_despite_due_reviews
+  def test_forced_new_after_two_days_despite_due_reviews
     add('m1', 'arrays', 'Medium')
     add('m2', 'arrays', 'Medium')
     add('e1', 'arrays', 'Easy')
     seen('m1', TODAY - 10)
     seen('e1', TODAY - 10)
-    @state['last_new_on'] = TODAY - 3
+    @state['last_new_on'] = TODAY - 2
     assert_equal({ 'A' => %w[e1 review], 'B' => %w[m2 new] }, picks)
     assert slots['B']['forced']
   end
 
-  def test_no_forced_new_after_two_days
+  def test_no_forced_new_after_one_day
     add('m1', 'arrays', 'Medium')
     add('m2', 'arrays', 'Medium')
     seen('m1', TODAY - 10)
-    @state['last_new_on'] = TODAY - 2
+    @state['last_new_on'] = TODAY - 1
     assert_equal %w[m1 review], picks['B']
   end
 
