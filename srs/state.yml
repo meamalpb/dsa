@@ -45,23 +45,27 @@ problems:
     - date: 2026-09-25
       grade: easy
   top-k-frequent-elements:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-15
-    next_review: 2026-03-16
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-27
+    next_review: 2026-10-03
     history:
     - date: 2026-03-15
       grade: seed
+    - date: 2026-09-27
+      grade: easy
   product-of-array-except-self:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-16
-    next_review: 2026-03-17
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-28
+    next_review: 2026-10-04
     history:
     - date: 2026-03-16
       grade: seed
+    - date: 2026-09-28
+      grade: easy
   longest-consecutive-sequence:
     reps: 1
     ease: 2.5
@@ -110,14 +114,16 @@ problems:
     - date: 2026-03-22
       grade: seed
   best-time-to-buy-and-sell-stock:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-25
-    next_review: 2026-03-26
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-28
+    next_review: 2026-10-04
     history:
     - date: 2026-03-25
       grade: seed
+    - date: 2026-09-28
+      grade: easy
   longest-substring-without-repeating-characters:
     reps: 1
     ease: 2.5
@@ -155,14 +161,16 @@ problems:
     - date: 2026-07-19
       grade: seed
   valid-parentheses:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-21
-    next_review: 2026-03-22
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-27
+    next_review: 2026-10-03
     history:
     - date: 2026-03-21
       grade: seed
+    - date: 2026-09-27
+      grade: easy
   min-stack:
     reps: 1
     ease: 2.5
@@ -182,14 +190,16 @@ problems:
     - date: 2026-07-20
       grade: seed
   binary-search:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-04-07
-    next_review: 2026-04-08
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-28
+    next_review: 2026-10-04
     history:
     - date: 2026-04-07
       grade: seed
+    - date: 2026-09-28
+      grade: easy
   search-a-2d-matrix:
     reps: 1
     ease: 2.5
@@ -316,29 +326,33 @@ problems:
       grade: good
     last_reviewed: 2026-09-24
     next_review: 2026-09-25
-last_new_on: 2026-09-24
-next_forced_pool: easy
+  maximum-depth-of-binary-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-09-27
+      grade: good
+    last_reviewed: 2026-09-27
+    next_review: 2026-09-28
+last_new_on: 2026-09-27
+next_forced_pool: medium_hard
 session:
-  date: 2026-09-25
+  date: 2026-09-28
   bonus_unlocked: true
   slots:
     A:
-      slug: two-sum
+      slug: best-time-to-buy-and-sell-stock
       kind: review
       forced: false
       grade: easy
     B:
-      slug: group-anagrams
+      slug: product-of-array-except-self
       kind: review
       forced: false
       grade: easy
     C:
-      slug: valid-palindrome
+      slug: binary-search
       kind: review
       forced: false
       grade: easy
-    D:
-      slug: maximum-depth-of-binary-tree
-      kind: new
-      forced: false
-      grade:
