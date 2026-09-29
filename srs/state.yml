@@ -357,6 +357,15 @@ problems:
       grade: good
     last_reviewed: 2026-09-29
     next_review: 2026-09-30
+  trapping-rain-water:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-09-29
+      grade: good
+    last_reviewed: 2026-09-29
+    next_review: 2026-09-30
 last_new_on: 2026-09-29
 next_forced_pool: easy
 session:
@@ -380,6 +389,11 @@ session:
       grade: easy
     D:
       slug: diameter-of-binary-tree
+      kind: new
+      forced: false
+      grade: good
+    E:
+      slug: trapping-rain-water
       kind: new
       forced: false
       grade: good
