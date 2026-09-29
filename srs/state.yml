@@ -239,14 +239,16 @@ problems:
     - date: 2026-09-29
       grade: easy
   merge-two-sorted-lists:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-05-08
-    next_review: 2026-05-09
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-29
+    next_review: 2026-10-05
     history:
     - date: 2026-05-08
       grade: seed
+    - date: 2026-09-29
+      grade: easy
   reorder-list:
     reps: 1
     ease: 2.5
@@ -346,6 +348,15 @@ problems:
       grade: easy
     last_reviewed: 2026-09-29
     next_review: 2026-09-30
+  diameter-of-binary-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-09-29
+      grade: good
+    last_reviewed: 2026-09-29
+    next_review: 2026-09-30
 last_new_on: 2026-09-29
 next_forced_pool: easy
 session:
@@ -366,4 +377,9 @@ session:
       slug: merge-two-sorted-lists
       kind: review
       forced: false
-      grade:
+      grade: easy
+    D:
+      slug: diameter-of-binary-tree
+      kind: new
+      forced: false
+      grade: good
