@@ -228,14 +228,16 @@ problems:
     - date: 2026-04-07
       grade: seed
   reverse-linked-list:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-04-08
-    next_review: 2026-04-09
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-29
+    next_review: 2026-10-05
     history:
     - date: 2026-04-08
       grade: seed
+    - date: 2026-09-29
+      grade: easy
   merge-two-sorted-lists:
     reps: 1
     ease: 2.5
@@ -335,24 +337,33 @@ problems:
       grade: good
     last_reviewed: 2026-09-27
     next_review: 2026-09-28
-last_new_on: 2026-09-27
-next_forced_pool: medium_hard
+  encode-and-decode-strings:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-09-29
+      grade: easy
+    last_reviewed: 2026-09-29
+    next_review: 2026-09-30
+last_new_on: 2026-09-29
+next_forced_pool: easy
 session:
-  date: 2026-09-28
+  date: 2026-09-29
   bonus_unlocked: true
   slots:
-    A:
-      slug: best-time-to-buy-and-sell-stock
-      kind: review
-      forced: false
-      grade: easy
     B:
-      slug: product-of-array-except-self
+      slug: encode-and-decode-strings
+      kind: new
+      forced: true
+      grade: easy
+    A:
+      slug: reverse-linked-list
       kind: review
       forced: false
       grade: easy
     C:
-      slug: binary-search
+      slug: merge-two-sorted-lists
       kind: review
       forced: false
-      grade: easy
+      grade:
