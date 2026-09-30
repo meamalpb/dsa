@@ -161,4 +161,20 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
     refute sched.all_graded?
     assert_nil sched.add_extra_new
   end
+
+  def test_extra_review_takes_most_overdue_from_either_pool
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    add('e2', 'arrays', 'Easy')
+    add('m2', 'arrays', 'Medium')
+    seen('e1', TODAY - 1)
+    seen('m1', TODAY - 1)
+    seen('e2', TODAY - 3)
+    seen('m2', TODAY - 9)
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    assert_equal %w[e2 m2], sched.session['slots'].values_at('A', 'B').map { |e| e['slug'] }
+    assert_equal ['D', 'e1', 'review'], sched.add_extra_review.then { |s, e| [s, e['slug'], e['kind']] }
+    assert_equal 'm1', sched.add_extra_review[1]['slug']
+    assert_nil sched.add_extra_review
+  end
 end

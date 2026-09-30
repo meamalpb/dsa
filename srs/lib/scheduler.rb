@@ -34,16 +34,21 @@ module Srs
       slots['C'] ||= pick('C')
     end
 
-    # Extra new problem (slots D, E, …) once everything else is done. Alternates
+    # Extra new problem (`more` / `more new`, slots D, E, …) once everything else is done. Alternates
     # between the pools, falling back to the other one. Returns [slot, entry] or nil.
     def add_extra_new
       first = POOLS.keys[extra_count.even? ? 0 : 1]
       slug = next_new(first) || next_new(self.class.other_pool(first))
       return unless slug
 
-      slot = [slots.keys.max, 'C'].max.succ
-      slots[slot] = entry(slug, 'new')
-      [slot, slots[slot]]
+      add_extra(entry(slug, 'new'))
+    end
+
+    # Extra review (`more old`): the most overdue due review from either pool.
+    # Returns [slot, entry] or nil when nothing is due.
+    def add_extra_review
+      slug = earliest(POOLS.keys.map { |pool| reviews(pool) }.reduce(:merge).select { |_, c| c['next_review'] <= @today })
+      add_extra(entry(slug, 'review')) if slug
     end
 
     def all_graded?
@@ -61,8 +66,14 @@ module Srs
       @state['session']['slots']
     end
 
+    def add_extra(extra)
+      slot = [slots.keys.max, 'C'].max.succ
+      slots[slot] = extra
+      [slot, extra]
+    end
+
     def extra_count
-      slots.keys.count { |k| k > 'C' }
+      slots.count { |k, e| k > 'C' && e['kind'] == 'new' }
     end
 
     # Rule 1: put a new problem in next_forced_pool's slot, or the other one if

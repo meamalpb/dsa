@@ -20,17 +20,18 @@ module Srs
       @out.puts "#{@today} — #{session['slots'].size} problems"
       session['slots'].sort.each { |slot, entry| show(slot, entry) }
       @out.puts "\nGrade any of these `easy` to unlock a 3rd problem (slot C)." unless session['bonus_unlocked']
-      @out.puts "\nDone with all of them? `bin/srs more` gives you a new problem." if @scheduler.all_graded?
+      @out.puts "\nDone with all of them? `bin/srs more` gives you a new problem, `bin/srs more old` a due review." if @scheduler.all_graded?
     end
 
-    # Add another new problem to today's session (only once everything is graded).
-    def more
+    # Add another problem to today's session (only once everything is graded):
+    # kind 'new' = next new problem, 'old' = most overdue review.
+    def more(kind = 'new')
       @scheduler.session
       raise Error, 'Finish and grade today\'s problems first.' unless @scheduler.all_graded?
 
-      added = @scheduler.add_extra_new
+      added = kind == 'old' ? @scheduler.add_extra_review : @scheduler.add_extra_new
       save
-      return @out.puts('No new problem is eligible right now.') unless added
+      return @out.puts(kind == 'old' ? 'Nothing is due for review.' : 'No new problem is eligible right now.') unless added
 
       @out.puts 'Extra problem:'
       show(*added)

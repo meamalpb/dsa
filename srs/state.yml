@@ -67,14 +67,16 @@ problems:
     - date: 2026-09-28
       grade: easy
   longest-consecutive-sequence:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-18
-    next_review: 2026-03-19
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-30
+    next_review: 2026-10-06
     history:
     - date: 2026-03-18
       grade: seed
+    - date: 2026-09-30
+      grade: easy
   valid-palindrome:
     reps: 2
     ease: 2.6
@@ -268,23 +270,27 @@ problems:
     - date: 2026-07-20
       grade: seed
   linked-list-cycle:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-05-08
-    next_review: 2026-05-09
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-30
+    next_review: 2026-10-06
     history:
     - date: 2026-05-08
       grade: seed
+    - date: 2026-09-30
+      grade: easy
   invert-binary-tree:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-21
-    next_review: 2026-07-22
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-09-30
+    next_review: 2026-10-06
     history:
     - date: 2026-07-21
       grade: seed
+    - date: 2026-09-30
+      grade: easy
   lowest-common-ancestor-of-a-binary-search-tree:
     reps: 1
     ease: 2.5
@@ -342,12 +348,12 @@ problems:
   encode-and-decode-strings:
     reps: 1
     ease: 2.6
-    interval: 1
+    interval: 4
     history:
     - date: 2026-09-29
       grade: easy
     last_reviewed: 2026-09-29
-    next_review: 2026-09-30
+    next_review: 2026-10-03
   diameter-of-binary-tree:
     reps: 1
     ease: 2.5
@@ -369,31 +375,26 @@ problems:
 last_new_on: 2026-09-29
 next_forced_pool: easy
 session:
-  date: 2026-09-29
+  date: 2026-09-30
   bonus_unlocked: true
   slots:
-    B:
-      slug: encode-and-decode-strings
-      kind: new
-      forced: true
-      grade: easy
     A:
-      slug: reverse-linked-list
+      slug: linked-list-cycle
+      kind: review
+      forced: false
+      grade: easy
+    B:
+      slug: longest-consecutive-sequence
       kind: review
       forced: false
       grade: easy
     C:
-      slug: merge-two-sorted-lists
+      slug: invert-binary-tree
       kind: review
       forced: false
       grade: easy
     D:
-      slug: diameter-of-binary-tree
+      slug: balanced-binary-tree
       kind: new
       forced: false
-      grade: good
-    E:
-      slug: trapping-rain-water
-      kind: new
-      forced: false
-      grade: good
+      grade:

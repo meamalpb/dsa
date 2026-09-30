@@ -239,6 +239,10 @@ Each slot is filled by the first rule that gives a problem:
 4. **Early review** — the problem in this pool with the nearest `next_review`.
 5. Otherwise the slot is empty.
 
+Once every slot is graded, `bin/srs more` adds extra slots D, E, …: `more` / `more new` takes the
+next eligible new problem (alternating pools), `more old` takes the most overdue due review from
+either pool — a way to clear a review backlog without giving up the daily new problem.
+
 The session is saved in state.yml, so running `today` again the same day shows the same picks.
 When the date changes, a fresh session is built; ungraded slots from yesterday simply drop
 (a due review is still due tomorrow; an unseen problem is still unseen).
