@@ -372,7 +372,16 @@ problems:
       grade: good
     last_reviewed: 2026-09-29
     next_review: 2026-09-30
-last_new_on: 2026-09-29
+  balanced-binary-tree:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-09-30
+      grade: easy
+    last_reviewed: 2026-09-30
+    next_review: 2026-10-01
+last_new_on: 2026-09-30
 next_forced_pool: easy
 session:
   date: 2026-09-30
@@ -397,4 +406,4 @@ session:
       slug: balanced-binary-tree
       kind: new
       forced: false
-      grade:
+      grade: easy
