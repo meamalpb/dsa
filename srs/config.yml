@@ -1,0 +1,58 @@
+# srs settings. Every value here is the built-in default; change what you like.
+# Delete a line (or this whole file) to go back to the default. Typos are refused
+# with an error, so a misspelled setting can't be silently ignored.
+# Check a change safely:  SRS_STATE=/tmp/try.yml SRS_TODAY=2026-10-05 bin/srs today
+# Details and reasoning: DESIGN.md §12.
+
+session:
+  # Daily slots: letter → pool (see `pools` below). Each slot picks, in order:
+  # a due review, a new problem, an early review. Listing slots replaces the whole set.
+  slots:
+    A: easy
+    B: medium_hard
+
+  # Bonus slots come right after the daily ones (C, D, …). Each grade listed in
+  # unlock_on opens the next one, up to `max` per day. max: 0 turns bonuses off.
+  bonus:
+    pool: easy
+    unlock_on: [easy]
+    max: 1
+
+  # A new problem is forced into a slot when you haven't done one for this many days.
+  # The forced one takes turns between the daily slots' pools.
+  new_every_days: 2
+
+  # Which due review a slot (and `more old`) takes first:
+  #   most_overdue   — the one waiting longest
+  #   learning_first — problems you last did within learning_days go first, so a new
+  #                    problem's 1-day and 6-day reviews don't wait behind an old backlog
+  review_order: most_overdue
+  learning_days: 14
+
+# Pools group LeetCode difficulty labels (Easy / Medium / Hard — the problem's label,
+# not your grade). Slots draw from a pool. Listing pools replaces the whole set.
+pools:
+  easy: [Easy]
+  medium_hard: [Medium, Hard]
+
+unlock:
+  # A topic opens when every prerequisite topic has this share of its problems seen…
+  topic_ratio: 0.8
+  # …counting only these difficulties.
+  topic_counts: [Easy, Medium]
+  # A topic's Hards open when this share of its Mediums is seen.
+  hard_ratio: 0.8
+
+sm2:
+  # Days until the 1st and 2nd review after learning a problem (also where `again` restarts).
+  # After that, each gap is the previous gap × ease.
+  first_intervals: [1, 6]
+  # Ease a new problem starts at. Grading moves it: easy +0.1, good 0, hard −0.14, again −0.54.
+  start_ease: 2.5
+  # Ease never drops below this, so a problem you keep failing still spaces out a little.
+  min_ease: 1.3
+  # Longest gap between reviews, in days. Empty = no limit (easy grades can reach 450+ days).
+  max_interval:
+
+display:
+  heatmap_weeks: 26

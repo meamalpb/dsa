@@ -19,7 +19,9 @@ module Srs
       save
       @out.puts "#{@today} — #{session['slots'].size} problems"
       session['slots'].sort.each { |slot, entry| show(slot, entry) }
-      @out.puts "\nGrade any of these `easy` to unlock a 3rd problem (slot C)." unless session['bonus_unlocked']
+      if @scheduler.bonus_left?
+        @out.puts "\nGrade any of these #{bonus_grades} to unlock another problem (slot #{@scheduler.next_bonus_slot})."
+      end
       @out.puts "\nDone with all of them? `bin/srs more` gives you a new problem, `bin/srs more old` a due review." if @scheduler.all_graded?
     end
 
@@ -64,10 +66,10 @@ module Srs
       card = Sm2.review(@state['problems'][slug] || Sm2.new_card, grade, @today)
       @state['problems'][slug] = card
       entry['grade'] = grade
-      record_new(slot, entry) if entry['kind'] == 'new'
+      @scheduler.record_new(slot, entry) if entry['kind'] == 'new'
       @out.puts "#{@problems[slug]['name']}: #{grade} — next review #{card['next_review']} " \
                 "(in #{card['interval']}d, ease #{card['ease']})"
-      unlock_bonus if grade == 'easy'
+      unlock_bonus if @scheduler.unlocks_bonus?(grade)
       save
       offer_attempt_cleanup(@problems[slug]['file']) unless entry['kind'] == 'new'
       offer_more
@@ -82,7 +84,7 @@ module Srs
       @out.puts "\nSeen #{cards.size}/#{@problems.size} · due now #{due} · due in the next 7 days #{week}"
       @out.puts "Last new problem: #{last ? "#{last} (#{(@today - last).to_i}d ago)" : 'none yet'}"
       days = Charts.activity(@state['problems'].values)
-      @out.puts "\nActivity, last #{Charts::WEEKS} weeks"
+      @out.puts "\nActivity, last #{Srs.config.dig('display', 'heatmap_weeks')} weeks"
       @out.puts Charts.heatmap(days, @today)
       @out.puts Charts.summary(days, @today)
     end
@@ -96,7 +98,9 @@ module Srs
     def slot_entry(slot)
       entry = @scheduler.session['slots'][slot]
       if entry.nil?
-        raise Error, 'No slot C today — grade a problem `easy` to unlock it.' if slot == 'C'
+        if @scheduler.bonus_slots.include?(slot)
+          raise Error, "No slot #{slot} today — grade a problem #{bonus_grades} to unlock it."
+        end
 
         raise Error, "No slot #{slot} today."
       end
@@ -105,19 +109,16 @@ module Srs
       entry
     end
 
-    # A graded new problem resets the 2-day clock; a forced one also hands the
-    # next forced pick to the other pool.
-    def record_new(slot, entry)
-      @state['last_new_on'] = @today
-      @state['next_forced_pool'] = Scheduler.other_pool(Scheduler::SLOT_POOLS[slot]) if entry['forced']
+    def unlock_bonus
+      unlocked = @scheduler.unlock_bonus
+      return unless unlocked
+
+      @out.puts "\nBonus unlocked:"
+      show(*unlocked)
     end
 
-    def unlock_bonus
-      return if @state['session']['bonus_unlocked']
-
-      @scheduler.unlock_bonus
-      @out.puts "\nBonus unlocked:"
-      show('C', @state['session']['slots']['C'])
+    def bonus_grades
+      Array(Srs.config.dig('session', 'bonus', 'unlock_on')).map { |g| "`#{g}`" }.join(' or ')
     end
 
     def offer_more

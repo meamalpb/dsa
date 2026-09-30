@@ -6,7 +6,6 @@ module Srs
     module_function
 
     BAR_WIDTH = 10
-    WEEKS = 26
     GLYPHS = %w[· ░ ▒ █].freeze
 
     # ratio is 0.0..1.0
@@ -31,7 +30,7 @@ module Srs
       end
     end
 
-    def heatmap(days, today, weeks: WEEKS)
+    def heatmap(days, today, weeks: Srs.config.dig('display', 'heatmap_weeks'))
       first = today - ((today.cwday - 1) + (7 * (weeks - 1))) # Monday of the first column
       columns = (0...weeks).map { |w| first + (7 * w) }
       lines = [month_header(columns)]

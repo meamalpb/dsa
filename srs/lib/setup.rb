@@ -99,9 +99,11 @@ module Srs
         next unless File.read(File.join(ROOT, path)).match?(/^(def|class|module) /)
 
         date = first_commit_date(path)
+        sm2 = Srs.config['sm2']
+        first = sm2['first_intervals'][0]
         state['problems'][slug] = {
-          'reps' => 1, 'ease' => 2.5, 'interval' => 1,
-          'last_reviewed' => date, 'next_review' => date + 1,
+          'reps' => 1, 'ease' => sm2['start_ease'], 'interval' => first,
+          'last_reviewed' => date, 'next_review' => date + first,
           'history' => [{ 'date' => date, 'grade' => 'seed' }]
         }
         slug

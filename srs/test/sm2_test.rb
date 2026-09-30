@@ -3,6 +3,8 @@
 require 'minitest/autorun'
 require_relative '../lib/srs'
 
+Srs.config = Srs::Config.build({}) # defaults, whatever srs/config.yml says
+
 class Sm2Test < Minitest::Test
   DAY0 = Date.new(2026, 1, 1)
 
@@ -31,8 +33,29 @@ class Sm2Test < Minitest::Test
   def test_ease_never_below_minimum
     card = { 'reps' => 5, 'ease' => 1.4, 'interval' => 30 }
     card = Srs::Sm2.review(card, 'again', DAY0)
-    assert_equal Srs::Sm2::MIN_EASE, card['ease']
+    assert_equal 1.3, card['ease']
     assert_equal 1, card['interval']
+  end
+
+  def test_first_intervals_are_configurable
+    sm2 = Srs::Config.build('sm2' => { 'first_intervals' => [2, 4] })['sm2']
+    card = Srs::Sm2.review(Srs::Sm2.new_card(sm2), 'good', DAY0, sm2)
+    assert_equal 2, card['interval']
+    card = Srs::Sm2.review(card, 'good', DAY0 + 2, sm2)
+    assert_equal 4, card['interval']
+    assert_equal 2, Srs::Sm2.review(card, 'again', DAY0 + 6, sm2)['interval']
+  end
+
+  def test_max_interval_caps_growth
+    sm2 = Srs::Config.build('sm2' => { 'max_interval' => 30 })['sm2']
+    card = { 'reps' => 4, 'ease' => 2.5, 'interval' => 38 }
+    assert_equal 30, Srs::Sm2.review(card, 'easy', DAY0, sm2)['interval']
+    assert_equal DAY0 + 30, Srs::Sm2.review(card, 'easy', DAY0, sm2)['next_review']
+  end
+
+  def test_start_ease_is_configurable
+    sm2 = Srs::Config.build('sm2' => { 'start_ease' => 2.0 })['sm2']
+    assert_equal 2.0, Srs::Sm2.new_card(sm2)['ease']
   end
 
   def test_does_not_modify_input

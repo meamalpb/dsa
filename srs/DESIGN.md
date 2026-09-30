@@ -22,6 +22,7 @@ bin/srs status           # coverage per topic, open/locked topics, due counts
 ```
 bin/srs                  # entry point
 srs/DESIGN.md            # this file
+srs/config.yml           # tunable rules (§12) — optional, defaults built in
 srs/problems.yml         # facts about each problem — generated, rebuildable
 srs/state.yml            # your review history — precious, never regenerated
 srs/lib/*.rb             # setup, sm2, scheduler, scaffold, commands, cli, …
@@ -157,6 +158,9 @@ e.g. `graphs/medium/number_of_islands.rb`.
 
 ## 5. Scheduling: SM-2
 
+Numbers below are the defaults; `first_intervals`, `start_ease`, `min_ease` and `max_interval`
+are set in config.yml (§12).
+
 Grades map to SM-2 quality `q`: `again`=1, `hard`=3, `good`=4, `easy`=5.
 
 On each grade:
@@ -184,6 +188,9 @@ Example:
 | 21 | again | 1.82 | 1 (reps reset) |
 
 ## 6. Progression: which new problems are eligible
+
+The 80% thresholds and "Easy + Medium" are the defaults for `unlock.*` in config.yml (§12).
+The roadmap itself stays in `topics.rb`.
 
 **Roadmap** (NeetCode's), topic → topics it unlocks:
 
@@ -218,6 +225,9 @@ Linked List and Trees. The easy pool has nothing unseen before Trees, so slot A'
 problems will be Trees easies.
 
 ## 7. Daily slots (`bin/srs today`)
+
+The slots, pools, bonus rule, the 2-day forced-new rule and the review order below are the
+defaults from config.yml (§12).
 
 Pools: **easy** = LeetCode Easy; **medium_hard** = Medium + Hard.
 
@@ -344,3 +354,36 @@ days since last new problem.
 2. SM-2 + slot picking, with minitest covering the formula, the forced-new rule, the unlock
    rule and Hard gating.
 3. `today`, `start`, `grade`, `status`, and the `.gitignore` line.
+
+## 12. Configuration (`srs/config.yml`)
+
+The rules above that are a matter of taste live in `srs/config.yml`. The file is optional: a
+missing file or a missing setting means the default, and the committed file lists every default
+with a comment. Unknown settings and bad values stop the command with a message naming each one,
+so a typo can't be silently ignored. `SRS_CONFIG=path` points at another file for trying things.
+
+| Setting | Default | Meaning |
+|---|---|---|
+| `session.slots` | `{A: easy, B: medium_hard}` | daily slots, letter → pool. Replaced whole, not merged. |
+| `session.bonus.pool` | `easy` | pool the bonus slots draw from |
+| `session.bonus.unlock_on` | `[easy]` | grades that open the next bonus slot |
+| `session.bonus.max` | `1` | bonus slots per day; they take the letters after the daily slots (C, D, …), extras from `more` come after those |
+| `session.new_every_days` | `2` | force a new problem after this many days without one; the forced pick rotates through the daily slots' pools |
+| `session.review_order` | `most_overdue` | or `learning_first`: due problems last done within `learning_days` go before older ones (also for `more old`) |
+| `session.learning_days` | `14` | window for `learning_first` |
+| `pools` | `{easy: [Easy], medium_hard: [Medium, Hard]}` | pool → LeetCode difficulty labels. Replaced whole. |
+| `unlock.topic_ratio` | `0.8` | share of each prerequisite topic that must be seen |
+| `unlock.topic_counts` | `[Easy, Medium]` | difficulties counted for `topic_ratio` |
+| `unlock.hard_ratio` | `0.8` | share of a topic's Mediums seen before its Hards open |
+| `sm2.first_intervals` | `[1, 6]` | days to the 1st and 2nd review; `again` restarts at the first. Grade-independent (an `easy`→4-day first step was tried and dropped). |
+| `sm2.start_ease` | `2.5` | ease of a new or seeded problem |
+| `sm2.min_ease` | `1.3` | ease floor |
+| `sm2.max_interval` | none | cap on any interval, in days |
+| `display.heatmap_weeks` | `26` | weeks shown by `status` |
+
+Changing a setting affects only future picks and grades; intervals already in state.yml stay as
+they were until that problem is next graded. The session already built for today is kept, so
+slot changes show up tomorrow.
+
+Not configurable: the grade → quality mapping (§5), the roadmap (`topics.rb`), and the
+setup-time sheet and LeetCode settings.

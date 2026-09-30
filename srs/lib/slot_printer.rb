@@ -33,7 +33,7 @@ module Srs
     def detail(entry)
       card = @state['problems'][entry['slug']]
       return "next review #{card['next_review']}" if entry['grade']
-      return (entry['forced'] ? 'no new problem in 2 days, so this one is required' : nil) if entry['kind'] == 'new'
+      return (entry['forced'] ? forced_note : nil) if entry['kind'] == 'new'
 
       due = (card['next_review'] - @today).to_i
       timing = if due.negative? then "#{-due}d overdue"
@@ -41,6 +41,10 @@ module Srs
                else "due in #{due}d — nothing due in this pool, so reviewing early"
                end
       "last done #{(@today - card['last_reviewed']).to_i}d ago, #{timing}"
+    end
+
+    def forced_note
+      "no new problem in #{Srs.config.dig('session', 'new_every_days')} days, so this one is required"
     end
 
     def file_line(slot, entry, file)

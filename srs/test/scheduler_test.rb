@@ -7,6 +7,7 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
   TODAY = Date.new(2026, 9, 23)
 
   def setup
+    Srs.config = Srs::Config.build({}) # defaults, whatever srs/config.yml says
     @problems = {}
     @state = Srs::Store.default_state
     @state['last_new_on'] = TODAY - 1 # no forced new unless a test says so
@@ -19,6 +20,10 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
   def seen(slug, next_review)
     @state['problems'][slug] = { 'reps' => 1, 'ease' => 2.5, 'interval' => 1,
                                  'last_reviewed' => next_review - 1, 'next_review' => next_review }
+  end
+
+  def configure(overrides)
+    Srs.config = Srs::Config.build(overrides)
   end
 
   def slots(today = TODAY)
@@ -176,5 +181,102 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
     assert_equal ['D', 'e1', 'review'], sched.add_extra_review.then { |s, e| [s, e['slug'], e['kind']] }
     assert_equal 'm1', sched.add_extra_review[1]['slug']
     assert_nil sched.add_extra_review
+  end
+
+  def test_learning_first_puts_recent_problems_before_old_backlog
+    configure('session' => { 'review_order' => 'learning_first' })
+    add('m1', 'arrays', 'Medium')
+    add('m2', 'arrays', 'Medium')
+    seen('m1', TODAY - 190) # old seed, far more overdue
+    seen('m2', TODAY - 2)   # learned 3 days ago, missed its day-1 review
+    assert_equal %w[m2 review], picks['B']
+  end
+
+  def test_learning_first_falls_back_to_most_overdue
+    configure('session' => { 'review_order' => 'learning_first', 'learning_days' => 7 })
+    add('m1', 'arrays', 'Medium')
+    add('m2', 'arrays', 'Medium')
+    seen('m1', TODAY - 30)
+    seen('m2', TODAY - 90)
+    assert_equal %w[m2 review], picks['B']
+  end
+
+  def test_more_old_follows_review_order
+    configure('session' => { 'review_order' => 'learning_first' })
+    %w[e1 e2 m1 m2 m3].each { |s| add(s, 'arrays', s.start_with?('e') ? 'Easy' : 'Medium') }
+    seen('m1', TODAY - 100)
+    seen('m2', TODAY - 150)
+    seen('m3', TODAY - 1)
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    assert_equal 'm3', sched.session['slots']['B']['slug']
+    assert_equal 'm2', sched.add_extra_review[1]['slug']
+  end
+
+  def test_new_every_days_is_configurable
+    configure('session' => { 'new_every_days' => 1 })
+    add('m1', 'arrays', 'Medium')
+    add('m2', 'arrays', 'Medium')
+    seen('m1', TODAY - 10)
+    @state['last_new_on'] = TODAY - 1
+    assert_equal %w[m2 new], picks['B']
+  end
+
+  def test_several_bonus_slots_then_extras_after_them
+    configure('session' => { 'bonus' => { 'max' => 2 } })
+    %w[e1 e2 e3 e4 m1].each { |s| add(s, 'arrays', s.start_with?('e') ? 'Easy' : 'Medium') }
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session
+    assert_equal %w[C D], sched.bonus_slots
+    assert_equal 'C', sched.unlock_bonus.first
+    assert_equal 'D', sched.unlock_bonus.first
+    assert_nil sched.unlock_bonus
+    refute sched.bonus_left?
+    sched.session['slots'].each_value { |e| e['grade'] = 'good' }
+    assert_equal 'E', sched.add_extra_new.first
+  end
+
+  def test_bonus_pool_and_unlock_grades_are_configurable
+    configure('pools' => { 'easy' => %w[Easy], 'medium_hard' => %w[Medium Hard], 'any' => %w[Easy Medium Hard] },
+              'session' => { 'bonus' => { 'pool' => 'any', 'unlock_on' => %w[good easy] } })
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    add('m2', 'arrays', 'Medium')
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session
+    assert sched.unlocks_bonus?('good')
+    refute sched.unlocks_bonus?('hard')
+    assert_equal %w[m2 new], sched.unlock_bonus[1].values_at('slug', 'kind')
+  end
+
+  def test_no_bonus_when_max_is_zero
+    configure('session' => { 'bonus' => { 'max' => 0 } })
+    add('e1', 'arrays', 'Easy')
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session
+    assert_nil sched.unlock_bonus
+    refute sched.bonus_left?
+  end
+
+  def test_custom_slots_and_forced_rotation
+    configure('session' => { 'slots' => { 'A' => 'easy', 'B' => 'medium', 'C' => 'hard' } },
+              'pools' => { 'easy' => %w[Easy], 'medium' => %w[Medium], 'hard' => %w[Hard] })
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    assert_equal %w[A B C], sched.session['slots'].keys
+    assert_equal %w[D], sched.bonus_slots
+    sched.record_new('B', { 'forced' => true })
+    assert_equal 'hard', @state['next_forced_pool']
+    sched.record_new('C', { 'forced' => true })
+    assert_equal 'easy', @state['next_forced_pool']
+  end
+
+  def test_topic_ratio_is_configurable
+    configure('unlock' => { 'topic_ratio' => 0.5 })
+    add('t1', 'two_pointers', 'Medium')
+    add('a1', 'arrays', 'Medium')
+    add('a2', 'arrays', 'Medium')
+    seen('a1', TODAY + 10) # arrays 50% — enough at 0.5
+    assert_equal %w[t1 new], picks['B']
   end
 end

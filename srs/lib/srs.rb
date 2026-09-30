@@ -17,8 +17,9 @@ module Srs
   end
 end
 
-require_relative 'topics'
 require_relative 'store'
+require_relative 'config'
+require_relative 'topics'
 require_relative 'sheet'
 require_relative 'leetcode'
 require_relative 'progress'

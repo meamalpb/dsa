@@ -8,7 +8,8 @@ module Srs
     def coverage(problems, state, out)
       progress = Progress.new(problems, state)
       bar_head = 'Progress'.ljust(Charts::BAR_WIDTH)
-      out.puts "\n#{'Topic'.ljust(17)} #{'Seen'.rjust(7)}  E+M seen   #{bar_head}  E / M / H     Status"
+      counted = "#{Srs.config.dig('unlock', 'topic_counts').map { |d| d[0] }.join('+')} seen"
+      out.puts "\n#{'Topic'.ljust(17)} #{'Seen'.rjust(7)}  #{counted.rjust(8)}   #{bar_head}  E / M / H     Status"
       Topics::ROADMAP.each_key do |topic|
         all = progress.in_topic(topic).keys
         seen = "#{all.count { |s| progress.seen?(s) }}/#{all.size}"

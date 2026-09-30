@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 module Srs
-  # Per-topic coverage and the unlock rules from DESIGN.md §6.
+  # Per-topic coverage and the unlock rules from DESIGN.md §6; thresholds from srs/config.yml.
   class Progress
-    UNLOCK_RATIO = 0.8
-
-    def initialize(problems, state)
+    def initialize(problems, state, config: Srs.config)
       @problems = problems
       @state = state
+      @unlock = config['unlock']
     end
 
     def seen?(slug)
@@ -29,17 +28,18 @@ module Srs
       slugs.count { |s| seen?(s) }.fdiv(slugs.size)
     end
 
+    # Coverage that counts toward unlocking the next topics (Easy + Medium by default).
     def core_ratio(topic)
-      ratio(topic, %w[Easy Medium])
+      ratio(topic, @unlock['topic_counts'])
     end
 
     def open?(topic)
-      Topics.prereqs(topic).all? { |t| core_ratio(t) >= UNLOCK_RATIO } ||
+      Topics.prereqs(topic).all? { |t| core_ratio(t) >= @unlock['topic_ratio'] } ||
         in_topic(topic).keys.any? { |s| seen?(s) }
     end
 
     def hards_unlocked?(topic)
-      ratio(topic, %w[Medium]) >= UNLOCK_RATIO
+      ratio(topic, %w[Medium]) >= @unlock['hard_ratio']
     end
   end
 end

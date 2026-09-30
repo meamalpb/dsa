@@ -5,6 +5,7 @@ from reviews that are due plus new problems, schedules reviews with SM-2, and un
 in NeetCode roadmap order.
 
 Full design and the reasoning behind it: [DESIGN.md](DESIGN.md).
+The rules (slots, pace, unlock thresholds, review spacing) are set in [config.yml](config.yml).
 
 ## Usage
 
@@ -30,6 +31,7 @@ delete it; keep it only if you want to copy a new approach into your original.
 ```sh
 cp srs/state.yml /tmp/try.yml
 SRS_STATE=/tmp/try.yml SRS_TODAY=2026-10-01 bin/srs today   # a copy of your history, a pretend date
+SRS_CONFIG=/tmp/my.yml SRS_STATE=/tmp/try.yml bin/srs today  # try different settings
 ruby srs/test/run_all.rb                                     # tests
 ```
 
@@ -38,6 +40,7 @@ ruby srs/test/run_all.rb                                     # tests
 | Path | What | Edit by hand? |
 |---|---|---|
 | `problems.yml` | Facts per problem: topic, difficulty, link, file, notes | No — setup regenerates it |
+| `config.yml` | Slots, pools, new-problem pace, unlock thresholds, SM-2 spacing | Yes — every default is listed with a comment |
 | `state.yml` | Your review history and schedule | No — only `grade` writes it. **Commit it**, it's the only record |
 | `lib/` | The code (Ruby stdlib only) | — |
 
@@ -48,6 +51,7 @@ ruby srs/test/run_all.rb                                     # tests
 - `topics.rb` — topic → folder map and the roadmap of prerequisites
 - `progress.rb` — per-topic coverage and the unlock rules
 - `setup.rb` — matches local solutions to sheet rows and seeds state
+- `config.rb` — loads config.yml over the defaults and checks it
 - `sm2.rb` — the review-interval math
 - `scheduler.rb` — picks each day's slots
 - `scaffold.rb` — new-problem files and review attempt files
@@ -55,6 +59,9 @@ ruby srs/test/run_all.rb                                     # tests
 - `store.rb`, `report.rb`, `cli.rb` — YAML I/O, tables, command dispatch
 
 ## Rules worth knowing
+
+These are the defaults; each number is a setting in config.yml.
+
 
 - **Matching**: a solution file is linked to a sheet row by its `# https://leetcode.com/problems/<slug>/`
   header. Files without one, or not on the sheet, are ignored.
