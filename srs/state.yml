@@ -1,15 +1,17 @@
 ---
 problems:
   contains-duplicate:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-24
-    next_review: 2026-09-30
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-01
+    next_review: 2026-10-17
     history:
     - date: 2026-03-14
       grade: seed
     - date: 2026-09-24
+      grade: easy
+    - date: 2026-10-01
       grade: easy
   valid-anagram:
     reps: 2
@@ -100,14 +102,16 @@ problems:
     - date: 2026-09-30
       grade: easy
   3sum:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-22
-    next_review: 2026-03-23
+    interval: 6
+    last_reviewed: 2026-10-01
+    next_review: 2026-10-07
     history:
     - date: 2026-03-22
       grade: seed
+    - date: 2026-10-01
+      grade: good
   container-with-most-water:
     reps: 1
     ease: 2.5
@@ -339,14 +343,16 @@ problems:
     last_reviewed: 2026-09-24
     next_review: 2026-09-25
   maximum-depth-of-binary-tree:
-    reps: 1
-    ease: 2.5
-    interval: 1
+    reps: 2
+    ease: 2.6
+    interval: 6
     history:
     - date: 2026-09-27
       grade: good
-    last_reviewed: 2026-09-27
-    next_review: 2026-09-28
+    - date: 2026-10-01
+      grade: easy
+    last_reviewed: 2026-10-01
+    next_review: 2026-10-07
   encode-and-decode-strings:
     reps: 1
     ease: 2.6
@@ -383,34 +389,37 @@ problems:
       grade: easy
     last_reviewed: 2026-09-30
     next_review: 2026-10-01
-last_new_on: 2026-09-30
+  same-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-10-01
+      grade: good
+    last_reviewed: 2026-10-01
+    next_review: 2026-10-02
+last_new_on: 2026-10-01
 next_forced_pool: easy
 session:
-  date: 2026-09-30
-  bonus_unlocked: true
+  date: 2026-10-01
   slots:
     A:
-      slug: linked-list-cycle
+      slug: maximum-depth-of-binary-tree
       kind: review
       forced: false
       grade: easy
     B:
-      slug: longest-consecutive-sequence
+      slug: 3sum
       kind: review
       forced: false
-      grade: easy
+      grade: good
     C:
-      slug: invert-binary-tree
+      slug: contains-duplicate
       kind: review
       forced: false
       grade: easy
     D:
-      slug: balanced-binary-tree
+      slug: same-tree
       kind: new
       forced: false
-      grade: easy
-    E:
-      slug: two-sum-ii-input-array-is-sorted
-      kind: review
-      forced: false
-      grade: easy
+      grade: good

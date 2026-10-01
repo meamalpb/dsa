@@ -20,7 +20,7 @@ session:
 
   # A new problem is forced into a slot when you haven't done one for this many days.
   # The forced one takes turns between the daily slots' pools.
-  new_every_days: 2
+  new_every_days: 1
 
   # Which due review a slot (and `more old`) takes first:
   #   most_overdue   — the one waiting longest
