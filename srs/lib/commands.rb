@@ -2,7 +2,7 @@
 
 module Srs
   # `today`, `start`, `grade`, `status` — DESIGN.md §7–10.
-  class Commands
+  class Commands # rubocop:disable Metrics/ClassLength
     def initialize(today: Srs.today, out: $stdout, input: $stdin)
       raise Error, 'Run `bin/srs setup` first.' unless File.exist?(PROBLEMS_PATH)
 
@@ -87,6 +87,10 @@ module Srs
       @out.puts "\nActivity, last #{Srs.config.dig('display', 'heatmap_weeks')} weeks"
       @out.puts Charts.heatmap(days, @today)
       @out.puts Charts.summary(days, @today)
+    end
+
+    def overdue
+      Report.overdue(@problems, @state, @today, @out)
     end
 
     private

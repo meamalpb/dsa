@@ -113,14 +113,16 @@ problems:
     - date: 2026-10-01
       grade: good
   container-with-most-water:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-22
-    next_review: 2026-03-23
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-10-01
+    next_review: 2026-10-07
     history:
     - date: 2026-03-22
       grade: seed
+    - date: 2026-10-01
+      grade: easy
   best-time-to-buy-and-sell-stock:
     reps: 2
     ease: 2.6
@@ -133,14 +135,16 @@ problems:
     - date: 2026-09-28
       grade: easy
   longest-substring-without-repeating-characters:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-25
-    next_review: 2026-03-26
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-10-01
+    next_review: 2026-10-07
     history:
     - date: 2026-03-25
       grade: seed
+    - date: 2026-10-01
+      grade: easy
   longest-repeating-character-replacement:
     reps: 1
     ease: 2.5
@@ -180,14 +184,16 @@ problems:
     - date: 2026-09-27
       grade: easy
   min-stack:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-03-24
-    next_review: 2026-03-25
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-10-01
+    next_review: 2026-10-07
     history:
     - date: 2026-03-24
       grade: seed
+    - date: 2026-10-01
+      grade: easy
   daily-temperatures:
     reps: 1
     ease: 2.5
@@ -401,25 +407,15 @@ problems:
 last_new_on: 2026-10-01
 next_forced_pool: easy
 session:
-  date: 2026-10-01
+  date: 2026-10-02
   slots:
     A:
-      slug: maximum-depth-of-binary-tree
-      kind: review
-      forced: false
-      grade: easy
-    B:
-      slug: 3sum
-      kind: review
-      forced: false
-      grade: good
-    C:
-      slug: contains-duplicate
-      kind: review
-      forced: false
-      grade: easy
-    D:
-      slug: same-tree
+      slug: subtree-of-another-tree
       kind: new
+      forced: true
+      grade:
+    B:
+      slug: longest-repeating-character-replacement
+      kind: review
       forced: false
-      grade: good
+      grade:

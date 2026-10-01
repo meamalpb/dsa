@@ -348,6 +348,9 @@ Grading a slot twice, or grading an empty/locked slot, is refused.
 Per topic: seen / total, Easy+Medium % seen, open or locked. Plus: due today, overdue backlog,
 days since last new problem.
 
+`bin/srs overdue` lists the backlog itself — one row per card whose `next_review` has passed,
+sorted oldest-due-first, with topic, difficulty, days overdue, last reviewed date, reps, and ease.
+
 ## 11. Build order (each step stops for your review)
 
 1. `setup` — produces problems.yml + seeded state.yml, prints matches and coverage.

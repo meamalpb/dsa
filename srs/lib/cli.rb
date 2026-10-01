@@ -12,6 +12,7 @@ module Srs
         more [new|old]       all done? get an extra problem (slots D, E, …):
                              new (default) = next new problem, old = most overdue review
         status               coverage per topic, what's due
+        overdue              list every overdue problem, most overdue first
         setup                build srs/problems.yml and seed srs/state.yml (safe to re-run)
     TEXT
 
@@ -25,6 +26,7 @@ module Srs
       when 'grade' then Commands.new.grade(slot(args[0]), args[1].to_s.downcase)
       when 'more' then Commands.new.more(more_kind(args[0]))
       when 'status' then Commands.new.status
+      when 'overdue' then Commands.new.overdue
       when 'setup' then Setup.new.run
       when nil, 'help', '-h', '--help' then puts USAGE
       else raise Error, "Unknown command: #{command}\n\n#{USAGE}"
