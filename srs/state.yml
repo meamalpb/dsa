@@ -146,14 +146,16 @@ problems:
     - date: 2026-10-01
       grade: easy
   longest-repeating-character-replacement:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-04-01
-    next_review: 2026-04-02
+    interval: 6
+    last_reviewed: 2026-10-03
+    next_review: 2026-10-09
     history:
     - date: 2026-04-01
       grade: seed
+    - date: 2026-10-03
+      grade: good
   permutation-in-string:
     reps: 1
     ease: 2.5
@@ -224,23 +226,27 @@ problems:
     - date: 2026-07-21
       grade: seed
   search-in-rotated-sorted-array:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-04-07
-    next_review: 2026-04-08
+    interval: 6
+    last_reviewed: 2026-10-03
+    next_review: 2026-10-09
     history:
     - date: 2026-04-07
       grade: seed
+    - date: 2026-10-03
+      grade: good
   find-minimum-in-rotated-sorted-array:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-04-07
-    next_review: 2026-04-08
+    interval: 6
+    last_reviewed: 2026-10-03
+    next_review: 2026-10-09
     history:
     - date: 2026-04-07
       grade: seed
+    - date: 2026-10-03
+      grade: good
   reverse-linked-list:
     reps: 2
     ease: 2.6
@@ -331,14 +337,16 @@ problems:
     - date: 2026-07-21
       grade: seed
   merge-intervals:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-17
-    next_review: 2026-07-18
+    reps: 2
+    ease: 2.36
+    interval: 6
+    last_reviewed: 2026-10-03
+    next_review: 2026-10-09
     history:
     - date: 2026-07-17
       grade: seed
+    - date: 2026-10-03
+      grade: hard
   valid-sudoku:
     reps: 1
     ease: 2.5
@@ -404,18 +412,42 @@ problems:
       grade: good
     last_reviewed: 2026-10-01
     next_review: 2026-10-02
-last_new_on: 2026-10-01
-next_forced_pool: easy
+  subtree-of-another-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-10-03
+      grade: good
+    last_reviewed: 2026-10-03
+    next_review: 2026-10-04
+last_new_on: 2026-10-03
+next_forced_pool: medium_hard
 session:
-  date: 2026-10-02
+  date: 2026-10-03
   slots:
     A:
       slug: subtree-of-another-tree
       kind: new
       forced: true
-      grade:
+      grade: good
     B:
       slug: longest-repeating-character-replacement
       kind: review
       forced: false
-      grade:
+      grade: good
+    D:
+      slug: search-in-rotated-sorted-array
+      kind: review
+      forced: false
+      grade: good
+    E:
+      slug: find-minimum-in-rotated-sorted-array
+      kind: review
+      forced: false
+      grade: good
+    F:
+      slug: merge-intervals
+      kind: review
+      forced: false
+      grade: hard
