@@ -14,26 +14,30 @@ problems:
     - date: 2026-10-01
       grade: easy
   valid-anagram:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-24
-    next_review: 2026-09-30
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-04
+    next_review: 2026-10-20
     history:
     - date: 2026-03-14
       grade: seed
     - date: 2026-09-24
       grade: easy
+    - date: 2026-10-04
+      grade: easy
   two-sum:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-25
-    next_review: 2026-10-01
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-15
+    next_review: 2026-10-31
     history:
     - date: 2026-03-14
       grade: seed
     - date: 2026-09-25
+      grade: easy
+    - date: 2026-10-15
       grade: easy
   group-anagrams:
     reps: 2
@@ -80,15 +84,17 @@ problems:
     - date: 2026-09-30
       grade: easy
   valid-palindrome:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-25
-    next_review: 2026-10-01
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-15
+    next_review: 2026-10-31
     history:
     - date: 2026-03-16
       grade: seed
     - date: 2026-09-25
+      grade: easy
+    - date: 2026-10-15
       grade: easy
   two-sum-ii-input-array-is-sorted:
     reps: 2
@@ -377,14 +383,16 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-10-03
   diameter-of-binary-tree:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
+    interval: 6
     history:
     - date: 2026-09-29
       grade: good
-    last_reviewed: 2026-09-29
-    next_review: 2026-09-30
+    - date: 2026-10-14
+      grade: good
+    last_reviewed: 2026-10-14
+    next_review: 2026-10-20
   trapping-rain-water:
     reps: 1
     ease: 2.5
@@ -421,33 +429,32 @@ problems:
       grade: good
     last_reviewed: 2026-10-03
     next_review: 2026-10-04
-last_new_on: 2026-10-03
-next_forced_pool: medium_hard
+  sliding-window-maximum:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-10-15
+      grade: good
+    last_reviewed: 2026-10-15
+    next_review: 2026-10-16
+last_new_on: 2026-10-15
+next_forced_pool: easy
 session:
-  date: 2026-10-03
+  date: 2026-10-15
   slots:
-    A:
-      slug: subtree-of-another-tree
+    B:
+      slug: sliding-window-maximum
       kind: new
       forced: true
       grade: good
-    B:
-      slug: longest-repeating-character-replacement
+    A:
+      slug: two-sum
       kind: review
       forced: false
-      grade: good
-    D:
-      slug: search-in-rotated-sorted-array
+      grade: easy
+    C:
+      slug: valid-palindrome
       kind: review
       forced: false
-      grade: good
-    E:
-      slug: find-minimum-in-rotated-sorted-array
-      kind: review
-      forced: false
-      grade: good
-    F:
-      slug: merge-intervals
-      kind: review
-      forced: false
-      grade: hard
+      grade: easy
