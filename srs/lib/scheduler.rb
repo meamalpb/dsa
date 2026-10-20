@@ -52,18 +52,22 @@ module Srs
 
     # Extra new problem (`more` / `more new`, slots after the bonus ones) once everything else is
     # done. Rotates through the daily pools, falling back to the next one. Returns [slot, entry] or nil.
-    def add_extra_new
+    # difficulty (e.g. 'Easy') limits the pick to that difficulty; nil = any.
+    def add_extra_new(difficulty = nil)
       rotation = forced_pools.rotate(extra_count)
-      slug = rotation.lazy.filter_map { |pool| next_new(pool) }.first
+      slug = rotation.lazy.filter_map { |pool| next_new(pool, difficulty) }.first
       return unless slug
 
       add_extra(entry(slug, 'new'))
     end
 
-    # Extra review (`more old`): the first due review from any pool, in review_order.
-    # Returns [slot, entry] or nil when nothing is due.
-    def add_extra_review
-      slug = first_due(@state['problems'].select { |s, _| @problems.key?(s) && !picked?(s) })
+    # Extra review (`more old`): the first due review from any pool (or only of `difficulty`),
+    # in review_order. Returns [slot, entry] or nil when nothing is due.
+    def add_extra_review(difficulty = nil)
+      cards = @state['problems'].select do |s, _|
+        @problems.key?(s) && !picked?(s) && (difficulty.nil? || @problems[s]['difficulty'] == difficulty)
+      end
+      slug = first_due(cards)
       add_extra(entry(slug, 'review')) if slug
     end
 
@@ -168,8 +172,8 @@ module Srs
       cards.min_by { |slug, card| [card['next_review'], @problems[slug]['order']] }&.first
     end
 
-    def next_new(pool)
-      @problems.select { |slug, p| eligible_new?(slug, p, pool) }.min_by { |_, p| p['order'] }&.first
+    def next_new(pool, difficulty = nil)
+      @problems.select { |slug, p| (difficulty.nil? || p['difficulty'] == difficulty) && eligible_new?(slug, p, pool) }.min_by { |_, p| p['order'] }&.first
     end
 
     def eligible_new?(slug, problem, pool)

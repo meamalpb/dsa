@@ -26,14 +26,17 @@ module Srs
     end
 
     # Add another problem to today's session (only once everything is graded):
-    # kind 'new' = next new problem, 'old' = most overdue review.
-    def more(kind = 'new')
+    # kind 'new' = next new problem, 'old' = most overdue review; difficulty ('Easy', …) or nil = any.
+    def more(kind = 'new', difficulty = nil)
       @scheduler.session
       raise Error, 'Finish and grade today\'s problems first.' unless @scheduler.all_graded?
 
-      added = kind == 'old' ? @scheduler.add_extra_review : @scheduler.add_extra_new
+      added = kind == 'old' ? @scheduler.add_extra_review(difficulty) : @scheduler.add_extra_new(difficulty)
       save
-      return @out.puts(kind == 'old' ? 'Nothing is due for review.' : 'No new problem is eligible right now.') unless added
+      unless added
+        what = difficulty ? " #{difficulty}" : ''
+        return @out.puts(kind == 'old' ? "Nothing#{what} is due for review." : "No new#{what} problem is eligible right now.")
+      end
 
       @out.puts 'Extra problem:'
       show(*added)

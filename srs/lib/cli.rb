@@ -9,8 +9,10 @@ module Srs
         today                show today's problems (slot A = Easy, B = Medium/Hard)
         start <slot>         create the file to work in (new: scaffold, review: name.attempt.rb)
         grade <slot> <how>   how = again | hard | good | easy  (`easy` unlocks slot C)
-        more [new|old]       all done? get an extra problem (slots D, E, …):
-                             new (default) = next new problem, old = most overdue review
+        more [new|old] [easy|medium|hard|all]
+                             all done? get an extra problem (slots D, E, …):
+                             new (default) = next new problem, old = most overdue review;
+                             easy/medium/hard limits the difficulty (all = any, default)
         status               coverage per topic, what's due
         overdue              list every overdue problem, most overdue first
         setup                build srs/problems.yml and seed srs/state.yml (safe to re-run)
@@ -24,7 +26,7 @@ module Srs
       when 'today' then Commands.new.today
       when 'start' then Commands.new.start(slot(args[0]))
       when 'grade' then Commands.new.grade(slot(args[0]), args[1].to_s.downcase)
-      when 'more' then Commands.new.more(more_kind(args[0]))
+      when 'more' then Commands.new.more(*more_options(args))
       when 'status' then Commands.new.status
       when 'overdue' then Commands.new.overdue
       when 'setup' then Setup.new.run
@@ -35,11 +37,21 @@ module Srs
       abort e.message
     end
 
-    def more_kind(arg)
-      kind = (arg || 'new').downcase
-      raise Error, "more takes `new` or `old`.\n\n#{USAGE}" unless %w[new old].include?(kind)
+    KINDS = %w[new old].freeze
+    DIFFICULTIES = %w[easy medium hard all].freeze
 
-      kind
+    # `more` words in any order, e.g. `more old easy` or `more medium`: [kind, difficulty or nil].
+    def more_options(args)
+      words = args.map(&:downcase)
+      unknown = words - KINDS - DIFFICULTIES
+      kinds = words & KINDS
+      diffs = words & DIFFICULTIES
+      if unknown.any? || kinds.size > 1 || diffs.size > 1
+        raise Error, "more takes new|old and easy|medium|hard|all, one of each at most.\n\n#{USAGE}"
+      end
+
+      difficulty = diffs.first
+      [kinds.first || 'new', difficulty.nil? || difficulty == 'all' ? nil : difficulty.capitalize]
     end
 
     def slot(arg)

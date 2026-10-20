@@ -13,7 +13,7 @@ The rules (slots, pace, unlock thresholds, review spacing) are set in [config.ym
 bin/srs today            # today's slots A (Easy) and B (Medium/Hard)
 bin/srs start A          # new problem → scaffold file; review → name.attempt.rb next to the original
 bin/srs grade A good     # again | hard | good | easy — `easy` unlocks a bonus slot C
-bin/srs more [new|old]   # all graded? extra slot D, E, …: new problem (default; `grade` also offers this) or most overdue review
+bin/srs more [new|old] [easy|medium|hard|all]   # all graded? extra slot D, E, …: new problem (default; `grade` also offers this) or most overdue review, optionally only of one difficulty
 bin/srs status           # coverage per topic, what's open/locked, what's due
 bin/srs overdue          # every overdue problem, most overdue first, with days late / last done / reps / ease
 bin/srs setup            # one-time: build problems.yml, seed state.yml (safe to re-run)

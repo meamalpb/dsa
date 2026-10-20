@@ -167,6 +167,34 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
     assert_nil sched.add_extra_new
   end
 
+  def test_extra_new_can_be_limited_to_a_difficulty
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    add('m2', 'arrays', 'Medium')
+    add('e2', 'arrays', 'Easy')
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session['slots'].each_value { |e| e['grade'] = 'good' }
+    assert_equal 'm2', sched.add_extra_new('Medium')[1]['slug']
+    assert_equal 'e2', sched.add_extra_new('Easy')[1]['slug']
+    assert_nil sched.add_extra_new('Medium')
+  end
+
+  def test_extra_review_can_be_limited_to_a_difficulty
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    add('e2', 'arrays', 'Easy')
+    add('m2', 'arrays', 'Medium')
+    seen('e1', TODAY - 1)
+    seen('m1', TODAY - 1)
+    seen('e2', TODAY - 3)
+    seen('m2', TODAY - 9)
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session
+    assert_equal 'e1', sched.add_extra_review('Easy')[1]['slug']
+    assert_nil sched.add_extra_review('Easy')
+    assert_equal 'm1', sched.add_extra_review('Medium')[1]['slug']
+  end
+
   def test_extra_review_takes_most_overdue_from_either_pool
     add('e1', 'arrays', 'Easy')
     add('m1', 'arrays', 'Medium')
