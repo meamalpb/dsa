@@ -1,11 +1,11 @@
 ---
 problems:
   contains-duplicate:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-01
-    next_review: 2026-10-17
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-10-21
+    next_review: 2026-12-05
     history:
     - date: 2026-03-14
       grade: seed
@@ -13,18 +13,22 @@ problems:
       grade: easy
     - date: 2026-10-01
       grade: easy
+    - date: 2026-10-21
+      grade: easy
   valid-anagram:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-04
-    next_review: 2026-10-20
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-10-21
+    next_review: 2026-12-05
     history:
     - date: 2026-03-14
       grade: seed
     - date: 2026-09-24
       grade: easy
     - date: 2026-10-04
+      grade: easy
+    - date: 2026-10-21
       grade: easy
   two-sum:
     reps: 3
@@ -130,15 +134,17 @@ problems:
     - date: 2026-10-01
       grade: easy
   best-time-to-buy-and-sell-stock:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-28
-    next_review: 2026-10-04
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
     history:
     - date: 2026-03-25
       grade: seed
     - date: 2026-09-28
+      grade: easy
+    - date: 2026-10-21
       grade: easy
   longest-substring-without-repeating-characters:
     reps: 2
@@ -181,15 +187,17 @@ problems:
     - date: 2026-07-19
       grade: seed
   valid-parentheses:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-27
-    next_review: 2026-10-03
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
     history:
     - date: 2026-03-21
       grade: seed
     - date: 2026-09-27
+      grade: easy
+    - date: 2026-10-21
       grade: easy
   min-stack:
     reps: 2
@@ -203,24 +211,28 @@ problems:
     - date: 2026-10-01
       grade: easy
   daily-temperatures:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-20
-    next_review: 2026-07-21
-    history:
-    - date: 2026-07-20
-      grade: seed
-  binary-search:
     reps: 2
     ease: 2.6
     interval: 6
-    last_reviewed: 2026-09-28
-    next_review: 2026-10-04
+    last_reviewed: 2026-10-21
+    next_review: 2026-10-27
+    history:
+    - date: 2026-07-20
+      grade: seed
+    - date: 2026-10-21
+      grade: easy
+  binary-search:
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
     history:
     - date: 2026-04-07
       grade: seed
     - date: 2026-09-28
+      grade: easy
+    - date: 2026-10-21
       grade: easy
   search-a-2d-matrix:
     reps: 1
@@ -254,26 +266,30 @@ problems:
     - date: 2026-10-03
       grade: good
   reverse-linked-list:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-29
-    next_review: 2026-10-05
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
     history:
     - date: 2026-04-08
       grade: seed
     - date: 2026-09-29
       grade: easy
+    - date: 2026-10-21
+      grade: easy
   merge-two-sorted-lists:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-29
-    next_review: 2026-10-05
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
     history:
     - date: 2026-05-08
       grade: seed
     - date: 2026-09-29
+      grade: easy
+    - date: 2026-10-21
       grade: easy
   reorder-list:
     reps: 1
@@ -294,26 +310,30 @@ problems:
     - date: 2026-07-20
       grade: seed
   linked-list-cycle:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-30
-    next_review: 2026-10-06
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
     history:
     - date: 2026-05-08
       grade: seed
     - date: 2026-09-30
       grade: easy
+    - date: 2026-10-21
+      grade: easy
   invert-binary-tree:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-30
-    next_review: 2026-10-06
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
     history:
     - date: 2026-07-21
       grade: seed
     - date: 2026-09-30
+      grade: easy
+    - date: 2026-10-21
       grade: easy
   lowest-common-ancestor-of-a-binary-search-tree:
     reps: 1
@@ -363,16 +383,18 @@ problems:
     last_reviewed: 2026-09-24
     next_review: 2026-09-25
   maximum-depth-of-binary-tree:
-    reps: 2
-    ease: 2.6
-    interval: 6
+    reps: 3
+    ease: 2.7
+    interval: 16
     history:
     - date: 2026-09-27
       grade: good
     - date: 2026-10-01
       grade: easy
-    last_reviewed: 2026-10-01
-    next_review: 2026-10-07
+    - date: 2026-10-21
+      grade: easy
+    last_reviewed: 2026-10-21
+    next_review: 2026-11-06
   encode-and-decode-strings:
     reps: 1
     ease: 2.6
@@ -383,16 +405,18 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-10-03
   diameter-of-binary-tree:
-    reps: 2
-    ease: 2.5
-    interval: 6
+    reps: 0
+    ease: 1.96
+    interval: 1
     history:
     - date: 2026-09-29
       grade: good
     - date: 2026-10-14
       grade: good
-    last_reviewed: 2026-10-14
-    next_review: 2026-10-20
+    - date: 2026-10-21
+      grade: again
+    last_reviewed: 2026-10-21
+    next_review: 2026-10-22
   trapping-rain-water:
     reps: 1
     ease: 2.5
@@ -403,32 +427,38 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-09-30
   balanced-binary-tree:
-    reps: 1
-    ease: 2.6
-    interval: 1
+    reps: 2
+    ease: 2.7
+    interval: 6
     history:
     - date: 2026-09-30
       grade: easy
-    last_reviewed: 2026-09-30
-    next_review: 2026-10-01
+    - date: 2026-10-21
+      grade: easy
+    last_reviewed: 2026-10-21
+    next_review: 2026-10-27
   same-tree:
-    reps: 1
-    ease: 2.5
-    interval: 1
+    reps: 2
+    ease: 2.6
+    interval: 6
     history:
     - date: 2026-10-01
       grade: good
-    last_reviewed: 2026-10-01
-    next_review: 2026-10-02
+    - date: 2026-10-21
+      grade: easy
+    last_reviewed: 2026-10-21
+    next_review: 2026-10-27
   subtree-of-another-tree:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
+    interval: 6
     history:
     - date: 2026-10-03
       grade: good
-    last_reviewed: 2026-10-03
-    next_review: 2026-10-04
+    - date: 2026-10-21
+      grade: good
+    last_reviewed: 2026-10-21
+    next_review: 2026-10-27
   sliding-window-maximum:
     reps: 1
     ease: 2.5
@@ -438,23 +468,97 @@ problems:
       grade: good
     last_reviewed: 2026-10-15
     next_review: 2026-10-16
-last_new_on: 2026-10-15
+  evaluate-reverse-polish-notation:
+    reps: 0
+    ease: 1.96
+    interval: 1
+    history:
+    - date: 2026-10-21
+      grade: again
+    last_reviewed: 2026-10-21
+    next_review: 2026-10-22
+last_new_on: 2026-10-21
 next_forced_pool: easy
 session:
-  date: 2026-10-15
+  date: 2026-10-21
   slots:
     B:
-      slug: sliding-window-maximum
+      slug: evaluate-reverse-polish-notation
       kind: new
       forced: true
-      grade: good
+      grade: again
     A:
-      slug: two-sum
+      slug: balanced-binary-tree
       kind: review
       forced: false
       grade: easy
     C:
-      slug: valid-palindrome
+      slug: same-tree
+      kind: review
+      forced: false
+      grade: easy
+    D:
+      slug: valid-parentheses
+      kind: review
+      forced: false
+      grade: easy
+    E:
+      slug: best-time-to-buy-and-sell-stock
+      kind: review
+      forced: false
+      grade: easy
+    F:
+      slug: binary-search
+      kind: review
+      forced: false
+      grade: easy
+    G:
+      slug: subtree-of-another-tree
+      kind: review
+      forced: false
+      grade: good
+    H:
+      slug: reverse-linked-list
+      kind: review
+      forced: false
+      grade: easy
+    I:
+      slug: merge-two-sorted-lists
+      kind: review
+      forced: false
+      grade: easy
+    J:
+      slug: linked-list-cycle
+      kind: review
+      forced: false
+      grade: easy
+    K:
+      slug: invert-binary-tree
+      kind: review
+      forced: false
+      grade: easy
+    L:
+      slug: maximum-depth-of-binary-tree
+      kind: review
+      forced: false
+      grade: easy
+    M:
+      slug: contains-duplicate
+      kind: review
+      forced: false
+      grade: easy
+    "N":
+      slug: valid-anagram
+      kind: review
+      forced: false
+      grade: easy
+    O:
+      slug: diameter-of-binary-tree
+      kind: review
+      forced: false
+      grade: again
+    P:
+      slug: daily-temperatures
       kind: review
       forced: false
       grade: easy
