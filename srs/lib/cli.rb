@@ -8,6 +8,8 @@ module Srs
 
         today                show today's problems (slot A = Easy, B = Medium/Hard)
         start <slot>         create the file to work in (new: scaffold, review: name.attempt.rb)
+        start <file|slug>    practice a problem you pick, e.g. linked_list/medium/reorder_list.rb:
+                             adds it as an extra slot today, graded like any other
         grade <slot> <how>   how = again | hard | good | easy  (`easy` unlocks slot C)
         more [new|old] [easy|medium|hard|all]
                              all done? get an extra problem (slots D, E, …):
@@ -24,7 +26,7 @@ module Srs
       command, *args = argv
       case command
       when 'today' then Commands.new.today
-      when 'start' then Commands.new.start(slot(args[0]))
+      when 'start' then start(args[0].to_s)
       when 'grade' then Commands.new.grade(slot(args[0]), args[1].to_s.downcase)
       when 'more' then Commands.new.more(*more_options(args))
       when 'status' then Commands.new.status
@@ -52,6 +54,11 @@ module Srs
 
       difficulty = diffs.first
       [kinds.first || 'new', difficulty.nil? || difficulty == 'all' ? nil : difficulty.capitalize]
+    end
+
+    # A single letter is a slot; anything longer is a problem's file or slug.
+    def start(arg)
+      arg.length > 1 ? Commands.new.practice(arg) : Commands.new.start(slot(arg))
     end
 
     def slot(arg)

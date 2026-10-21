@@ -332,6 +332,14 @@ end
 
 `start` also prints the link and the file path.
 
+**A problem you pick** → `bin/srs start <file or slug>` (e.g. `linked_list/medium/reorder_list.rb`,
+its `.attempt.rb`, an absolute path, or `reorder-list`). A single letter is still a slot. The problem
+gets the next extra slot today (or keeps its slot if it's already in the session), skipping the
+usual rules: no waiting for the day's slots to be graded, no unlock or due-date checks. Then it's
+started like any slot — attempt file if you've seen it, scaffold if not — and `grade` treats it like
+any other (SM-2 updates, and a new one resets the new-problem clock). Picked problems don't shift
+the pool rotation of `more`.
+
 ## 9. Grading (`bin/srs grade A good`)
 
 1. Apply SM-2 (§5), append to `history`, save.

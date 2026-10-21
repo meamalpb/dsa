@@ -167,6 +167,43 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
     assert_nil sched.add_extra_new
   end
 
+  def test_chosen_problem_gets_an_extra_slot_without_waiting
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    add('m2', 'linked_list', 'Medium')
+    add('m3', 'trees', 'Medium')
+    seen('m2', TODAY + 30)
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session
+    refute sched.all_graded?
+    slot, entry = sched.add_chosen('m2')
+    assert_equal ['D', %w[m2 review]], [slot, entry.values_at('slug', 'kind')]
+    assert entry['chosen']
+    slot, entry = sched.add_chosen('m3')
+    assert_equal ['E', %w[m3 new]], [slot, entry.values_at('slug', 'kind')]
+  end
+
+  def test_chosen_problem_already_in_session_keeps_its_slot
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session
+    assert_equal 'B', sched.add_chosen('m1').first
+    assert_equal %w[A B], sched.session['slots'].keys.sort
+  end
+
+  def test_chosen_new_problem_does_not_shift_extra_rotation
+    add('e1', 'arrays', 'Easy')
+    add('m1', 'arrays', 'Medium')
+    add('e2', 'arrays', 'Easy')
+    add('m2', 'arrays', 'Medium')
+    add('e3', 'arrays', 'Easy')
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session['slots'].each_value { |e| e['grade'] = 'good' }
+    sched.add_chosen('e3')[1]['grade'] = 'good'
+    assert_equal 'e2', sched.add_extra_new[1]['slug']
+  end
+
   def test_extra_new_can_be_limited_to_a_difficulty
     add('e1', 'arrays', 'Easy')
     add('m1', 'arrays', 'Medium')

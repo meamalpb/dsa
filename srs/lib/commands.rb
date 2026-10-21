@@ -59,6 +59,19 @@ module Srs
       save
     end
 
+    # `start <file or slug>`: practice a problem you pick. It gets a slot today (an extra one
+    # unless it's already in the session) and is graded like any other.
+    def practice(target)
+      slug = find_slug(target)
+      @scheduler.session
+      slot, entry = @scheduler.add_chosen(slug)
+      name = @problems[slug]['name']
+      raise Error, "#{name} is slot #{slot} today, already graded (#{entry['grade']})." if entry['grade']
+
+      @out.puts "#{name} is slot #{slot} — when done: bin/srs grade #{slot} again|hard|good|easy"
+      start(slot)
+    end
+
     def grade(slot, grade)
       raise Error, "Grade must be one of: #{Sm2::QUALITY.keys.join(', ')}" unless Sm2::QUALITY.key?(grade)
 
@@ -114,6 +127,18 @@ module Srs
       raise Error, "Slot #{slot} is empty today." unless entry['slug']
 
       entry
+    end
+
+    # A slug, or a problem's file (relative to here or the repo root, absolute, or its .attempt.rb).
+    def find_slug(target)
+      return target if @problems.key?(target)
+
+      files = [File.expand_path(target), File.join(ROOT, target)].map do |path|
+        path.delete_prefix("#{ROOT}/").sub(/\.attempt\.rb\z/, '.rb')
+      end
+      slug, = @problems.find { |_, p| files.include?(p['file']) }
+      slug or raise Error, "#{target} isn't on the sheet — give its file " \
+                           '(e.g. linked_list/medium/reorder_list.rb) or slug.'
     end
 
     def unlock_bonus
