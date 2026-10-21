@@ -44,26 +44,30 @@ problems:
     - date: 2026-10-15
       grade: easy
   group-anagrams:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-25
-    next_review: 2026-10-01
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-22
+    next_review: 2026-11-07
     history:
     - date: 2026-03-15
       grade: seed
     - date: 2026-09-25
       grade: easy
+    - date: 2026-10-22
+      grade: easy
   top-k-frequent-elements:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-27
-    next_review: 2026-10-03
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-22
+    next_review: 2026-11-07
     history:
     - date: 2026-03-15
       grade: seed
     - date: 2026-09-27
+      grade: easy
+    - date: 2026-10-22
       grade: easy
   product-of-array-except-self:
     reps: 2
@@ -147,15 +151,17 @@ problems:
     - date: 2026-10-21
       grade: easy
   longest-substring-without-repeating-characters:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-10-01
-    next_review: 2026-10-07
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-10-22
+    next_review: 2026-11-07
     history:
     - date: 2026-03-25
       grade: seed
     - date: 2026-10-01
+      grade: easy
+    - date: 2026-10-22
       grade: easy
   longest-repeating-character-replacement:
     reps: 2
@@ -363,16 +369,18 @@ problems:
     - date: 2026-07-21
       grade: seed
   merge-intervals:
-    reps: 2
-    ease: 2.36
-    interval: 6
-    last_reviewed: 2026-10-03
-    next_review: 2026-10-09
+    reps: 3
+    ease: 2.46
+    interval: 15
+    last_reviewed: 2026-10-22
+    next_review: 2026-11-06
     history:
     - date: 2026-07-17
       grade: seed
     - date: 2026-10-03
       grade: hard
+    - date: 2026-10-22
+      grade: easy
   valid-sudoku:
     reps: 1
     ease: 2.5
@@ -480,85 +488,15 @@ problems:
 last_new_on: 2026-10-21
 next_forced_pool: easy
 session:
-  date: 2026-10-21
+  date: 2026-10-28
   slots:
     B:
-      slug: evaluate-reverse-polish-notation
+      slug: generate-parentheses
       kind: new
       forced: true
-      grade: again
+      grade:
     A:
-      slug: balanced-binary-tree
-      kind: review
-      forced: false
-      grade: easy
-    C:
-      slug: same-tree
-      kind: review
-      forced: false
-      grade: easy
-    D:
-      slug: valid-parentheses
-      kind: review
-      forced: false
-      grade: easy
-    E:
-      slug: best-time-to-buy-and-sell-stock
-      kind: review
-      forced: false
-      grade: easy
-    F:
-      slug: binary-search
-      kind: review
-      forced: false
-      grade: easy
-    G:
-      slug: subtree-of-another-tree
-      kind: review
-      forced: false
-      grade: good
-    H:
-      slug: reverse-linked-list
-      kind: review
-      forced: false
-      grade: easy
-    I:
-      slug: merge-two-sorted-lists
-      kind: review
-      forced: false
-      grade: easy
-    J:
-      slug: linked-list-cycle
-      kind: review
-      forced: false
-      grade: easy
-    K:
-      slug: invert-binary-tree
-      kind: review
-      forced: false
-      grade: easy
-    L:
-      slug: maximum-depth-of-binary-tree
-      kind: review
-      forced: false
-      grade: easy
-    M:
-      slug: contains-duplicate
-      kind: review
-      forced: false
-      grade: easy
-    "N":
-      slug: valid-anagram
-      kind: review
-      forced: false
-      grade: easy
-    O:
       slug: diameter-of-binary-tree
       kind: review
       forced: false
-      grade: again
-    P:
-      slug: daily-temperatures
-      kind: review
-      forced: false
-      grade: easy
+      grade:

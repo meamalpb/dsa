@@ -38,6 +38,7 @@ module Srs
       due = (card['next_review'] - @today).to_i
       timing = if due.negative? then "#{-due}d overdue"
                elsif due.zero? then 'due today'
+               elsif entry['chosen'] then "due in #{due}d — picked by you"
                else "due in #{due}d — nothing due in this pool, so reviewing early"
                end
       "last done #{(@today - card['last_reviewed']).to_i}d ago, #{timing}"

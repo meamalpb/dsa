@@ -12,6 +12,7 @@ The rules (slots, pace, unlock thresholds, review spacing) are set in [config.ym
 ```sh
 bin/srs today            # today's slots A (Easy) and B (Medium/Hard)
 bin/srs start A          # new problem → scaffold file; review → name.attempt.rb next to the original
+bin/srs start linked_list/medium/reorder_list.rb   # practice any problem you pick (file or slug): extra slot today, grade it like the others
 bin/srs grade A good     # again | hard | good | easy — `easy` unlocks a bonus slot C
 bin/srs more [new|old] [easy|medium|hard|all]   # all graded? extra slot D, E, …: new problem (default; `grade` also offers this) or most overdue review, optionally only of one difficulty
 bin/srs status           # coverage per topic, what's open/locked, what's due

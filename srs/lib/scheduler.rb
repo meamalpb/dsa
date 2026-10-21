@@ -71,6 +71,16 @@ module Srs
       add_extra(entry(slug, 'review')) if slug
     end
 
+    # A problem the user picked (`start <file>`), outside the daily rules: no unlock or due-date
+    # checks. Reuses its slot if it's already in today's session, else adds an extra one.
+    # Returns [slot, entry].
+    def add_chosen(slug)
+      existing = slots.find { |_, e| e['slug'] == slug }
+      return existing if existing
+
+      add_extra(entry(slug, @progress.seen?(slug) ? 'review' : 'new').merge('chosen' => true))
+    end
+
     def all_graded?
       slots.values.all? { |e| e['grade'] || e['slug'].nil? }
     end
@@ -119,7 +129,7 @@ module Srs
 
     def extra_count
       reserved = daily_slots.keys + bonus_slots
-      slots.count { |k, e| !reserved.include?(k) && e['kind'] == 'new' }
+      slots.count { |k, e| !reserved.include?(k) && e['kind'] == 'new' && !e['chosen'] }
     end
 
     # Rule 1: put a new problem in the slot for next_forced_pool, or the next pool's slot if
