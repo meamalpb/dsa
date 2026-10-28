@@ -437,16 +437,18 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-09-30
   balanced-binary-tree:
-    reps: 2
-    ease: 2.7
-    interval: 6
+    reps: 3
+    ease: 2.8
+    interval: 17
     history:
     - date: 2026-09-30
       grade: easy
     - date: 2026-10-21
       grade: easy
-    last_reviewed: 2026-10-21
-    next_review: 2026-10-27
+    - date: 2026-10-28
+      grade: easy
+    last_reviewed: 2026-10-28
+    next_review: 2026-11-14
   same-tree:
     reps: 2
     ease: 2.6
@@ -496,6 +498,15 @@ problems:
       grade: good
     last_reviewed: 2026-10-28
     next_review: 2026-10-29
+  car-fleet:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-10-28
+      grade: easy
+    last_reviewed: 2026-10-28
+    next_review: 2026-10-29
 last_new_on: 2026-10-28
 next_forced_pool: easy
 session:
@@ -511,8 +522,13 @@ session:
       kind: review
       forced: false
       grade: easy
+    D:
+      slug: car-fleet
+      kind: new
+      forced: false
+      grade: easy
     C:
       slug: balanced-binary-tree
       kind: review
       forced: false
-      grade:
+      grade: easy
