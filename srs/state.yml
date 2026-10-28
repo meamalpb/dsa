@@ -413,8 +413,8 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-10-03
   diameter-of-binary-tree:
-    reps: 0
-    ease: 1.96
+    reps: 1
+    ease: 2.06
     interval: 1
     history:
     - date: 2026-09-29
@@ -423,8 +423,10 @@ problems:
       grade: good
     - date: 2026-10-21
       grade: again
-    last_reviewed: 2026-10-21
-    next_review: 2026-10-22
+    - date: 2026-10-28
+      grade: easy
+    last_reviewed: 2026-10-28
+    next_review: 2026-10-29
   trapping-rain-water:
     reps: 1
     ease: 2.5
@@ -485,7 +487,16 @@ problems:
       grade: again
     last_reviewed: 2026-10-21
     next_review: 2026-10-22
-last_new_on: 2026-10-21
+  generate-parentheses:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-10-28
+      grade: good
+    last_reviewed: 2026-10-28
+    next_review: 2026-10-29
+last_new_on: 2026-10-28
 next_forced_pool: easy
 session:
   date: 2026-10-28
@@ -494,9 +505,14 @@ session:
       slug: generate-parentheses
       kind: new
       forced: true
-      grade:
+      grade: good
     A:
       slug: diameter-of-binary-tree
+      kind: review
+      forced: false
+      grade: easy
+    C:
+      slug: balanced-binary-tree
       kind: review
       forced: false
       grade:
