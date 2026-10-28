@@ -507,6 +507,15 @@ problems:
       grade: easy
     last_reviewed: 2026-10-28
     next_review: 2026-10-29
+  koko-eating-bananas:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-10-28
+      grade: easy
+    last_reviewed: 2026-10-28
+    next_review: 2026-10-29
 last_new_on: 2026-10-28
 next_forced_pool: easy
 session:
@@ -530,5 +539,10 @@ session:
     C:
       slug: balanced-binary-tree
       kind: review
+      forced: false
+      grade: easy
+    E:
+      slug: koko-eating-bananas
+      kind: new
       forced: false
       grade: easy
