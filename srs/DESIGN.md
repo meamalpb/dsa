@@ -1,36 +1,40 @@
 # SRS — spaced repetition for the NeetCode 150 sheet
 
-Status: **built** (2026-09-23). Usage lives in [README.md](README.md).
+Status: **built** — Go port of the original Ruby tool (still on the `master` branch). Usage lives in
+[README.md](README.md).
 
 ## 1. What it does
 
-A Ruby CLI (`bin/srs`, stdlib only — Ruby 3.1.6, `csv`/`yaml`/`minitest` all available) that
-tells you which 2–3 LeetCode problems to do today, mixing reviews of problems you've already
-solved with new ones, using SM-2 scheduling and a topic roadmap so new problems arrive in a
-sensible order.
+A Go CLI (`srs`; the standard library plus `gopkg.in/yaml.v3`, Go 1.23+) that tells you which
+2–3 LeetCode problems to do today, mixing reviews of problems you've already solved with new ones,
+using SM-2 scheduling and a topic roadmap so new problems arrive in a sensible order. You solve them
+in Go.
 
 ```
-bin/srs setup            # one-time (re-runnable), builds the data files
-bin/srs today            # show today's slots A, B (and C if unlocked)
-bin/srs start A          # create the file to work in for slot A
-bin/srs grade A good     # record how it went: again | hard | good | easy
-bin/srs status           # coverage per topic, open/locked topics, due counts
+srs setup            # rebuild the data files (problems.yml ships with the repo, so only if you need to)
+srs today            # show today's slots A, B (and C if unlocked)
+srs start A          # create the files to work in for slot A
+srs grade A good     # record how it went: again | hard | good | easy
+srs status           # coverage per topic, open/locked topics, due counts
 ```
 
 ## 2. Files
 
 ```
-bin/srs                  # entry point
+cmd/srs/main.go          # entry point
+internal/srs/*.go        # the tool: setup, sm2, scheduler, scaffold, commands, cli, …
+internal/srs/*_test.go   # its tests — run with `go test ./...`
+ds/                      # ListNode / TreeNode and helpers for your own problems (§8)
 srs/DESIGN.md            # this file
 srs/config.yml           # tunable rules (§12) — optional, defaults built in
 srs/problems.yml         # facts about each problem — generated, rebuildable
 srs/state.yml            # your review history — precious, never regenerated
-srs/lib/*.rb             # setup, sm2, scheduler, scaffold, commands, cli, …
-srs/test/*_test.rb       # minitest — run with `ruby srs/test/run_all.rb`
+<topic>/<difficulty>/<problem>/   # your solutions, one folder per problem (§4, §8)
+attempts/                # blank copies for reviews (gitignored, §8)
 ```
 
 Both YAML files are committed (state.yml is your only record of reviews, so it should be backed
-up in git). `.gitignore` gets `*.attempt.rb`.
+up in git). `.gitignore` has `attempts/` and `bin/`.
 
 ### problems.yml — one entry per sheet row, keyed by LeetCode slug
 
@@ -41,11 +45,12 @@ two-sum:
   difficulty: Easy              # from LeetCode, fetched once at setup
   paid_only: false
   link: https://leetcode.com/problems/two-sum/
-  alt_link: null                # NeetCode link for premium problems
-  file: arrays_and_hashing/easy/two_sum.rb
+  file: arrays_and_hashing/easy/two_sum/two_sum.go
   order: 3                      # row position in the sheet
   notes: "use hash map to instantly check for difference value..."
 ```
+
+Premium problems also have an `alt_link` (NeetCode's free version).
 
 ### state.yml
 
@@ -58,70 +63,47 @@ problems:
     last_reviewed: 2026-03-14
     next_review: 2026-03-15
     history:
-      - { date: 2026-03-14, grade: seed }
+      - date: 2026-03-14
+        grade: good
 last_new_on: 2026-09-20         # date a *new* problem was last graded
 next_forced_pool: medium_hard   # alternates easy / medium_hard
 session:                        # today's picks, so `today` is stable
   date: 2026-09-23
-  bonus_unlocked: false
   slots:
-    A: { slug: two-sum, kind: review, grade: null }
-    B: { slug: valid-sudoku, kind: new, grade: null }
+    A: { slug: two-sum, kind: review }
+    B: { slug: valid-sudoku, kind: new }
 ```
 
 A problem is **seen** if it has an entry under `problems:` in state.yml.
 
-## 3. Setup (`bin/srs setup`)
+## 3. Setup (`srs setup`)
+
+`problems.yml` is committed, so a fresh clone is ready to use and never needs this. Run it to rebuild
+the file, or to count solutions you wrote outside srs.
 
 1. **Fetch the sheet once** as CSV from the published URL. The sheet is static, so this is the
    only time it's read. Slug = the `/problems/<slug>/` part of the Link (this also handles the
    `accounts/login/?next=/problems/encode-and-decode-strings/` link).
-2. **Map local solutions**: scan every `.rb` outside `codeforces/` and `random/` for the
-   `# https://leetcode.com/problems/<slug>/` header. Files whose slug isn't on the sheet are
-   ignored (13 of them: `is_subsequence`, `baseball-game`, `asteroid_collision`, …).
+2. **Map local solutions**: scan every `.go` file (not `_test.go`) inside the topic folders for the
+   `// https://leetcode.com/problems/<slug>/` header. Files whose slug isn't on the sheet are ignored.
 3. **Fetch difficulty + premium flag** for each slug via LeetCode's GraphQL, 1 request/second.
    robots.txt disallows `/graphql` for crawlers, so this happens only at setup and only for
    slugs missing from problems.yml — `today`/`start`/`grade` never touch the network.
 4. **Premium problems** (Encode and Decode Strings, Meeting Rooms I/II, Walls and Gates,
    Graph Valid Tree, Number of Connected Components, Alien Dictionary — confirmed by the flag)
    get an `alt_link` to NeetCode's free version. NeetCode slugs don't follow LeetCode's, so
-   the 7 are mapped by hand in `Leetcode::NEETCODE_SLUGS`.
-   One sheet link is out of date (`coin-change-2`, now `coin-change-ii`); `Sheet::SLUG_FIXES`
-   corrects it.
-5. **Create missing folders** `<topic_folder>/<easy|medium|hard>/` for every problem that
-   needs one.
-6. **Seed state.yml** for every matched file:
+   the 7 are mapped by hand in `neetcodeSlugs` (`leetcode.go`).
+   One sheet link is out of date (`coin-change-2`, now `coin-change-ii`); `slugFixes`
+   (`sheet.go`) corrects it.
+5. **Seed state.yml** for every matched file that contains a `func`:
    `reps: 1, ease: 2.5, interval: 1, last_reviewed: <date the file was first committed>`,
    so all of them start overdue and come back oldest-first. First commit, not last: a later
-   commit may just be a cleanup (like adding a header). Existing entries are never touched.
-7. **Print** the match list and the coverage table (§4) and stop, so you can check them.
+   commit may just be a cleanup. A file with no `func` is an unsolved `srs start` scaffold and is
+   skipped. Existing entries are never touched.
+6. **Print** the match list and the coverage table (§4) and stop, so you can check them.
 
-Re-running setup is safe: it only adds what's missing.
-
-### Header audit (done 2026-09-23, before setup)
-
-- Every solution file outside `codeforces/` has a `# https://leetcode.com/problems/<slug>/`
-  header, and each slug was checked against LeetCode: it exists, and LeetCode's Ruby method
-  name is defined in the file. No wrong links.
-- Headers were added to `tree/easy/invert_binary_tree.rb`,
-  `tree/medium/lowest_common_ancestor.rb` (the BST version, #235 — the code relies on BST
-  ordering), `tree/easy/preorder_traversal.rb` and `tree/easy/postorder_traversal.rb`.
-- Setup relies only on the URL line. The path comment above it isn't read, so stale ones
-  (e.g. `# arrays/easy/two_sum.rb` in `arrays_and_hashing/`) don't matter.
-
-### What the match currently looks like (before difficulty fetch)
-
-| Topic | Solved / on sheet |
-|---|---|
-| Arrays | 7 / 9 (incl. Longest Consecutive Sequence, see §4) |
-| Two Pointers | 4 / 5 |
-| Sliding Window | 5 / 6 |
-| Stack | 3 / 7 |
-| Binary Search | 4 / 7 |
-| Linked List | 5 / 11 |
-| Trees | 4 / 15 |
-| Intervals | 0 / 5 (Merge Intervals counts under Arrays, see §4) |
-| Everything else | 0 |
+Re-running setup is safe: it only adds what's missing. Folders aren't created here; `start` makes
+them when it needs them.
 
 ## 4. Topics and folders
 
@@ -133,7 +115,7 @@ Re-running setup is safe: it only adds what's missing.
 | Stack | stack | `stack/` |
 | Binary Search | binary_search | `binary_search/` |
 | Linked List | linked_list | `linked_list/` |
-| Trees | trees | `tree/` (existing name kept) |
+| Trees | trees | `trees/` |
 | Tries | tries | `tries/` |
 | Heap / Priority Queue | heap | `heap/` |
 | Backtracking | backtracking | `backtracking/` |
@@ -147,14 +129,14 @@ Re-running setup is safe: it only adds what's missing.
 | Bit Manipulation | bit_manipulation | `bit_manipulation/` |
 
 \* The sheet files Longest Consecutive Sequence under "Graph"; it's an Arrays problem in
-NeetCode's list and your file is in `arrays_and_hashing/`.
+NeetCode's list.
 
 **File location wins**: if a solution file exists, the problem's topic is the topic of the
-folder it lives in (so `merge_intervals.rb` counts toward Arrays, not Intervals). Otherwise
-the sheet category decides.
+folder it lives in. Otherwise the sheet category decides.
 
-New file path: `<folder>/<difficulty>/<slug with - → _>.rb`,
-e.g. `graphs/medium/number_of_islands.rb`.
+New file path: `<folder>/<difficulty>/<slug with - → _>/<slug with - → _>.go`,
+e.g. `graphs/medium/number_of_islands/number_of_islands.go`. Every problem gets its own folder
+because every problem is its own Go package (§8).
 
 ## 5. Scheduling: SM-2
 
@@ -190,7 +172,7 @@ Example:
 ## 6. Progression: which new problems are eligible
 
 The 80% thresholds and "Easy + Medium" are the defaults for `unlock.*` in config.yml (§12).
-The roadmap itself stays in `topics.rb`.
+The roadmap itself stays in `topics.go`.
 
 **Roadmap** (NeetCode's), topic → topics it unlocks:
 
@@ -218,13 +200,7 @@ session, and — if it's Hard — at least 80% of its topic's Mediums are seen.
 **Order among eligible new problems**: topics in sheet order (which follows the roadmap), then
 row order within the topic. Effectively: finish the earliest open topic before moving on.
 
-With today's data: Tries/Heap/Backtracking stay locked until Trees reaches 80%, so the next
-new problems come from Arrays (Valid Sudoku, Encode and Decode Strings), then the Hards of
-Two Pointers and Sliding Window (their Mediums are all seen), then Stack, Binary Search,
-Linked List and Trees. The easy pool has nothing unseen before Trees, so slot A's first new
-problems will be Trees easies.
-
-## 7. Daily slots (`bin/srs today`)
+## 7. Daily slots (`srs today`)
 
 The slots, pools, bonus rule, the 2-day forced-new rule and the review order below are the
 defaults from config.yml (§12).
@@ -249,7 +225,7 @@ Each slot is filled by the first rule that gives a problem:
 4. **Early review** — the problem in this pool with the nearest `next_review`.
 5. Otherwise the slot is empty.
 
-Once every slot is graded, `bin/srs more` adds extra slots D, E, …: `more` / `more new` takes the
+Once every slot is graded, `srs more` adds extra slots D, E, …: `more` / `more new` takes the
 next eligible new problem (alternating pools), `more old` takes the most overdue due review from
 either pool — a way to clear a review backlog without giving up the daily new problem.
 Either form takes an optional difficulty (`easy`, `medium`, `hard`; `all` = any, the default), in any
@@ -264,109 +240,112 @@ Output:
 ```
 2026-09-23 — 2 problems (grade one `easy` to unlock a 3rd)
 
-A  REVIEW  Contains Duplicate · Easy · arrays       last done 193d ago, 192d overdue
+A  REVIEW  Contains Duplicate · Easy · arrays
+   last done 6d ago, 5d overdue
    https://leetcode.com/problems/contains-duplicate/
-   arrays_and_hashing/easy/contains_duplicate.rb
+   attempts/arrays_and_hashing/easy/contains_duplicate/contains_duplicate.go  (original: arrays_and_hashing/easy/contains_duplicate/contains_duplicate.go)  → go test ./attempts/arrays_and_hashing/easy/contains_duplicate
    notes: hashset to get unique values in array, to check for duplicates easily
 
 B  NEW     Valid Sudoku · Medium · arrays
    https://leetcode.com/problems/valid-sudoku/
-   arrays_and_hashing/medium/valid_sudoku.rb  (run `srs start B`)
+   arrays_and_hashing/medium/valid_sudoku/valid_sudoku.go  (run `srs start B`)
 ```
 
-## 8. Working a slot (`bin/srs start A`)
+## 8. Working a slot (`srs start A`)
 
-**New problem** → create the file (if it doesn't already exist from an abandoned start):
+Every problem is its own package in its own folder, always named `solution`:
 
-```ruby
-# frozen_string_literal: true
-
-# graphs/medium/number_of_islands.rb
-
-# Problem
-# https://leetcode.com/problems/number-of-islands/
-
-if __FILE__ == $PROGRAM_NAME
-end
+```
+arrays_and_hashing/easy/two_sum/two_sum.go        # the solution
+arrays_and_hashing/easy/two_sum/two_sum_test.go   # table-driven tests
 ```
 
-**Review** → create `<name>.attempt.rb` **next to** the original (same folder, so
-`require_relative '../helpers/utils'` still works). The original is never modified.
-The attempt file is built from the original by keeping:
+One package per problem keeps names from clashing (two problems can both have a `dfs`), and `solution`
+for all of them sidesteps folder names that aren't valid package names, like `3sum`. Run a problem with
+`go test ./arrays_and_hashing/easy/two_sum`.
 
-- everything before the first top-level `def` / `class` / `module` (header, link,
-  `require_relative`, commented `TreeNode`/`ListNode` definitions, `@param`/`@return` hints),
-  minus `# Approach …` banners and `# ----` separator lines;
-- an **empty stub** for each top-level `def`/`class` (same signature, empty body), so the test
-  block still has something to call;
-- any top-level `def runner…` helper and the `if __FILE__ == $PROGRAM_NAME … end` block with
-  your test cases.
+**New problem** → create both files (only if the solution file doesn't already exist from an
+abandoned start):
 
-This relies on your files being rubocop-formatted (top-level `def`/`end` at column 0). If a
-file doesn't fit, fallback: header + test block only.
+```go
+// graphs/medium/number_of_islands/number_of_islands.go
+//
+// Problem
+// https://leetcode.com/problems/number-of-islands/
 
-Example — `contains_duplicate.attempt.rb`:
-
-```ruby
-# frozen_string_literal: true
-
-# arrays/easy/contains_duplicate.rb
-
-# Problem
-# https://leetcode.com/problems/contains-duplicate/description/
-
-# @param {Integer[]} nums
-# @return {Boolean}
-
-def contains_duplicate(nums)
-end
-
-def contains_duplicate_uniq(nums)
-end
-
-if __FILE__ == $PROGRAM_NAME
-  puts contains_duplicate([1, 2, 3])
-  ...
-end
+package solution
 ```
 
-`start` also prints the link and the file path.
+plus a `_test.go` with an empty table-driven `TestSolution` to fill in. Setup finds your solution
+by that URL line, so keep it.
 
-**A problem you pick** → `bin/srs start <file or slug>` (e.g. `linked_list/medium/reorder_list.rb`,
-its `.attempt.rb`, an absolute path, or `reorder-list`). A single letter is still a slot. The problem
-gets the next extra slot today (or keeps its slot if it's already in the session), skipping the
-usual rules: no waiting for the day's slots to be graded, no unlock or due-date checks. Then it's
-started like any slot — attempt file if you've seen it, scaffold if not — and `grade` treats it like
-any other (SM-2 updates, and a new one resets the new-problem clock). Picked problems don't shift
-the pool rotation of `more`.
+**Review** → copy the problem into `attempts/<same path>/` (gitignored). The original is never modified.
+The attempt keeps everything that isn't the answer:
 
-## 9. Grading (`bin/srs grade A good`)
+- the header comment, `package`, the imports the remaining code still needs, and any `const`/`var`;
+- **every function with its body replaced by `panic("TODO")`** — same signature, so it compiles and the
+  tests have something to call;
+- **a type that has methods** (a design problem like `MinStack`, `Trie`) loses its fields, since the
+  fields are the answer; plain types such as a `ListNode` you defined yourself are kept;
+- the `_test.go`, copied unchanged — it fails with the `TODO` panic until you solve it;
+- not the `// ---` and `// Approach …` section comments.
+
+`go/parser` gives the positions and the text is edited in place, rather than printing the syntax tree back
+out, because that misplaces comments that sat inside removed bodies. If the original doesn't parse
+(say you're mid-edit), the fallback is just its header and `package` line.
+
+`start` prints the link and the `go test` command for the folder.
+
+**A problem you pick** → `srs start <file, folder or slug>` (e.g.
+`linked_list/medium/reorder_list/reorder_list.go`, `linked_list/medium/reorder_list`, its attempt, an
+absolute path, or `reorder-list`). A single letter is still a slot. The problem gets the next extra slot
+today (or keeps its slot if it's already in the session), skipping the usual rules: no waiting for the
+day's slots to be graded, no unlock or due-date checks. Then it's started like any slot — attempt if
+you've seen it, scaffold if not — and `grade` treats it like any other (SM-2 updates, and a new one
+resets the new-problem clock). Picked problems don't shift the pool rotation of `more`.
+
+**Linked lists and trees** → `import "dsa/ds"` for `ds.ListNode`, `ds.TreeNode` and builders:
+`ds.NewList(1, 2, 3)`, `ds.NewTree(3, 9, 20, ds.Null, ds.Null, 15, 7)`, and `.Slice()` /
+`.LevelOrder()` to read them back for comparing. Put `type ListNode = ds.ListNode` at the top of the
+file to keep LeetCode's signature, and drop it (and the import) when you paste into LeetCode.
+
+## 9. Grading (`srs grade A good`)
 
 1. Apply SM-2 (§5), append to `history`, save.
 2. If it was a new problem: set `last_new_on = today`, flip `next_forced_pool` if this was the
    forced pick.
 3. If the grade is `easy` and the bonus isn't unlocked yet: unlock slot C and fill it (§7).
 4. For reviews: print the original's path to compare against, then ask
-   `delete attempt file? [Y/n]`. Keep it only if you want to copy a new approach into the
+   `Delete attempts/<folder>? [Y/n]`. Keep it only if you want to copy a new approach into the
    original yourself.
 5. Print the next review date.
 
 Grading a slot twice, or grading an empty/locked slot, is refused.
 
-## 10. `bin/srs status`
+## 10. `srs status`
 
 Per topic: seen / total, Easy+Medium % seen, open or locked. Plus: due today, overdue backlog,
 days since last new problem.
 
-`bin/srs overdue` lists the backlog itself — one row per card whose `next_review` has passed,
+`srs overdue` lists the backlog itself — one row per card whose `next_review` has passed,
 sorted oldest-due-first, with topic, difficulty, days overdue, last reviewed date, reps, and ease.
 
-## 11. Build order (each step stops for your review)
+## 11. Trying things out safely
 
-1. `setup` — produces problems.yml + seeded state.yml, prints matches and coverage.
-2. SM-2 + slot picking, with minitest covering the formula, the forced-new rule, the unlock
-   rule and Hard gating.
-3. `today`, `start`, `grade`, `status`, and the `.gitignore` line.
+The environment variables below let you experiment without touching your real history. `SRS_ROOT`
+overrides where the repo is found (normally: walk up from the current folder to the one with `go.mod` and
+`srs/`, like git finds `.git`).
+
+```sh
+cp srs/state.yml /tmp/try.yml
+SRS_STATE=/tmp/try.yml SRS_TODAY=2026-10-01 srs today    # a copy of your history, a pretend date
+SRS_CONFIG=/tmp/my.yml SRS_STATE=/tmp/try.yml srs today  # try different settings
+go test ./...                                            # the tests
+```
+
+The tests cover SM-2 (including the worked example in §5), the scheduler rules, config validation, the
+attempt generator (the stubs are type-checked, and one test runs the real `go test` on an attempt and its
+original), the YAML round-trip, and a two-day run through the CLI.
 
 ## 12. Configuration (`srs/config.yml`)
 
@@ -398,5 +377,5 @@ Changing a setting affects only future picks and grades; intervals already in st
 they were until that problem is next graded. The session already built for today is kept, so
 slot changes show up tomorrow.
 
-Not configurable: the grade → quality mapping (§5), the roadmap (`topics.rb`), and the
+Not configurable: the grade → quality mapping (§5), the roadmap (`topics.go`), and the
 setup-time sheet and LeetCode settings.
