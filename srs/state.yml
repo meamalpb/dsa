@@ -450,27 +450,31 @@ problems:
     last_reviewed: 2026-10-28
     next_review: 2026-11-14
   same-tree:
-    reps: 2
-    ease: 2.6
-    interval: 6
+    reps: 3
+    ease: 2.7
+    interval: 16
     history:
     - date: 2026-10-01
       grade: good
     - date: 2026-10-21
       grade: easy
-    last_reviewed: 2026-10-21
-    next_review: 2026-10-27
+    - date: 2026-10-29
+      grade: easy
+    last_reviewed: 2026-10-29
+    next_review: 2026-11-14
   subtree-of-another-tree:
-    reps: 2
-    ease: 2.5
-    interval: 6
+    reps: 3
+    ease: 2.6
+    interval: 16
     history:
     - date: 2026-10-03
       grade: good
     - date: 2026-10-21
       grade: good
-    last_reviewed: 2026-10-21
-    next_review: 2026-10-27
+    - date: 2026-10-29
+      grade: easy
+    last_reviewed: 2026-10-29
+    next_review: 2026-11-14
   sliding-window-maximum:
     reps: 1
     ease: 2.5
@@ -516,33 +520,47 @@ problems:
       grade: easy
     last_reviewed: 2026-10-28
     next_review: 2026-10-29
-last_new_on: 2026-10-28
+  time-based-key-value-store:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-10-29
+      grade: easy
+    last_reviewed: 2026-10-29
+    next_review: 2026-10-30
+  largest-rectangle-in-histogram:
+    reps: 1
+    ease: 2.36
+    interval: 1
+    history:
+    - date: 2026-10-29
+      grade: hard
+    last_reviewed: 2026-10-29
+    next_review: 2026-10-30
+last_new_on: 2026-10-29
 next_forced_pool: easy
 session:
-  date: 2026-10-28
+  date: 2026-10-29
   slots:
     B:
-      slug: generate-parentheses
+      slug: largest-rectangle-in-histogram
       kind: new
       forced: true
-      grade: good
+      grade: hard
     A:
-      slug: diameter-of-binary-tree
+      slug: same-tree
       kind: review
       forced: false
       grade: easy
     D:
-      slug: car-fleet
+      slug: time-based-key-value-store
       kind: new
       forced: false
       grade: easy
+      chosen: true
     C:
-      slug: balanced-binary-tree
+      slug: subtree-of-another-tree
       kind: review
-      forced: false
-      grade: easy
-    E:
-      slug: koko-eating-bananas
-      kind: new
       forced: false
       grade: easy
