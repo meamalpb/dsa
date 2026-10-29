@@ -413,9 +413,9 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-10-03
   diameter-of-binary-tree:
-    reps: 1
-    ease: 2.06
-    interval: 1
+    reps: 2
+    ease: 2.16
+    interval: 6
     history:
     - date: 2026-09-29
       grade: good
@@ -425,8 +425,10 @@ problems:
       grade: again
     - date: 2026-10-28
       grade: easy
-    last_reviewed: 2026-10-28
-    next_review: 2026-10-29
+    - date: 2026-10-29
+      grade: easy
+    last_reviewed: 2026-10-29
+    next_review: 2026-11-04
   trapping-rain-water:
     reps: 1
     ease: 2.5
@@ -595,5 +597,10 @@ session:
     G:
       slug: diameter-of-binary-tree
       kind: review
+      forced: false
+      grade: easy
+    H:
+      slug: find-the-duplicate-number
+      kind: new
       forced: false
       grade:
