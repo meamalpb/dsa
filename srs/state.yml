@@ -547,6 +547,15 @@ problems:
       grade: easy
     last_reviewed: 2026-10-29
     next_review: 2026-10-30
+  add-two-numbers:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-10-29
+      grade: good
+    last_reviewed: 2026-10-29
+    next_review: 2026-10-30
 last_new_on: 2026-10-29
 next_forced_pool: easy
 session:
@@ -581,5 +590,10 @@ session:
     F:
       slug: add-two-numbers
       kind: new
+      forced: false
+      grade: good
+    G:
+      slug: diameter-of-binary-tree
+      kind: review
       forced: false
       grade:
