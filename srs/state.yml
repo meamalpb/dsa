@@ -558,6 +558,15 @@ problems:
       grade: good
     last_reviewed: 2026-10-29
     next_review: 2026-10-30
+  find-the-duplicate-number:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-10-29
+      grade: easy
+    last_reviewed: 2026-10-29
+    next_review: 2026-10-30
 last_new_on: 2026-10-29
 next_forced_pool: easy
 session:
@@ -603,4 +612,4 @@ session:
       slug: find-the-duplicate-number
       kind: new
       forced: false
-      grade:
+      grade: easy
