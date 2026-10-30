@@ -598,6 +598,15 @@ problems:
       grade: good
     last_reviewed: 2026-10-30
     next_review: 2026-10-31
+  count-good-nodes-in-binary-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-10-30
+      grade: good
+    last_reviewed: 2026-10-30
+    next_review: 2026-10-31
 last_new_on: 2026-10-30
 next_forced_pool: easy
 session:
@@ -625,6 +634,11 @@ session:
       grade: easy
     E:
       slug: binary-tree-right-side-view
+      kind: new
+      forced: false
+      grade: good
+    F:
+      slug: count-good-nodes-in-binary-tree
       kind: new
       forced: false
       grade: good
