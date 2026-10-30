@@ -31,17 +31,19 @@ problems:
     - date: 2026-10-21
       grade: easy
   two-sum:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-15
-    next_review: 2026-10-31
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-10-30
+    next_review: 2026-12-14
     history:
     - date: 2026-03-14
       grade: seed
     - date: 2026-09-25
       grade: easy
     - date: 2026-10-15
+      grade: easy
+    - date: 2026-10-30
       grade: easy
   group-anagrams:
     reps: 3
@@ -92,17 +94,19 @@ problems:
     - date: 2026-09-30
       grade: easy
   valid-palindrome:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-15
-    next_review: 2026-10-31
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-10-30
+    next_review: 2026-12-14
     history:
     - date: 2026-03-16
       grade: seed
     - date: 2026-09-25
       grade: easy
     - date: 2026-10-15
+      grade: easy
+    - date: 2026-10-30
       grade: easy
   two-sum-ii-input-array-is-sorted:
     reps: 2
@@ -567,49 +571,46 @@ problems:
       grade: easy
     last_reviewed: 2026-10-29
     next_review: 2026-10-30
-last_new_on: 2026-10-29
+  median-of-two-sorted-arrays:
+    reps: 0
+    ease: 1.96
+    interval: 1
+    history:
+    - date: 2026-10-30
+      grade: again
+    last_reviewed: 2026-10-30
+    next_review: 2026-10-31
+  lru-cache:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-10-30
+      grade: easy
+    last_reviewed: 2026-10-30
+    next_review: 2026-10-31
+last_new_on: 2026-10-30
 next_forced_pool: easy
 session:
-  date: 2026-10-29
+  date: 2026-10-30
   slots:
     B:
-      slug: largest-rectangle-in-histogram
+      slug: median-of-two-sorted-arrays
       kind: new
       forced: true
-      grade: hard
+      grade: again
     A:
-      slug: same-tree
-      kind: review
+      slug: two-sum
+      kind: early
+      forced: false
+      grade: easy
+    C:
+      slug: valid-palindrome
+      kind: early
       forced: false
       grade: easy
     D:
-      slug: time-based-key-value-store
-      kind: new
-      forced: false
-      grade: easy
-      chosen: true
-    C:
-      slug: subtree-of-another-tree
-      kind: review
-      forced: false
-      grade: easy
-    E:
-      slug: copy-list-with-random-pointer
-      kind: new
-      forced: false
-      grade: easy
-    F:
-      slug: add-two-numbers
-      kind: new
-      forced: false
-      grade: good
-    G:
-      slug: diameter-of-binary-tree
-      kind: review
-      forced: false
-      grade: easy
-    H:
-      slug: find-the-duplicate-number
+      slug: lru-cache
       kind: new
       forced: false
       grade: easy
