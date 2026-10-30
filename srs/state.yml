@@ -589,6 +589,15 @@ problems:
       grade: easy
     last_reviewed: 2026-10-30
     next_review: 2026-10-31
+  binary-tree-right-side-view:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-10-30
+      grade: good
+    last_reviewed: 2026-10-30
+    next_review: 2026-10-31
 last_new_on: 2026-10-30
 next_forced_pool: easy
 session:
@@ -614,3 +623,8 @@ session:
       kind: new
       forced: false
       grade: easy
+    E:
+      slug: binary-tree-right-side-view
+      kind: new
+      forced: false
+      grade: good
