@@ -1,0 +1,18 @@
+# Settings for the Java track (`bin/srs java …`). Same options as config.yml (listed in
+# DESIGN.md §12); only what differs from the built-in defaults is written here.
+# Try a change safely:  SRS_STATE_JAVA=/tmp/try.yml SRS_TODAY=2026-11-05 bin/srs java today
+
+session:
+  # 3 a day: two Easy, one Medium/Hard. Grading any of them `easy` opens slot D (one more Easy).
+  slots:
+    A: easy
+    B: easy
+    C: medium_hard
+  # Java problems are ones you already solved in Ruby, so a new one is forced every day.
+  new_every_days: 1
+
+# You already know these algorithms; the track is about writing them in Java, so every
+# topic and every Hard is open from the start. New Java problems come in sheet order.
+unlock:
+  topic_ratio: 0
+  hard_ratio: 0

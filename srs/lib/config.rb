@@ -104,7 +104,7 @@ module Srs
   CONFIG_PATH = ENV.fetch('SRS_CONFIG', File.join(ROOT, 'srs', 'config.yml'))
 
   def self.config
-    @config ||= Config.load(CONFIG_PATH)
+    @config ||= Config.load(track.config_path)
   end
 
   # Tests swap in their own settings; nil goes back to the file.

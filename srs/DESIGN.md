@@ -400,3 +400,64 @@ slot changes show up tomorrow.
 
 Not configurable: the grade → quality mapping (§5), the roadmap (`topics.rb`), and the
 setup-time sheet and LeetCode settings.
+
+## 13. The Java track (`bin/srs java …`)
+
+Practice problems you already solved in Ruby again in Java (interviews ask for Java). `java` in
+front of any command switches the tool to the Java track; everything else about the commands
+(`today`, `start`, `grade`, `more`, `status`, `overdue`) is unchanged.
+
+| | Ruby (default) | Java |
+|---|---|---|
+| History | `srs/state.yml` | `srs/state.java.yml` (created by the first `today`) |
+| Settings | `srs/config.yml` | `srs/config.java.yml` (only what differs from the defaults) |
+| Problems | all of `problems.yml` | the ones whose Ruby file exists and has a top-level `def`/`class` |
+| Source file | `foo_bar.rb` | `FooBar.java`, same folder |
+| Review attempt | `foo_bar.attempt.rb` | `FooBarAttempt.java` (class `FooBarAttempt`), gitignored |
+
+The two histories never touch: a Java grade moves only Java intervals, and a problem is "new" in
+Java the first time it is picked there, whatever its Ruby history. Because the Java pool is
+problems you already know, the Java config opens every topic and every Hard from the start
+(`unlock.topic_ratio: 0`, `hard_ratio: 0`); new ones come in sheet order. Slots are A and B
+(Easy), C (Medium/Hard), and bonus D when you grade something `easy`, so 3–4 a day, and a new
+problem is forced every day (`new_every_days: 1`).
+
+`bin/srs java start <slot>` and `bin/srs java start linked_list/medium/reorder_list.rb` (the Ruby
+file, the Java file, or a slug) create the Java file. A script can't translate Ruby, so the file
+is only a stub built from the Ruby original; the solution and the tests are yours to write:
+
+```java
+package linked_list.medium;
+
+// https://leetcode.com/problems/reorder-list/
+
+// TODO: replace Object with the real types
+public class ReorderList {
+    public static Object reorderList(Object head) {
+        return null;
+    }
+
+    public static void main(String[] args) {
+        // tests go here
+    }
+}
+```
+
+- `package` is the folder path, so the file also compiles in an IDE whose source root is the repo
+  root. A folder or file name starting with a digit gets a `_` in front.
+- Each top-level `def` (except `runner` and `pp`) becomes a `public static` method: name in
+  camelCase, arguments as written in Ruby, `Object` for every type and the return type. A file with
+  several approaches gets one stub per approach; delete the ones you don't want.
+- A Ruby `class` named like the file (`min_stack.rb` → `MinStack`) becomes the public class itself
+  (`initialize` → constructor); any other class becomes a `static class` inside it. Methods after a
+  `private` line are left out; `ListNode` and `TreeNode` are not generated.
+- Run it with `java linked_list/medium/ReorderList.java` (Java 21 runs a single source file, so a
+  file can't use another file's classes: define `ListNode` etc. inside the file).
+
+`setup` is not available under `java`: the Java track reads the `problems.yml` that `bin/srs setup`
+built. `SRS_STATE_JAVA` and `SRS_CONFIG_JAVA` are the Java counterparts of `SRS_STATE` and
+`SRS_CONFIG` for trying things out.
+
+Code: `track.rb` (which track is active, its paths, which problems it practices) and
+`java_scaffold.rb` (the file generator); `Commands`, `Scheduler` and `SlotPrinter` take the
+track's problems, state and scaffold, so they didn't need to know about Java.

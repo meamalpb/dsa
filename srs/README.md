@@ -18,6 +18,8 @@ bin/srs more [new|old] [easy|medium|hard|all]   # all graded? extra slot D, E, �
 bin/srs status           # coverage per topic, what's open/locked, what's due
 bin/srs overdue          # every overdue problem, most overdue first, with days late / last done / reps / ease
 bin/srs setup            # one-time: build problems.yml, seed state.yml (safe to re-run)
+bin/srs java today       # the same commands in Java: your Ruby-solved problems again, 3–4 a day, own state
+bin/srs java start linked_list/medium/reorder_list.rb   # makes ReorderList.java (package, link, function stubs) to fill in
 ```
 
 A day looks like: `today` → `start A` → solve it → `grade A good` → same for B.
@@ -44,6 +46,7 @@ ruby srs/test/run_all.rb                                     # tests
 | `problems.yml` | Facts per problem: topic, difficulty, link, file, notes | No — setup regenerates it |
 | `config.yml` | Slots, pools, new-problem pace, unlock thresholds, SM-2 spacing | Yes — every default is listed with a comment |
 | `state.yml` | Your review history and schedule | No — only `grade` writes it. **Commit it**, it's the only record |
+| `config.java.yml`, `state.java.yml` | The same two for the Java track (`bin/srs java …`, DESIGN.md §13) | config yes; state no, like state.yml |
 | `lib/` | The code (Ruby stdlib only) | — |
 
 `lib/` at a glance:
@@ -57,6 +60,7 @@ ruby srs/test/run_all.rb                                     # tests
 - `sm2.rb` — the review-interval math
 - `scheduler.rb` — picks each day's slots
 - `scaffold.rb` — new-problem files and review attempt files
+- `track.rb`, `java_scaffold.rb` — the Java track: which problems, its state/config paths, and the Java file stubs
 - `commands.rb`, `slot_printer.rb` — `today` / `start` / `grade` / `status` and their output
 - `store.rb`, `report.rb`, `cli.rb` — YAML I/O, tables, command dispatch
 

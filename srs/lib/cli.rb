@@ -18,12 +18,17 @@ module Srs
         status               coverage per topic, what's due
         overdue              list every overdue problem, most overdue first
         setup                build srs/problems.yml and seed srs/state.yml (safe to re-run)
+
+      java <command>       the same commands for Java, e.g. `bin/srs java today`: your problems solved in
+                           Ruby, practiced again in Java, with its own state (srs/state.java.yml).
+                           `bin/srs java start linked_list/medium/reorder_list.rb` makes the Java file
+                           for that Ruby file. No `setup` there; it uses the Ruby setup's problems.yml.
     TEXT
 
     module_function
 
     def run(argv)
-      command, *args = argv
+      command, *args = track_and_command(argv)
       case command
       when 'today' then Commands.new.today
       when 'start' then start(args[0].to_s)
@@ -31,12 +36,26 @@ module Srs
       when 'more' then Commands.new.more(*more_options(args))
       when 'status' then Commands.new.status
       when 'overdue' then Commands.new.overdue
-      when 'setup' then Setup.new.run
+      when 'setup' then setup
       when nil, 'help', '-h', '--help' then puts USAGE
       else raise Error, "Unknown command: #{command}\n\n#{USAGE}"
       end
     rescue Error => e
       abort e.message
+    end
+
+    # `java` in front switches the track; everything after it is the usual command.
+    def track_and_command(argv)
+      return argv unless argv.first == 'java'
+
+      Srs.track = JAVA_TRACK
+      argv.drop(1)
+    end
+
+    def setup
+      raise Error, 'setup builds problems.yml, which the Java track shares: run `bin/srs setup`.' if Srs.track.java?
+
+      Setup.new.run
     end
 
     KINDS = %w[new old].freeze

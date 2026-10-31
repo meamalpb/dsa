@@ -15,6 +15,11 @@ module Srs
       file.sub(/\.rb\z/, '.attempt.rb')
     end
 
+    # What a path given to `start` means: the problem's own file, not its attempt.
+    def original_path(file)
+      file.sub(/\.attempt\.rb\z/, '.rb')
+    end
+
     # Returns true if the file was created, false if it already existed.
     def create_new(file, slug)
       write_unless_exists(file) { new_source(file, slug) }

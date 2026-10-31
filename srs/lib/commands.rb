@@ -6,8 +6,10 @@ module Srs
     def initialize(today: Srs.today, out: $stdout, input: $stdin)
       raise Error, 'Run `bin/srs setup` first.' unless File.exist?(PROBLEMS_PATH)
 
-      @problems = Store.load(PROBLEMS_PATH, {})
-      @state = Store.load(STATE_PATH, Store.default_state)
+      @track = Srs.track
+      @problems = @track.problems(Store.load(PROBLEMS_PATH, {}))
+      @state = Store.load(@track.state_path, Store.default_state)
+      @scaffold = @track.scaffold(@problems)
       @today = today
       @out = out
       @in = input
@@ -22,7 +24,7 @@ module Srs
       if @scheduler.bonus_left?
         @out.puts "\nGrade any of these #{bonus_grades} to unlock another problem (slot #{@scheduler.next_bonus_slot})."
       end
-      @out.puts "\nDone with all of them? `bin/srs more` gives you a new problem, `bin/srs more old` a due review." if @scheduler.all_graded?
+      @out.puts "\nDone with all of them? `#{@track.command} more` gives you a new problem, `#{@track.command} more old` a due review." if @scheduler.all_graded?
     end
 
     # Add another problem to today's session (only once everything is graded):
@@ -47,11 +49,11 @@ module Srs
       problem = @problems[entry['slug']]
       file = problem['file']
       if entry['kind'] == 'new'
-        created = Scaffold.create_new(file, entry['slug'])
+        created = @scaffold.create_new(file, entry['slug'])
         @out.puts "#{created ? 'Created' : 'Already exists'}: #{file}"
       else
-        created = Scaffold.create_attempt(file)
-        @out.puts "#{created ? 'Created' : 'Already exists'}: #{Scaffold.attempt_path(file)}"
+        created = @scaffold.create_attempt(file)
+        @out.puts "#{created ? 'Created' : 'Already exists'}: #{@scaffold.attempt_path(file)}"
         @out.puts "(your original stays untouched: #{file})"
       end
       @out.puts problem['link']
@@ -68,7 +70,7 @@ module Srs
       name = @problems[slug]['name']
       raise Error, "#{name} is slot #{slot} today, already graded (#{entry['grade']})." if entry['grade']
 
-      @out.puts "#{name} is slot #{slot} — when done: bin/srs grade #{slot} again|hard|good|easy"
+      @out.puts "#{name} is slot #{slot} — when done: #{@track.command} grade #{slot} again|hard|good|easy"
       start(slot)
     end
 
@@ -112,7 +114,7 @@ module Srs
     private
 
     def save
-      Store.save(STATE_PATH, @state)
+      Store.save(@track.state_path, @state)
     end
 
     def slot_entry(slot)
@@ -129,16 +131,17 @@ module Srs
       entry
     end
 
-    # A slug, or a problem's file (relative to here or the repo root, absolute, or its .attempt.rb).
+    # A slug, or a problem's file (relative to here or the repo root, absolute, or its attempt file).
+    # In the Java track the Ruby original works too.
     def find_slug(target)
       return target if @problems.key?(target)
 
       files = [File.expand_path(target), File.join(ROOT, target)].map do |path|
-        path.delete_prefix("#{ROOT}/").sub(/\.attempt\.rb\z/, '.rb')
+        @scaffold.original_path(path.delete_prefix("#{ROOT}/"))
       end
-      slug, = @problems.find { |_, p| files.include?(p['file']) }
-      slug or raise Error, "#{target} isn't on the sheet — give its file " \
-                           '(e.g. linked_list/medium/reorder_list.rb) or slug.'
+      slug, = @problems.find { |_, p| (files & [p['file'], p['ruby_file']]).any? }
+      slug or raise Error, "#{target} isn't #{@track.java? ? 'solved in Ruby' : 'on the sheet'} — " \
+                           'give its file (e.g. linked_list/medium/reorder_list.rb) or slug.'
     end
 
     def unlock_bonus
@@ -161,7 +164,7 @@ module Srs
     end
 
     def offer_attempt_cleanup(file)
-      attempt = Scaffold.attempt_path(file)
+      attempt = @scaffold.attempt_path(file)
       return unless File.exist?(File.join(ROOT, attempt))
 
       @out.puts "Compare with your original: #{file}"
@@ -174,7 +177,7 @@ module Srs
     end
 
     def show(slot, entry)
-      SlotPrinter.new(@problems, @state, @today, @out).show(slot, entry)
+      SlotPrinter.new(@problems, @state, @today, @out, scaffold: @scaffold).show(slot, entry)
     end
   end
 end

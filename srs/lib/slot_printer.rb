@@ -5,11 +5,12 @@ module Srs
   class SlotPrinter
     LABELS = { 'new' => 'NEW', 'review' => 'REVIEW', 'early' => 'EARLY' }.freeze
 
-    def initialize(problems, state, today, out)
+    def initialize(problems, state, today, out, scaffold: Scaffold)
       @problems = problems
       @state = state
       @today = today
       @out = out
+      @scaffold = scaffold
     end
 
     def show(slot, entry)
@@ -50,12 +51,12 @@ module Srs
 
     def file_line(slot, entry, file)
       if entry['kind'] == 'new'
-        File.exist?(File.join(ROOT, file)) ? file : "#{file}  (run `bin/srs start #{slot}`)"
+        File.exist?(File.join(ROOT, file)) ? file : "#{file}  (run `#{Srs.track.command} start #{slot}`)"
       else
-        attempt = Scaffold.attempt_path(file)
+        attempt = @scaffold.attempt_path(file)
         return "#{attempt}  (original: #{file})" if File.exist?(File.join(ROOT, attempt))
 
-        "#{file}  (run `bin/srs start #{slot}` for a blank attempt)"
+        "#{file}  (run `#{Srs.track.command} start #{slot}` for a blank attempt)"
       end
     end
   end

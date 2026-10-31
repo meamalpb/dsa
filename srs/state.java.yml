@@ -1,0 +1,22 @@
+---
+problems: {}
+last_new_on:
+next_forced_pool: medium_hard
+session:
+  date: 2026-10-31
+  slots:
+    C:
+      slug: group-anagrams
+      kind: new
+      forced: true
+      grade:
+    A:
+      slug: contains-duplicate
+      kind: new
+      forced: false
+      grade:
+    B:
+      slug: valid-anagram
+      kind: new
+      forced: false
+      grade:
