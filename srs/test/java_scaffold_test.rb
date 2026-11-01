@@ -46,15 +46,11 @@ class JavaScaffoldTest < Minitest::Test
 
       // https://leetcode.com/problems/x/
 
-      // TODO: replace Object with the real types
       public class TwoSum {
           public static Object twoSum(Object nums, Object target) {
               return null;
           }
 
-          public static void main(String[] args) {
-              // tests go here
-          }
       }
     JAVA
   end

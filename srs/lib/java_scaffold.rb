@@ -121,10 +121,9 @@ module Srs
       body = parsed.flat_map { |item| member_lines(item, class_name) }
       lines = []
       lines += ["package #{package};", ''] if package
-      lines += ["// #{link}", '', '// TODO: replace Object with the real types']
+      lines += ["// #{link}", '']
       lines += ["public class #{class_name} {"]
       lines += body.flat_map { |chunk| indent(chunk + ['']) }
-      lines += indent(['public static void main(String[] args) {', '    // tests go here', '}'])
       lines += ['}']
       "#{lines.join("\n")}\n"
     end
