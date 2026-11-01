@@ -12,7 +12,7 @@ class KthLargest
   def initialize(k, nums)
     @k = k
     @heap = MinHeap.new
-    nums.each {|n| add(n)}
+    nums.each { |n| add(n) }
   end
 
   #     :type val: Integer
@@ -20,7 +20,7 @@ class KthLargest
   def add(val)
     if @heap.size < @k
       @heap.push(val)
-    elsif val>@heap.peek
+    elsif val > @heap.peek
       @heap.pop
       @heap.push(val)
     end

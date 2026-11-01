@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class MinHeap
-  def initialize
-    @data = []
+  attr_accessor :data
+  
+  def initialize(arr = [])
+    @data = arr.dup
+    heapify
   end
 
   def push(val)
@@ -29,6 +32,10 @@ class MinHeap
   end
 
   private
+
+  def heapify
+    (@data.size / 2 - 1).downto(0) { |i| sift_down(i) }
+  end
 
   def sift_up(i)
     while i.positive?

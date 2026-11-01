@@ -624,6 +624,15 @@ problems:
       grade: good
     last_reviewed: 2026-11-01
     next_review: 2026-11-02
+  last-stone-weight:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-01
+      grade: easy
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-02
 last_new_on: 2026-11-01
 next_forced_pool: medium_hard
 session:
@@ -658,4 +667,4 @@ session:
       slug: last-stone-weight
       kind: new
       forced: false
-      grade:
+      grade: easy
