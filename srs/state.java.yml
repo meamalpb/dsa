@@ -6,28 +6,25 @@ problems:
     done_on: 2026-11-01
   two-sum:
     done_on: 2026-11-01
-last_new_on: 2026-11-01
+  valid-palindrome:
+    done_on: 2026-11-02
+last_new_on: 2026-11-02
 next_forced_pool: medium_hard
 session:
-  date: 2026-11-01
+  date: 2026-11-02
   slots:
-    C:
-      slug: group-anagrams
-      kind: new
-      forced: true
-      grade:
     A:
-      slug: contains-duplicate
+      slug: valid-palindrome
       kind: new
       forced: false
       grade: easy
     B:
-      slug: valid-anagram
+      slug: best-time-to-buy-and-sell-stock
       kind: new
       forced: false
-      grade: easy
-    D:
-      slug: two-sum
+      grade:
+    C:
+      slug: group-anagrams
       kind: new
       forced: false
       grade:

@@ -354,14 +354,16 @@ problems:
     - date: 2026-10-21
       grade: easy
   lowest-common-ancestor-of-a-binary-search-tree:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-21
-    next_review: 2026-07-22
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-11-02
+    next_review: 2026-11-08
     history:
     - date: 2026-07-21
       grade: seed
+    - date: 2026-11-02
+      grade: easy
   binary-tree-level-order-traversal:
     reps: 1
     ease: 2.5
@@ -672,6 +674,11 @@ session:
       grade: easy
     C:
       slug: last-stone-weight
+      kind: review
+      forced: false
+      grade: easy
+    D:
+      slug: lowest-common-ancestor-of-a-binary-search-tree
       kind: review
       forced: false
       grade: easy

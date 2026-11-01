@@ -1,0 +1,22 @@
+package two_pointers.easy;
+
+// https://leetcode.com/problems/valid-palindrome/
+
+public class ValidPalindrome {
+    public static boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+
+        while(left<right){
+            while(left<right && !Character.isLetterOrDigit(s.charAt(left))){left++;}
+            while(left<right && !Character.isLetterOrDigit(s.charAt(right))){right--;}
+            if(Character.toLowerCase(s.charAt(right))!= Character.toLowerCase(s.charAt(left))){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+}
