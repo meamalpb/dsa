@@ -607,38 +607,27 @@ problems:
       grade: good
     last_reviewed: 2026-10-30
     next_review: 2026-10-31
-last_new_on: 2026-10-30
-next_forced_pool: easy
+  kth-largest-element-in-a-stream:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-01
+      grade: good
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-02
+last_new_on: 2026-11-01
+next_forced_pool: medium_hard
 session:
-  date: 2026-10-30
+  date: 2026-11-01
   slots:
-    B:
-      slug: median-of-two-sorted-arrays
+    A:
+      slug: kth-largest-element-in-a-stream
       kind: new
       forced: true
-      grade: again
-    A:
-      slug: two-sum
-      kind: early
-      forced: false
-      grade: easy
-    C:
-      slug: valid-palindrome
-      kind: early
-      forced: false
-      grade: easy
-    D:
-      slug: lru-cache
-      kind: new
-      forced: false
-      grade: easy
-    E:
-      slug: binary-tree-right-side-view
-      kind: new
-      forced: false
       grade: good
-    F:
-      slug: count-good-nodes-in-binary-tree
-      kind: new
+    B:
+      slug: minimum-window-substring
+      kind: review
       forced: false
-      grade: good
+      grade:
