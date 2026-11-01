@@ -183,7 +183,10 @@ module Srs
     end
 
     def next_new(pool, difficulty = nil)
-      @problems.select { |slug, p| (difficulty.nil? || p['difficulty'] == difficulty) && eligible_new?(slug, p, pool) }.min_by { |_, p| p['order'] }&.first
+      @problems.select do |slug, p|
+        (difficulty.nil? || p['difficulty'] == difficulty) && eligible_new?(slug, p,
+                                                                            pool)
+      end.min_by { |_, p| p['order'] }&.first
     end
 
     def eligible_new?(slug, problem, pool)

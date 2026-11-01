@@ -24,7 +24,7 @@ class ChartsTest < Minitest::Test
   end
 
   def test_levels
-    assert_equal [0, 1, 2, 2, 3, 3], [0, 1, 2, 3, 4, 9].map { |n| Srs::Charts.level(n) }
+    assert_equal([0, 1, 2, 2, 3, 3], [0, 1, 2, 3, 4, 9].map { |n| Srs::Charts.level(n) })
   end
 
   def test_streak_counts_back_from_today

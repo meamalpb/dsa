@@ -17,7 +17,8 @@ class ReportTest < Minitest::Test
   end
 
   def card(next_review, reps: 1, ease: 2.5)
-    { 'reps' => reps, 'ease' => ease, 'interval' => 1, 'last_reviewed' => next_review - 1, 'next_review' => next_review }
+    { 'reps' => reps, 'ease' => ease, 'interval' => 1, 'last_reviewed' => next_review - 1,
+      'next_review' => next_review }
   end
 
   def run_overdue

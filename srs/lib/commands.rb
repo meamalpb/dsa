@@ -24,7 +24,9 @@ module Srs
       if @scheduler.bonus_left?
         @out.puts "\nGrade any of these #{bonus_grades} to unlock another problem (slot #{@scheduler.next_bonus_slot})."
       end
-      @out.puts "\nDone with all of them? `#{@track.command} more` gives you a new problem, `#{@track.command} more old` a due review." if @scheduler.all_graded?
+      return unless @scheduler.all_graded?
+
+      @out.puts "\nDone with all of them? `#{@track.command} more` gives you a new problem, `#{@track.command} more old` a due review."
     end
 
     # Add another problem to today's session (only once everything is graded):

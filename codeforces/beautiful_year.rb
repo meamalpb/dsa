@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 n = gets.chomp.to_i
 i = n + 1
-while true
+loop do
   i0 = i.to_s[0]
   i1 = i.to_s[1]
   i2 = i.to_s[2]

@@ -8,7 +8,7 @@
 def encode(strs)
   r = ''
   strs.each do |s|
-    r = r + s.length.to_s + '#' + s
+    r = "#{r}#{s.length}##{s}"
   end
   r
 end

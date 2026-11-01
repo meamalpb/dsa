@@ -3,7 +3,6 @@
 # problem
 # http://codeforces.com/problemset/problem/263/A
 
-
 matrix = Array.new(5, Array.new(5, 0))
 i = 0
 f = 0

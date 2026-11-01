@@ -10,7 +10,7 @@
 def find_duplicate(nums)
   fast = 0
   slow = 0
-  while true
+  loop do
     slow = nums[slow]
     fast = nums[nums[fast]]
     break if slow == fast

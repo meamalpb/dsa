@@ -26,7 +26,7 @@ end
 def is_same_tree(s, t)
   return true if !s && !t
 
-  return is_same_tree(s.left, t.left) && is_same_tree(s.right, t.right) if ( s && t && s.val == t.val)
+  return is_same_tree(s.left, t.left) && is_same_tree(s.right, t.right) if s && t && s.val == t.val
 
   false
 end
