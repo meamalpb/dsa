@@ -2,7 +2,7 @@
 
 class MinHeap
   attr_accessor :data
-  
+
   def initialize(arr = [])
     @data = arr.dup
     heapify
