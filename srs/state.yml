@@ -188,14 +188,16 @@ problems:
     - date: 2026-07-22
       grade: seed
   minimum-window-substring:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-19
-    next_review: 2026-07-20
+    interval: 6
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-07
     history:
     - date: 2026-07-19
       grade: seed
+    - date: 2026-11-01
+      grade: good
   valid-parentheses:
     reps: 3
     ease: 2.7
@@ -245,14 +247,16 @@ problems:
     - date: 2026-10-21
       grade: easy
   search-a-2d-matrix:
-    reps: 1
-    ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-21
-    next_review: 2026-07-22
+    reps: 2
+    ease: 2.6
+    interval: 6
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-07
     history:
     - date: 2026-07-21
       grade: seed
+    - date: 2026-11-01
+      grade: easy
   search-in-rotated-sorted-array:
     reps: 2
     ease: 2.5
@@ -302,23 +306,27 @@ problems:
     - date: 2026-10-21
       grade: easy
   reorder-list:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-20
-    next_review: 2026-07-21
+    interval: 6
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-07
     history:
     - date: 2026-07-20
       grade: seed
+    - date: 2026-11-01
+      grade: good
   remove-nth-node-from-end-of-list:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-20
-    next_review: 2026-07-21
+    interval: 6
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-07
     history:
     - date: 2026-07-20
       grade: seed
+    - date: 2026-11-01
+      grade: good
   linked-list-cycle:
     reps: 3
     ease: 2.7
@@ -629,5 +637,25 @@ session:
     B:
       slug: minimum-window-substring
       kind: review
+      forced: false
+      grade: good
+    D:
+      slug: reorder-list
+      kind: review
+      forced: false
+      grade: good
+    E:
+      slug: remove-nth-node-from-end-of-list
+      kind: review
+      forced: false
+      grade: good
+    F:
+      slug: search-a-2d-matrix
+      kind: review
+      forced: false
+      grade: easy
+    C:
+      slug: last-stone-weight
+      kind: new
       forced: false
       grade:
