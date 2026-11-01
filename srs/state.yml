@@ -616,23 +616,27 @@ problems:
     last_reviewed: 2026-10-30
     next_review: 2026-10-31
   kth-largest-element-in-a-stream:
-    reps: 1
-    ease: 2.5
-    interval: 1
+    reps: 2
+    ease: 2.6
+    interval: 6
     history:
     - date: 2026-11-01
       grade: good
-    last_reviewed: 2026-11-01
-    next_review: 2026-11-02
+    - date: 2026-11-02
+      grade: easy
+    last_reviewed: 2026-11-02
+    next_review: 2026-11-08
   last-stone-weight:
-    reps: 1
-    ease: 2.6
-    interval: 1
+    reps: 2
+    ease: 2.7
+    interval: 6
     history:
     - date: 2026-11-01
       grade: easy
-    last_reviewed: 2026-11-01
-    next_review: 2026-11-02
+    - date: 2026-11-02
+      grade: easy
+    last_reviewed: 2026-11-02
+    next_review: 2026-11-08
   merge-k-sorted-lists:
     reps: 1
     ease: 2.5
@@ -642,43 +646,32 @@ problems:
       grade: good
     last_reviewed: 2026-11-01
     next_review: 2026-11-02
-last_new_on: 2026-11-01
-next_forced_pool: medium_hard
+  reverse-nodes-in-k-group:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-02
+      grade: good
+    last_reviewed: 2026-11-02
+    next_review: 2026-11-03
+last_new_on: 2026-11-02
+next_forced_pool: easy
 session:
-  date: 2026-11-01
+  date: 2026-11-02
   slots:
-    A:
-      slug: kth-largest-element-in-a-stream
+    B:
+      slug: reverse-nodes-in-k-group
       kind: new
       forced: true
       grade: good
-    B:
-      slug: minimum-window-substring
-      kind: review
-      forced: false
-      grade: good
-    D:
-      slug: reorder-list
-      kind: review
-      forced: false
-      grade: good
-    E:
-      slug: remove-nth-node-from-end-of-list
-      kind: review
-      forced: false
-      grade: good
-    F:
-      slug: search-a-2d-matrix
+    A:
+      slug: kth-largest-element-in-a-stream
       kind: review
       forced: false
       grade: easy
     C:
       slug: last-stone-weight
-      kind: new
+      kind: review
       forced: false
       grade: easy
-    G:
-      slug: merge-k-sorted-lists
-      kind: new
-      forced: false
-      grade: good
