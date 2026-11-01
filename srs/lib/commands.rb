@@ -83,13 +83,20 @@ module Srs
       raise Error, "Slot #{slot} is already graded (#{entry['grade']})." if entry['grade']
 
       slug = entry['slug']
-      card = Sm2.review(@state['problems'][slug] || Sm2.new_card, grade, @today)
-      @state['problems'][slug] = card
       entry['grade'] = grade
       @scheduler.record_new(slot, entry) if entry['kind'] == 'new'
-      @out.puts "#{@problems[slug]['name']}: #{grade} — next review #{card['next_review']} " \
-                "(in #{card['interval']}d, ease #{card['ease']})"
-      unlock_bonus if @scheduler.unlocks_bonus?(grade)
+
+      if @track.one_pass?
+        @state['problems'][slug] = { 'done_on' => @today }
+        @out.puts "#{@problems[slug]['name']}: #{grade} — done"
+      else
+        card = Sm2.review(@state['problems'][slug] || Sm2.new_card, grade, @today)
+        @state['problems'][slug] = card
+        @out.puts "#{@problems[slug]['name']}: #{grade} — next review #{card['next_review']} " \
+                  "(in #{card['interval']}d, ease #{card['ease']})"
+        unlock_bonus if @scheduler.unlocks_bonus?(grade)
+      end
+
       save
       offer_attempt_cleanup(@problems[slug]['file']) unless entry['kind'] == 'new'
       offer_more
@@ -97,6 +104,11 @@ module Srs
 
     def status
       Report.coverage(@problems, @state, @out)
+      if @track.one_pass?
+        done = @state['problems'].count { |slug, _| @problems.key?(slug) }
+        @out.puts "\nDone #{done}/#{@problems.size}"
+        return
+      end
       cards = @state['problems'].select { |slug, _| @problems.key?(slug) }.values
       due = cards.count { |c| c['next_review'] <= @today }
       week = cards.count { |c| c['next_review'] > @today && c['next_review'] <= @today + 7 }
@@ -110,6 +122,8 @@ module Srs
     end
 
     def overdue
+      return @out.puts('No reviews in the Java track — each problem is done once.') if @track.one_pass?
+
       Report.overdue(@problems, @state, @today, @out)
     end
 

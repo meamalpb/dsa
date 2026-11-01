@@ -8,6 +8,10 @@ module Srs
       name == 'java'
     end
 
+    def one_pass?
+      java?
+    end
+
     # Creates the files `start` writes: Scaffold for Ruby, JavaScaffold for Java.
     def scaffold(problems)
       java? ? JavaScaffold.new(problems) : Scaffold

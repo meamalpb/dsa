@@ -1,23 +1,11 @@
 ---
 problems:
   contains-duplicate:
-    reps: 1
-    ease: 2.6
-    interval: 1
-    history:
-    - date: 2026-11-01
-      grade: easy
-    last_reviewed: 2026-11-01
-    next_review: 2026-11-02
+    done_on: 2026-11-01
   valid-anagram:
-    reps: 1
-    ease: 2.6
-    interval: 1
-    history:
-    - date: 2026-11-01
-      grade: easy
-    last_reviewed: 2026-11-01
-    next_review: 2026-11-02
+    done_on: 2026-11-01
+  two-sum:
+    done_on: 2026-11-01
 last_new_on: 2026-11-01
 next_forced_pool: medium_hard
 session:

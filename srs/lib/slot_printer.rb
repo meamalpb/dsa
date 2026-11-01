@@ -33,7 +33,7 @@ module Srs
 
     def detail(entry)
       card = @state['problems'][entry['slug']]
-      return "next review #{card['next_review']}" if entry['grade']
+      return (card&.key?('done_on') ? nil : "next review #{card['next_review']}") if entry['grade']
       return (entry['forced'] ? forced_note : nil) if entry['kind'] == 'new'
 
       due = (card['next_review'] - @today).to_i

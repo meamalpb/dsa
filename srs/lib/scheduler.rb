@@ -17,7 +17,7 @@ module Srs
       return current if current && current['date'] == @today
 
       @state['session'] = { 'date' => @today, 'slots' => {} }
-      force_new if new_problem_overdue?
+      force_new if !Srs.track.one_pass? && new_problem_overdue?
       daily_slots.each { |slot, pool| slots[slot] ||= pick(pool) }
       @state['session']
     end
@@ -38,6 +38,8 @@ module Srs
     end
 
     def unlocks_bonus?(grade)
+      return false if Srs.track.one_pass?
+
       Array(bonus['unlock_on']).include?(grade)
     end
 
@@ -142,7 +144,13 @@ module Srs
     end
 
     # Rules 2–5: due review, new problem, early review, empty.
+    # For one_pass tracks, always serve a new (unseen) problem.
     def pick(pool)
+      if Srs.track.one_pass?
+        slug = next_new(pool)
+        return entry(slug, 'new')
+      end
+
       if (slug = first_due(reviews(pool))) then entry(slug, 'review')
       elsif (slug = next_new(pool)) then entry(slug, 'new')
       elsif (slug = earliest(reviews(pool))) then entry(slug, 'early')
@@ -170,7 +178,7 @@ module Srs
     # learning_days come before older ones, so a fresh problem's early reviews aren't stuck
     # behind a months-old backlog.
     def first_due(cards)
-      due = cards.select { |_, card| card['next_review'] <= @today }
+      due = cards.select { |_, card| card['next_review'] && card['next_review'] <= @today }
       return earliest(due) unless @config.dig('session', 'review_order') == 'learning_first'
 
       since = @today - @config.dig('session', 'learning_days')
@@ -179,7 +187,8 @@ module Srs
     end
 
     def earliest(cards)
-      cards.min_by { |slug, card| [card['next_review'], @problems[slug]['order']] }&.first
+      cards.select { |_, card| card['next_review'] }
+           .min_by { |slug, card| [card['next_review'], @problems[slug]['order']] }&.first
     end
 
     def next_new(pool, difficulty = nil)
