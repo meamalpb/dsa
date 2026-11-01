@@ -1,9 +1,27 @@
 ---
-problems: {}
-last_new_on:
+problems:
+  contains-duplicate:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-01
+      grade: easy
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-02
+  valid-anagram:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-01
+      grade: easy
+    last_reviewed: 2026-11-01
+    next_review: 2026-11-02
+last_new_on: 2026-11-01
 next_forced_pool: medium_hard
 session:
-  date: 2026-10-31
+  date: 2026-11-01
   slots:
     C:
       slug: group-anagrams
@@ -14,9 +32,14 @@ session:
       slug: contains-duplicate
       kind: new
       forced: false
-      grade:
+      grade: easy
     B:
       slug: valid-anagram
+      kind: new
+      forced: false
+      grade: easy
+    D:
+      slug: two-sum
       kind: new
       forced: false
       grade:
