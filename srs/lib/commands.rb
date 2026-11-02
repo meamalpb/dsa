@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Srs
-  # `today`, `start`, `grade`, `status` — DESIGN.md §7–10.
+  # `today`, `start`, `grade`, `status` — DESIGN.md §7–10; `run` for SQL — §14.
   class Commands # rubocop:disable Metrics/ClassLength
     def initialize(today: Srs.today, out: $stdout, input: $stdin)
-      raise Error, 'Run `bin/srs setup` first.' unless File.exist?(PROBLEMS_PATH)
-
       @track = Srs.track
-      @problems = @track.problems(Store.load(PROBLEMS_PATH, {}))
+      raise Error, 'Run `bin/srs setup` first.' unless File.exist?(@track.problems_path)
+
+      @problems = @track.problems(Store.load(@track.problems_path, {}))
       @state = Store.load(@track.state_path, Store.default_state)
       @scaffold = @track.scaffold(@problems)
       @today = today
@@ -52,7 +52,11 @@ module Srs
       file = problem['file']
       if entry['kind'] == 'new'
         created = @scaffold.create_new(file, entry['slug'])
-        @out.puts "#{created ? 'Created' : 'Already exists'}: #{file}"
+        if @track.sql?
+          @out.puts "Write your query at the bottom of #{file}, then: #{@track.command} run #{slot}"
+        else
+          @out.puts "#{created ? 'Created' : 'Already exists'}: #{file}"
+        end
       else
         created = @scaffold.create_attempt(file)
         @out.puts "#{created ? 'Created' : 'Already exists'}: #{@scaffold.attempt_path(file)}"
@@ -102,6 +106,18 @@ module Srs
       offer_more
     end
 
+    # `sql run <slot|file|slug>`: check a query against its problem file's cases. A slot runs its
+    # review attempt when there is one, else the problem's own file.
+    def run(target)
+      raise Error, '`run` checks SQL queries: bin/srs sql run <slot|file>' unless @track.sql?
+
+      slot = target.match?(/\A[A-Za-z]\z/) ? target.upcase : nil
+      file = slot ? slot_file(slot) : run_file(target)
+      @out.puts "Running #{file}"
+      passed = SqlRunner.new(out: @out).run(File.expand_path(file, ROOT))
+      @out.puts "When done: #{@track.command} grade #{slot} again|hard|good|easy" if passed && slot
+    end
+
     def status
       Report.coverage(@problems, @state, @out)
       if @track.one_pass?
@@ -133,6 +149,22 @@ module Srs
       Store.save(@track.state_path, @state)
     end
 
+    def slot_file(slot)
+      entry = slot_entry(slot)
+      file = @problems[entry['slug']]['file']
+      attempt = @scaffold.attempt_path(file)
+      entry['kind'] != 'new' && File.exist?(File.join(ROOT, attempt)) ? attempt : file
+    end
+
+    # A slug, or any SQL file (relative to here or the repo root, or absolute) — attempts included.
+    def run_file(target)
+      return @problems[target]['file'] if @problems.key?(target)
+
+      path = [File.expand_path(target), File.join(ROOT, target)].find { |p| File.file?(p) } or
+        raise Error, "#{target}: no such file or problem slug."
+      path.delete_prefix("#{ROOT}/")
+    end
+
     def slot_entry(slot)
       entry = @scheduler.session['slots'][slot]
       if entry.nil?
@@ -156,8 +188,17 @@ module Srs
         @scaffold.original_path(path.delete_prefix("#{ROOT}/"))
       end
       slug, = @problems.find { |_, p| (files & [p['file'], p['ruby_file']]).any? }
-      slug or raise Error, "#{target} isn't #{@track.java? ? 'solved in Ruby' : 'on the sheet'} — " \
-                           'give its file (e.g. linked_list/medium/reorder_list.rb) or slug.'
+      slug or raise Error, "#{target} isn't #{missing_where} — give its file (e.g. #{example_file}) or slug."
+    end
+
+    def missing_where
+      return 'in the SQL 50 list' if @track.sql?
+
+      @track.java? ? 'solved in Ruby' : 'on the sheet'
+    end
+
+    def example_file
+      @track.sql? ? 'database/select/easy/big_countries.sql' : 'linked_list/medium/reorder_list.rb'
     end
 
     def unlock_bonus

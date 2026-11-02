@@ -23,6 +23,12 @@ module Srs
                            Ruby, practiced again in Java, with its own state (srs/state.java.yml).
                            `bin/srs java start linked_list/medium/reorder_list.rb` makes the Java file
                            for that Ruby file. No `setup` there; it uses the Ruby setup's problems.yml.
+
+      sql <command>        the same commands for LeetCode's Top SQL 50 in PostgreSQL, with its own
+                           state (srs/state.sql.yml). Every problem file is already in database/ with
+                           its tables and expected results; write your query at the bottom, then:
+        sql run <slot|file>  run it on the file's test cases and compare (needs psql + a running
+                             server; database `postgres`, or set SRS_PGDATABASE)
     TEXT
 
     module_function
@@ -34,6 +40,7 @@ module Srs
       when 'start' then start(args[0].to_s)
       when 'grade' then Commands.new.grade(slot(args[0]), args[1].to_s.downcase)
       when 'more' then Commands.new.more(*more_options(args))
+      when 'run' then Commands.new.run(run_target(args[0]))
       when 'status' then Commands.new.status
       when 'overdue' then Commands.new.overdue
       when 'setup' then setup
@@ -44,16 +51,19 @@ module Srs
       abort e.message
     end
 
-    # `java` in front switches the track; everything after it is the usual command.
-    def track_and_command(argv)
-      return argv unless argv.first == 'java'
+    TRACKS = { 'java' => JAVA_TRACK, 'sql' => SQL_TRACK }.freeze
 
-      Srs.track = JAVA_TRACK
+    # `java` or `sql` in front switches the track; everything after it is the usual command.
+    def track_and_command(argv)
+      return argv unless TRACKS.key?(argv.first)
+
+      Srs.track = TRACKS.fetch(argv.first)
       argv.drop(1)
     end
 
     def setup
       raise Error, 'setup builds problems.yml, which the Java track shares: run `bin/srs setup`.' if Srs.track.java?
+      raise Error, 'The SQL track needs no setup: its list is srs/problems.sql.yml.' if Srs.track.sql?
 
       Setup.new.run
     end
@@ -73,6 +83,12 @@ module Srs
 
       difficulty = diffs.first
       [kinds.first || 'new', difficulty.nil? || difficulty == 'all' ? nil : difficulty.capitalize]
+    end
+
+    def run_target(arg)
+      raise Error, "run needs a slot letter or a file.\n\n#{USAGE}" if arg.to_s.empty?
+
+      arg
     end
 
     # A single letter is a slot; anything longer is a problem's file or slug.

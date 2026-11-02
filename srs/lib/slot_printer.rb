@@ -26,6 +26,7 @@ module Srs
       @out.puts "   #{problem['link']}"
       @out.puts "   free version: #{problem['alt_link']}" if problem['alt_link']
       @out.puts "   #{file_line(slot, entry, problem['file'])}"
+      @out.puts "   check it: #{Srs.track.command} run #{slot}" if Srs.track.sql? && !entry['grade']
       @out.puts "   notes: #{problem['notes']}" if problem['notes']
     end
 

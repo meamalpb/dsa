@@ -24,6 +24,18 @@ module Srs
       'bit_manipulation' => { folder: 'bit_manipulation', prereqs: %w[dp_1d] }
     }.freeze
 
+    # The SQL track (§14): the seven sections of LeetCode's Top SQL 50 study plan, in its order.
+    # String functions only need grouping, so they open alongside the advanced joins.
+    SQL_ROADMAP = {
+      'select' => { folder: 'database/select', prereqs: [] },
+      'basic_joins' => { folder: 'database/basic_joins', prereqs: %w[select] },
+      'aggregates' => { folder: 'database/aggregates', prereqs: %w[basic_joins] },
+      'sorting_grouping' => { folder: 'database/sorting_grouping', prereqs: %w[aggregates] },
+      'advanced_joins' => { folder: 'database/advanced_joins', prereqs: %w[sorting_grouping] },
+      'subqueries' => { folder: 'database/subqueries', prereqs: %w[advanced_joins] },
+      'strings' => { folder: 'database/strings', prereqs: %w[sorting_grouping] }
+    }.freeze
+
     # Sheet "Category" column => topic key. "Graph" is the sheet's label for
     # Longest Consecutive Sequence, which is an Arrays problem.
     CATEGORIES = {
@@ -54,8 +66,13 @@ module Srs
       ROADMAP.fetch(topic)[:folder]
     end
 
+    # The current track's roadmap: NeetCode's for Ruby and Java, the study plan's for SQL.
+    def roadmap
+      Srs.track.roadmap
+    end
+
     def prereqs(topic)
-      ROADMAP.fetch(topic)[:prereqs]
+      roadmap.fetch(topic)[:prereqs]
     end
 
     def for_category(category)

@@ -2,22 +2,29 @@
 
 module Srs
   # Which language the commands work in: its own state file, config and source files.
-  # Ruby is the default; `bin/srs java …` switches to the Java track — DESIGN.md §13.
-  Track = Struct.new(:name, :state_path, :config_path, :command, keyword_init: true) do
+  # Ruby is the default; `bin/srs java …` switches to the Java track — DESIGN.md §13 —
+  # and `bin/srs sql …` to the SQL track, with its own problem list and roadmap — §14.
+  Track = Struct.new(:name, :state_path, :config_path, :command, :problems_path, :roadmap, keyword_init: true) do
     def java?
       name == 'java'
+    end
+
+    def sql?
+      name == 'sql'
     end
 
     def one_pass?
       java?
     end
 
-    # Creates the files `start` writes: Scaffold for Ruby, JavaScaffold for Java.
+    # Creates the files `start` writes: Scaffold for Ruby, JavaScaffold for Java, SqlScaffold for SQL.
     def scaffold(problems)
+      return SqlScaffold if sql?
+
       java? ? JavaScaffold.new(problems) : Scaffold
     end
 
-    # The problems this track practices. Ruby: all of them. Java: the ones already solved in Ruby,
+    # The problems this track practices. Ruby and SQL: all of their list. Java: the ones already solved in Ruby,
     # with `file` pointing at the Java file and `ruby_file` at the Ruby original it is made from.
     def problems(all, root: ROOT)
       return all unless java?
@@ -38,12 +45,24 @@ module Srs
     end
   end
 
-  RUBY_TRACK = Track.new(name: 'ruby', state_path: STATE_PATH, config_path: CONFIG_PATH, command: 'bin/srs')
+  RUBY_TRACK = Track.new(name: 'ruby', state_path: STATE_PATH, config_path: CONFIG_PATH, command: 'bin/srs',
+                         problems_path: PROBLEMS_PATH, roadmap: Topics::ROADMAP)
   JAVA_TRACK = Track.new(
     name: 'java',
     state_path: ENV.fetch('SRS_STATE_JAVA', File.join(ROOT, 'srs', 'state.java.yml')),
     config_path: ENV.fetch('SRS_CONFIG_JAVA', File.join(ROOT, 'srs', 'config.java.yml')),
-    command: 'bin/srs java'
+    command: 'bin/srs java',
+    problems_path: PROBLEMS_PATH,
+    roadmap: Topics::ROADMAP
+  )
+  # LeetCode's Top SQL 50 (srs/problems.sql.yml, committed — there's no setup for it).
+  SQL_TRACK = Track.new(
+    name: 'sql',
+    state_path: ENV.fetch('SRS_STATE_SQL', File.join(ROOT, 'srs', 'state.sql.yml')),
+    config_path: ENV.fetch('SRS_CONFIG_SQL', File.join(ROOT, 'srs', 'config.sql.yml')),
+    command: 'bin/srs sql',
+    problems_path: File.join(ROOT, 'srs', 'problems.sql.yml'),
+    roadmap: Topics::SQL_ROADMAP
   )
 
   def self.track

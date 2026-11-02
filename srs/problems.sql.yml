@@ -1,0 +1,501 @@
+---
+recyclable-and-low-fat-products:
+  name: Recyclable and Low Fat Products
+  topic: select
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/recyclable-and-low-fat-products/
+  alt_link:
+  file: database/select/easy/recyclable_and_low_fat_products.sql
+  order: 1
+  notes:
+find-customer-referee:
+  name: Find Customer Referee
+  topic: select
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/find-customer-referee/
+  alt_link:
+  file: database/select/easy/find_customer_referee.sql
+  order: 2
+  notes:
+big-countries:
+  name: Big Countries
+  topic: select
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/big-countries/
+  alt_link:
+  file: database/select/easy/big_countries.sql
+  order: 3
+  notes:
+article-views-i:
+  name: Article Views I
+  topic: select
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/article-views-i/
+  alt_link:
+  file: database/select/easy/article_views_i.sql
+  order: 4
+  notes:
+invalid-tweets:
+  name: Invalid Tweets
+  topic: select
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/invalid-tweets/
+  alt_link:
+  file: database/select/easy/invalid_tweets.sql
+  order: 5
+  notes:
+replace-employee-id-with-the-unique-identifier:
+  name: Replace Employee ID With The Unique Identifier
+  topic: basic_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/
+  alt_link:
+  file: database/basic_joins/easy/replace_employee_id_with_the_unique_identifier.sql
+  order: 6
+  notes:
+product-sales-analysis-i:
+  name: Product Sales Analysis I
+  topic: basic_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/product-sales-analysis-i/
+  alt_link:
+  file: database/basic_joins/easy/product_sales_analysis_i.sql
+  order: 7
+  notes:
+customer-who-visited-but-did-not-make-any-transactions:
+  name: Customer Who Visited but Did Not Make Any Transactions
+  topic: basic_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/
+  alt_link:
+  file: database/basic_joins/easy/customer_who_visited_but_did_not_make_any_transactions.sql
+  order: 8
+  notes:
+rising-temperature:
+  name: Rising Temperature
+  topic: basic_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/rising-temperature/
+  alt_link:
+  file: database/basic_joins/easy/rising_temperature.sql
+  order: 9
+  notes:
+average-time-of-process-per-machine:
+  name: Average Time of Process per Machine
+  topic: basic_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/average-time-of-process-per-machine/
+  alt_link:
+  file: database/basic_joins/easy/average_time_of_process_per_machine.sql
+  order: 10
+  notes:
+employee-bonus:
+  name: Employee Bonus
+  topic: basic_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/employee-bonus/
+  alt_link:
+  file: database/basic_joins/easy/employee_bonus.sql
+  order: 11
+  notes:
+students-and-examinations:
+  name: Students and Examinations
+  topic: basic_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/students-and-examinations/
+  alt_link:
+  file: database/basic_joins/easy/students_and_examinations.sql
+  order: 12
+  notes:
+managers-with-at-least-5-direct-reports:
+  name: Managers with at Least 5 Direct Reports
+  topic: basic_joins
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/managers-with-at-least-5-direct-reports/
+  alt_link:
+  file: database/basic_joins/medium/managers_with_at_least_5_direct_reports.sql
+  order: 13
+  notes:
+confirmation-rate:
+  name: Confirmation Rate
+  topic: basic_joins
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/confirmation-rate/
+  alt_link:
+  file: database/basic_joins/medium/confirmation_rate.sql
+  order: 14
+  notes:
+not-boring-movies:
+  name: Not Boring Movies
+  topic: aggregates
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/not-boring-movies/
+  alt_link:
+  file: database/aggregates/easy/not_boring_movies.sql
+  order: 15
+  notes:
+average-selling-price:
+  name: Average Selling Price
+  topic: aggregates
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/average-selling-price/
+  alt_link:
+  file: database/aggregates/easy/average_selling_price.sql
+  order: 16
+  notes:
+project-employees-i:
+  name: Project Employees I
+  topic: aggregates
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/project-employees-i/
+  alt_link:
+  file: database/aggregates/easy/project_employees_i.sql
+  order: 17
+  notes:
+percentage-of-users-attended-a-contest:
+  name: Percentage of Users Attended a Contest
+  topic: aggregates
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/percentage-of-users-attended-a-contest/
+  alt_link:
+  file: database/aggregates/easy/percentage_of_users_attended_a_contest.sql
+  order: 18
+  notes:
+queries-quality-and-percentage:
+  name: Queries Quality and Percentage
+  topic: aggregates
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/queries-quality-and-percentage/
+  alt_link:
+  file: database/aggregates/easy/queries_quality_and_percentage.sql
+  order: 19
+  notes:
+monthly-transactions-i:
+  name: Monthly Transactions I
+  topic: aggregates
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/monthly-transactions-i/
+  alt_link:
+  file: database/aggregates/medium/monthly_transactions_i.sql
+  order: 20
+  notes:
+immediate-food-delivery-ii:
+  name: Immediate Food Delivery II
+  topic: aggregates
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/immediate-food-delivery-ii/
+  alt_link:
+  file: database/aggregates/medium/immediate_food_delivery_ii.sql
+  order: 21
+  notes:
+game-play-analysis-iv:
+  name: Game Play Analysis IV
+  topic: aggregates
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/game-play-analysis-iv/
+  alt_link:
+  file: database/aggregates/medium/game_play_analysis_iv.sql
+  order: 22
+  notes:
+number-of-unique-subjects-taught-by-each-teacher:
+  name: Number of Unique Subjects Taught by Each Teacher
+  topic: sorting_grouping
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/
+  alt_link:
+  file: database/sorting_grouping/easy/number_of_unique_subjects_taught_by_each_teacher.sql
+  order: 23
+  notes:
+user-activity-for-the-past-30-days-i:
+  name: User Activity for the Past 30 Days I
+  topic: sorting_grouping
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/user-activity-for-the-past-30-days-i/
+  alt_link:
+  file: database/sorting_grouping/easy/user_activity_for_the_past_30_days_i.sql
+  order: 24
+  notes:
+product-sales-analysis-iii:
+  name: Product Sales Analysis III
+  topic: sorting_grouping
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/product-sales-analysis-iii/
+  alt_link:
+  file: database/sorting_grouping/medium/product_sales_analysis_iii.sql
+  order: 25
+  notes:
+classes-with-at-least-5-students:
+  name: Classes With at Least 5 Students
+  topic: sorting_grouping
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/classes-with-at-least-5-students/
+  alt_link:
+  file: database/sorting_grouping/easy/classes_with_at_least_5_students.sql
+  order: 26
+  notes:
+find-followers-count:
+  name: Find Followers Count
+  topic: sorting_grouping
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/find-followers-count/
+  alt_link:
+  file: database/sorting_grouping/easy/find_followers_count.sql
+  order: 27
+  notes:
+biggest-single-number:
+  name: Biggest Single Number
+  topic: sorting_grouping
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/biggest-single-number/
+  alt_link:
+  file: database/sorting_grouping/easy/biggest_single_number.sql
+  order: 28
+  notes:
+customers-who-bought-all-products:
+  name: Customers Who Bought All Products
+  topic: sorting_grouping
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/customers-who-bought-all-products/
+  alt_link:
+  file: database/sorting_grouping/medium/customers_who_bought_all_products.sql
+  order: 29
+  notes:
+the-number-of-employees-which-report-to-each-employee:
+  name: The Number of Employees Which Report to Each Employee
+  topic: advanced_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee/
+  alt_link:
+  file: database/advanced_joins/easy/the_number_of_employees_which_report_to_each_employee.sql
+  order: 30
+  notes:
+primary-department-for-each-employee:
+  name: Primary Department for Each Employee
+  topic: advanced_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/primary-department-for-each-employee/
+  alt_link:
+  file: database/advanced_joins/easy/primary_department_for_each_employee.sql
+  order: 31
+  notes:
+triangle-judgement:
+  name: Triangle Judgement
+  topic: advanced_joins
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/triangle-judgement/
+  alt_link:
+  file: database/advanced_joins/easy/triangle_judgement.sql
+  order: 32
+  notes:
+consecutive-numbers:
+  name: Consecutive Numbers
+  topic: advanced_joins
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/consecutive-numbers/
+  alt_link:
+  file: database/advanced_joins/medium/consecutive_numbers.sql
+  order: 33
+  notes:
+product-price-at-a-given-date:
+  name: Product Price at a Given Date
+  topic: advanced_joins
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/product-price-at-a-given-date/
+  alt_link:
+  file: database/advanced_joins/medium/product_price_at_a_given_date.sql
+  order: 34
+  notes:
+last-person-to-fit-in-the-bus:
+  name: Last Person to Fit in the Bus
+  topic: advanced_joins
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/last-person-to-fit-in-the-bus/
+  alt_link:
+  file: database/advanced_joins/medium/last_person_to_fit_in_the_bus.sql
+  order: 35
+  notes:
+count-salary-categories:
+  name: Count Salary Categories
+  topic: advanced_joins
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/count-salary-categories/
+  alt_link:
+  file: database/advanced_joins/medium/count_salary_categories.sql
+  order: 36
+  notes:
+employees-whose-manager-left-the-company:
+  name: Employees Whose Manager Left the Company
+  topic: subqueries
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/employees-whose-manager-left-the-company/
+  alt_link:
+  file: database/subqueries/easy/employees_whose_manager_left_the_company.sql
+  order: 37
+  notes:
+exchange-seats:
+  name: Exchange Seats
+  topic: subqueries
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/exchange-seats/
+  alt_link:
+  file: database/subqueries/medium/exchange_seats.sql
+  order: 38
+  notes:
+movie-rating:
+  name: Movie Rating
+  topic: subqueries
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/movie-rating/
+  alt_link:
+  file: database/subqueries/medium/movie_rating.sql
+  order: 39
+  notes:
+restaurant-growth:
+  name: Restaurant Growth
+  topic: subqueries
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/restaurant-growth/
+  alt_link:
+  file: database/subqueries/medium/restaurant_growth.sql
+  order: 40
+  notes:
+friend-requests-ii-who-has-the-most-friends:
+  name: 'Friend Requests II: Who Has the Most Friends'
+  topic: subqueries
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/friend-requests-ii-who-has-the-most-friends/
+  alt_link:
+  file: database/subqueries/medium/friend_requests_ii_who_has_the_most_friends.sql
+  order: 41
+  notes:
+investments-in-2016:
+  name: Investments in 2016
+  topic: subqueries
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/investments-in-2016/
+  alt_link:
+  file: database/subqueries/medium/investments_in_2016.sql
+  order: 42
+  notes:
+department-top-three-salaries:
+  name: Department Top Three Salaries
+  topic: subqueries
+  difficulty: Hard
+  paid_only: false
+  link: https://leetcode.com/problems/department-top-three-salaries/
+  alt_link:
+  file: database/subqueries/hard/department_top_three_salaries.sql
+  order: 43
+  notes:
+fix-names-in-a-table:
+  name: Fix Names in a Table
+  topic: strings
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/fix-names-in-a-table/
+  alt_link:
+  file: database/strings/easy/fix_names_in_a_table.sql
+  order: 44
+  notes:
+patients-with-a-condition:
+  name: Patients With a Condition
+  topic: strings
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/patients-with-a-condition/
+  alt_link:
+  file: database/strings/easy/patients_with_a_condition.sql
+  order: 45
+  notes:
+delete-duplicate-emails:
+  name: Delete Duplicate Emails
+  topic: strings
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/delete-duplicate-emails/
+  alt_link:
+  file: database/strings/easy/delete_duplicate_emails.sql
+  order: 46
+  notes:
+second-highest-salary:
+  name: Second Highest Salary
+  topic: strings
+  difficulty: Medium
+  paid_only: false
+  link: https://leetcode.com/problems/second-highest-salary/
+  alt_link:
+  file: database/strings/medium/second_highest_salary.sql
+  order: 47
+  notes:
+group-sold-products-by-the-date:
+  name: Group Sold Products By The Date
+  topic: strings
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/group-sold-products-by-the-date/
+  alt_link:
+  file: database/strings/easy/group_sold_products_by_the_date.sql
+  order: 48
+  notes:
+list-the-products-ordered-in-a-period:
+  name: List the Products Ordered in a Period
+  topic: strings
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/list-the-products-ordered-in-a-period/
+  alt_link:
+  file: database/strings/easy/list_the_products_ordered_in_a_period.sql
+  order: 49
+  notes:
+find-users-with-valid-e-mails:
+  name: Find Users With Valid E-Mails
+  topic: strings
+  difficulty: Easy
+  paid_only: false
+  link: https://leetcode.com/problems/find-users-with-valid-e-mails/
+  alt_link:
+  file: database/strings/easy/find_users_with_valid_e_mails.sql
+  order: 50
+  notes:

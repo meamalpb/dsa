@@ -32,6 +32,9 @@ srs/test/*_test.rb       # minitest — run with `ruby srs/test/run_all.rb`
 Both YAML files are committed (state.yml is your only record of reviews, so it should be backed
 up in git). `.gitignore` gets `*.attempt.rb`.
 
+The Java (§13) and SQL (§14) tracks have their own state and config files next to these; the SQL
+track also has its own committed problem list, `srs/problems.sql.yml`, and its files in `database/`.
+
 ### problems.yml — one entry per sheet row, keyed by LeetCode slug
 
 ```yaml
@@ -461,3 +464,96 @@ built. `SRS_STATE_JAVA` and `SRS_CONFIG_JAVA` are the Java counterparts of `SRS_
 Code: `track.rb` (which track is active, its paths, which problems it practices) and
 `java_scaffold.rb` (the file generator); `Commands`, `Scheduler` and `SlotPrinter` take the
 track's problems, state and scaffold, so they didn't need to know about Java.
+
+## 14. The SQL track (`bin/srs sql …`)
+
+LeetCode's [Top SQL 50](https://leetcode.com/studyplan/top-sql-50/) study plan, written in
+PostgreSQL and checked locally. `sql` in front of any command switches to it; `today`, `start`,
+`grade`, `more`, `status` and `overdue` work as for Ruby, with full SM-2 reviews (SQL is new
+material, unlike the Java track's one pass). There is one extra command, `run`.
+
+| | Ruby (default) | SQL |
+|---|---|---|
+| Problems | `srs/problems.yml` (built by setup) | `srs/problems.sql.yml` (committed, 50 problems; no setup) |
+| History | `srs/state.yml` | `srs/state.sql.yml` (created by the first `today`) |
+| Settings | `srs/config.yml` | `srs/config.sql.yml` |
+| Topics | NeetCode roadmap | the plan's 7 sections, see below |
+| Source file | written by you, `start` scaffolds it | `database/<section>/<difficulty>/<name>.sql`, already there |
+| Review attempt | `foo_bar.attempt.rb` | `foo_bar.attempt.sql` (the file with the query cut off), gitignored |
+
+**Topics** (`Topics::SQL_ROADMAP`) are the plan's sections, unlocked by the same 80% rule (§6):
+
+```
+select → basic_joins → aggregates → sorting_grouping ─┬→ advanced_joins → subqueries
+                                                      └→ strings
+```
+
+String functions only need grouping, so `strings` opens alongside `advanced_joins`. The one Hard
+(Department Top Three Salaries) waits for 80% of the subqueries Mediums, as usual.
+
+**Slots** (`config.sql.yml`): A = Easy, B = any difficulty, bonus C on an `easy` grade, a new
+problem forced every day. B isn't Medium/Hard because the first section has no Mediums, so it
+would sit empty for the first days.
+
+### Problem files
+
+Each file is self-contained and runs in PostgreSQL. It has a header (number, title, difficulty,
+section, link, the task in a few lines, whether row order counts), one or more cases, and an empty
+space for your query at the end:
+
+```sql
+-- 176. Second Highest Salary · Medium · Advanced String Functions / Regex / Clause
+-- https://leetcode.com/problems/second-highest-salary/
+-- …
+-- Rows can come in any order.
+
+-- Case 1: LeetCode's example ------------------------------------------------
+
+CREATE TABLE Employee (id int, salary int);
+INSERT INTO Employee VALUES
+  (1, 100), …
+
+-- Expected
+CREATE TABLE expected ("SecondHighestSalary" int);
+INSERT INTO expected VALUES
+  (200);
+
+-- Case 2: no second highest -------------------------------------------------
+…
+-- Your query below this line ------------------------------------------------
+
+```
+
+- Case 1 is always LeetCode's example data. A few problems have more cases for the edge cases
+  LeetCode's hidden tests are known for (no second highest salary, a product that never sold,
+  `DIAB1` inside another word, emails with an unescaped `.`).
+- The `expected` tables were computed by running a reference answer on each case in PostgreSQL
+  and checked against LeetCode's example outputs. The answers are not in the repo.
+- Delete Duplicate Emails asks for a `DELETE`, so its header has `-- Checked with: SELECT * FROM
+  Person`: that query's result, after your statement, is what gets compared.
+- The marker lines the runner reads: `-- Case N: …`, `-- Rows must come in the order shown.`,
+  `-- Checked with: …` and `-- Your query below this line`. Keep them as they are.
+
+### `bin/srs sql run <slot|file|slug>`
+
+Runs the query under the marker on every case and compares the result with `expected`:
+
+1. For each case, one `psql` session: `BEGIN`, the case's tables, your query (output to a temp
+   CSV), `TABLE expected` (another CSV), `ROLLBACK`. Nothing stays in the database, and the cases
+   can't affect each other.
+2. Compare like LeetCode: column names ignoring case (Postgres lowercases unquoted aliases), numbers
+   by value to 5 decimals (`0.5` = `0.50`, but an unrounded `0.333` ≠ `0.33`), NULL ≠ `''`, rows in
+   any order unless the header says the order counts.
+3. Print pass/FAIL per case. On a FAIL it prints why (columns differ, rows differ, wrong order) and
+   both tables. An SQL error is printed as psql reports it.
+
+A slot letter runs the slot's attempt file if there is one, otherwise the problem file. Write one
+statement; a trailing `;` is optional. It needs `psql` and a running server. The database is
+`postgres` (only a rolled-back transaction ever touches it), or set `SRS_PGDATABASE`; the usual
+`PGHOST`/`PGUSER`/… variables apply.
+
+`SRS_STATE_SQL` and `SRS_CONFIG_SQL` are the SQL counterparts of `SRS_STATE`/`SRS_CONFIG`.
+
+Code: `track.rb` (`SQL_TRACK`: problem list path, roadmap), `topics.rb` (`SQL_ROADMAP`;
+`Topics.roadmap` is the current track's), `sql_scaffold.rb` (attempt files), `sql_runner.rb`
+(parse, psql, compare) and `Commands#run`.

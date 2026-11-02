@@ -20,7 +20,18 @@ bin/srs overdue          # every overdue problem, most overdue first, with days 
 bin/srs setup            # one-time: build problems.yml, seed state.yml (safe to re-run)
 bin/srs java today       # the same commands in Java: your Ruby-solved problems again, 3–4 a day, own state
 bin/srs java start linked_list/medium/reorder_list.rb   # makes ReorderList.java (package, link, function stubs) to fill in
+bin/srs sql today        # LeetCode Top SQL 50 in PostgreSQL: A (Easy), B (any), own state, SM-2 reviews
+bin/srs sql run A        # run your query on the file's test cases and compare with the expected result
 ```
+
+### SQL (DESIGN.md §14)
+
+Every problem is already in `database/<section>/<difficulty>/` with its tables, LeetCode's example
+data (plus edge cases for some) and the expected result. Write your query at the bottom of the
+file and run `bin/srs sql run A` (or the file path): each case runs in its own rolled-back
+transaction, so the database stays empty. Needs `psql` and a running PostgreSQL server; it uses
+the `postgres` database unless you set `SRS_PGDATABASE`. For a review, `bin/srs sql start A`
+makes `name.attempt.sql` with the query cut off, and `run A` runs that.
 
 A day looks like: `today` → `start A` → solve it → `grade A good` → same for B.
 `today` shows the same picks all day, so run it as often as you like.
@@ -47,6 +58,7 @@ ruby srs/test/run_all.rb                                     # tests
 | `config.yml` | Slots, pools, new-problem pace, unlock thresholds, SM-2 spacing | Yes — every default is listed with a comment |
 | `state.yml` | Your review history and schedule | No — only `grade` writes it. **Commit it**, it's the only record |
 | `config.java.yml`, `state.java.yml` | The same two for the Java track (`bin/srs java …`, DESIGN.md §13) | config yes; state no, like state.yml |
+| `problems.sql.yml`, `config.sql.yml`, `state.sql.yml` | The SQL track (`bin/srs sql …`, DESIGN.md §14): its 50 problems, settings, history | list no; config yes; state no |
 | `lib/` | The code (Ruby stdlib only) | — |
 
 `lib/` at a glance:
@@ -61,6 +73,7 @@ ruby srs/test/run_all.rb                                     # tests
 - `scheduler.rb` — picks each day's slots
 - `scaffold.rb` — new-problem files and review attempt files
 - `track.rb`, `java_scaffold.rb` — the Java track: which problems, its state/config paths, and the Java file stubs
+- `sql_scaffold.rb`, `sql_runner.rb` — the SQL track: attempt files, and `sql run` (psql + result comparison)
 - `commands.rb`, `slot_printer.rb` — `today` / `start` / `grade` / `status` and their output
 - `store.rb`, `report.rb`, `cli.rb` — YAML I/O, tables, command dispatch
 

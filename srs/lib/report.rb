@@ -10,7 +10,7 @@ module Srs
       bar_head = 'Progress'.ljust(Charts::BAR_WIDTH)
       counted = "#{Srs.config.dig('unlock', 'topic_counts').map { |d| d[0] }.join('+')} seen"
       out.puts "\n#{'Topic'.ljust(17)} #{'Seen'.rjust(7)}  #{counted.rjust(8)}   #{bar_head}  E / M / H     Status"
-      Topics::ROADMAP.each_key do |topic|
+      Topics.roadmap.each_key do |topic|
         all = progress.in_topic(topic).keys
         seen = "#{all.count { |s| progress.seen?(s) }}/#{all.size}"
         counts = %w[Easy Medium Hard].map { |d| progress.in_topic(topic, [d]).size }.join(' / ')

@@ -1,0 +1,17 @@
+# Settings for the SQL track (`bin/srs sql …`). Same options as config.yml (listed in
+# DESIGN.md §12); only what differs from the built-in defaults is written here.
+# Try a change safely:  SRS_STATE_SQL=/tmp/try.yml SRS_TODAY=2026-11-05 bin/srs sql today
+
+session:
+  # Slot A = Easy, slot B = any difficulty. The first section (Select) is all Easy, so a
+  # Medium/Hard-only slot B would sit empty for the first few days.
+  slots:
+    A: easy
+    B: any
+  new_every_days: 1
+
+# Listing pools replaces the default set, so the default two are repeated here.
+pools:
+  easy: [Easy]
+  medium_hard: [Medium, Hard]
+  any: [Easy, Medium, Hard]
