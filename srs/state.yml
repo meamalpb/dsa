@@ -657,28 +657,32 @@ problems:
       grade: good
     last_reviewed: 2026-11-02
     next_review: 2026-11-03
-last_new_on: 2026-11-02
+  kth-smallest-element-in-a-bst:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-03
+      grade: easy
+    last_reviewed: 2026-11-03
+    next_review: 2026-11-04
+last_new_on: 2026-11-03
 next_forced_pool: easy
 session:
-  date: 2026-11-02
+  date: 2026-11-03
   slots:
     B:
-      slug: reverse-nodes-in-k-group
+      slug: kth-smallest-element-in-a-bst
       kind: new
       forced: true
-      grade: good
+      grade: easy
     A:
-      slug: kth-largest-element-in-a-stream
-      kind: review
+      slug: diameter-of-binary-tree
+      kind: early
       forced: false
-      grade: easy
+      grade:
     C:
-      slug: last-stone-weight
-      kind: review
+      slug: best-time-to-buy-and-sell-stock
+      kind: early
       forced: false
-      grade: easy
-    D:
-      slug: lowest-common-ancestor-of-a-binary-search-tree
-      kind: review
-      forced: false
-      grade: easy
+      grade:
