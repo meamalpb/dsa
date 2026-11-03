@@ -8,23 +8,36 @@ problems:
     done_on: 2026-11-01
   valid-palindrome:
     done_on: 2026-11-02
-last_new_on: 2026-11-02
+  best-time-to-buy-and-sell-stock:
+    done_on: 2026-11-03
+  valid-parentheses:
+    done_on: 2026-11-03
+  group-anagrams:
+    done_on: 2026-11-03
+  binary-search:
+    done_on: 2026-11-03
+last_new_on: 2026-11-03
 next_forced_pool: medium_hard
 session:
-  date: 2026-11-02
+  date: 2026-11-03
   slots:
     A:
-      slug: valid-palindrome
+      slug: best-time-to-buy-and-sell-stock
       kind: new
       forced: false
       grade: easy
     B:
-      slug: best-time-to-buy-and-sell-stock
+      slug: valid-parentheses
       kind: new
       forced: false
-      grade:
+      grade: easy
     C:
       slug: group-anagrams
       kind: new
       forced: false
-      grade:
+      grade: easy
+    E:
+      slug: binary-search
+      kind: new
+      forced: false
+      grade: easy
