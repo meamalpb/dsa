@@ -142,17 +142,19 @@ problems:
     - date: 2026-10-01
       grade: easy
   best-time-to-buy-and-sell-stock:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-21
-    next_review: 2026-11-06
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-11-03
+    next_review: 2026-12-18
     history:
     - date: 2026-03-25
       grade: seed
     - date: 2026-09-28
       grade: easy
     - date: 2026-10-21
+      grade: easy
+    - date: 2026-11-03
       grade: easy
   longest-substring-without-repeating-characters:
     reps: 3
@@ -427,9 +429,9 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-10-03
   diameter-of-binary-tree:
-    reps: 2
-    ease: 2.16
-    interval: 6
+    reps: 3
+    ease: 2.26
+    interval: 14
     history:
     - date: 2026-09-29
       grade: good
@@ -441,8 +443,10 @@ problems:
       grade: easy
     - date: 2026-10-29
       grade: easy
-    last_reviewed: 2026-10-29
-    next_review: 2026-11-04
+    - date: 2026-11-03
+      grade: easy
+    last_reviewed: 2026-11-03
+    next_review: 2026-11-17
   trapping-rain-water:
     reps: 1
     ease: 2.5
@@ -666,6 +670,15 @@ problems:
       grade: easy
     last_reviewed: 2026-11-03
     next_review: 2026-11-04
+  construct-binary-tree-from-preorder-and-inorder-traversal:
+    reps: 1
+    ease: 2.36
+    interval: 1
+    history:
+    - date: 2026-11-03
+      grade: hard
+    last_reviewed: 2026-11-03
+    next_review: 2026-11-04
 last_new_on: 2026-11-03
 next_forced_pool: easy
 session:
@@ -680,9 +693,14 @@ session:
       slug: diameter-of-binary-tree
       kind: early
       forced: false
-      grade:
+      grade: easy
     C:
       slug: best-time-to-buy-and-sell-stock
       kind: early
       forced: false
-      grade:
+      grade: easy
+    D:
+      slug: construct-binary-tree-from-preorder-and-inorder-traversal
+      kind: new
+      forced: false
+      grade: hard
