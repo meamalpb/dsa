@@ -31,3 +31,4 @@ INSERT INTO expected VALUES
 
 -- Your query below this line ------------------------------------------------
 
+Select product_id from products where low_fats='Y' and recyclable='Y';

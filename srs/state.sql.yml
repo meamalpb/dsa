@@ -1,0 +1,49 @@
+---
+problems:
+  recyclable-and-low-fat-products:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-03
+      grade: easy
+    last_reviewed: 2026-11-03
+    next_review: 2026-11-04
+  find-customer-referee:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-03
+      grade: easy
+    last_reviewed: 2026-11-03
+    next_review: 2026-11-04
+  big-countries:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-03
+      grade: easy
+    last_reviewed: 2026-11-03
+    next_review: 2026-11-04
+last_new_on: 2026-11-03
+next_forced_pool: any
+session:
+  date: 2026-11-03
+  slots:
+    A:
+      slug: recyclable-and-low-fat-products
+      kind: new
+      forced: true
+      grade: easy
+    B:
+      slug: find-customer-referee
+      kind: new
+      forced: false
+      grade: easy
+    C:
+      slug: big-countries
+      kind: new
+      forced: false
+      grade: easy
