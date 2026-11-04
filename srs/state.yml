@@ -721,3 +721,8 @@ session:
       kind: early
       forced: false
       grade: easy
+    D:
+      slug: implement-trie-prefix-tree
+      kind: new
+      forced: false
+      grade:
