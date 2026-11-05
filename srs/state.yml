@@ -286,11 +286,11 @@ problems:
     - date: 2026-10-03
       grade: good
   reverse-linked-list:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-21
-    next_review: 2026-11-06
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-11-05
+    next_review: 2026-12-20
     history:
     - date: 2026-04-08
       grade: seed
@@ -298,18 +298,22 @@ problems:
       grade: easy
     - date: 2026-10-21
       grade: easy
+    - date: 2026-11-05
+      grade: easy
   merge-two-sorted-lists:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-21
-    next_review: 2026-11-06
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-11-05
+    next_review: 2026-12-20
     history:
     - date: 2026-05-08
       grade: seed
     - date: 2026-09-29
       grade: easy
     - date: 2026-10-21
+      grade: easy
+    - date: 2026-11-05
       grade: easy
   reorder-list:
     reps: 2
@@ -701,28 +705,41 @@ problems:
       grade: good
     last_reviewed: 2026-11-04
     next_review: 2026-11-05
-last_new_on: 2026-11-04
+  implement-trie-prefix-tree:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-04
+      grade: good
+    last_reviewed: 2026-11-04
+    next_review: 2026-11-05
+  design-add-and-search-words-data-structure:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-05
+      grade: good
+    last_reviewed: 2026-11-05
+    next_review: 2026-11-06
+last_new_on: 2026-11-05
 next_forced_pool: easy
 session:
-  date: 2026-11-04
+  date: 2026-11-05
   slots:
     B:
-      slug: serialize-and-deserialize-binary-tree
+      slug: design-add-and-search-words-data-structure
       kind: new
       forced: true
       grade: good
     A:
-      slug: valid-parentheses
+      slug: reverse-linked-list
       kind: early
       forced: false
       grade: easy
     C:
-      slug: binary-search
+      slug: merge-two-sorted-lists
       kind: early
       forced: false
       grade: easy
-    D:
-      slug: implement-trie-prefix-tree
-      kind: new
-      forced: false
-      grade:
