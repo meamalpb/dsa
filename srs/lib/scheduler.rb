@@ -55,9 +55,8 @@ module Srs
     # Extra new problem (`more` / `more new`, slots after the bonus ones) once everything else is
     # done. Rotates through the daily pools, falling back to the next one. Returns [slot, entry] or nil.
     # difficulty (e.g. 'Easy') limits the pick to that difficulty; nil = any.
-    def add_extra_new(difficulty = nil)
-      rotation = forced_pools.rotate(extra_count)
-      slug = rotation.lazy.filter_map { |pool| next_new(pool, difficulty) }.first
+    def add_extra_new(difficulty = nil, topic = nil)
+      slug = topic ? next_new_in_topic(topic, difficulty) : rotated_new(difficulty)
       return unless slug
 
       add_extra(entry(slug, 'new'))
@@ -65,9 +64,10 @@ module Srs
 
     # Extra review (`more old`): the first due review from any pool (or only of `difficulty`),
     # in review_order. Returns [slot, entry] or nil when nothing is due.
-    def add_extra_review(difficulty = nil)
+    def add_extra_review(difficulty = nil, topic = nil)
       cards = @state['problems'].select do |s, _|
-        @problems.key?(s) && !picked?(s) && (difficulty.nil? || @problems[s]['difficulty'] == difficulty)
+        @problems.key?(s) && !picked?(s) && (difficulty.nil? || @problems[s]['difficulty'] == difficulty) &&
+          (topic.nil? || @problems[s]['topic'] == topic)
       end
       slug = first_due(cards)
       add_extra(entry(slug, 'review')) if slug
@@ -191,9 +191,19 @@ module Srs
            .min_by { |slug, card| [card['next_review'], @problems[slug]['order']] }&.first
     end
 
-    def next_new(pool, difficulty = nil)
+    def rotated_new(difficulty)
+      forced_pools.rotate(extra_count).lazy.filter_map { |pool| next_new(pool, difficulty) }.first
+    end
+
+    # `more new <topic>`: the topic's first eligible problem, whatever pool it is in.
+    def next_new_in_topic(topic, difficulty)
+      forced_pools.filter_map { |pool| next_new(pool, difficulty, topic) }
+                  .min_by { |slug| @problems[slug]['order'] }
+    end
+
+    def next_new(pool, difficulty = nil, topic = nil)
       @problems.select do |slug, p|
-        (difficulty.nil? || p['difficulty'] == difficulty) && eligible_new?(slug, p,
+        (difficulty.nil? || p['difficulty'] == difficulty) && (topic.nil? || p['topic'] == topic) && eligible_new?(slug, p,
                                                                             pool)
       end.min_by { |_, p| p['order'] }&.first
     end

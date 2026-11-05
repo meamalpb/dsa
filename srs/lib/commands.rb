@@ -31,19 +31,27 @@ module Srs
 
     # Add another problem to today's session (only once everything is graded):
     # kind 'new' = next new problem, 'old' = most overdue review; difficulty ('Easy', …) or nil = any.
-    def more(kind = 'new', difficulty = nil)
+    def more(kind = 'new', difficulty = nil, topic = nil)
       @scheduler.session
       raise Error, 'Finish and grade today\'s problems first.' unless @scheduler.all_graded?
 
-      added = kind == 'old' ? @scheduler.add_extra_review(difficulty) : @scheduler.add_extra_new(difficulty)
+      added = if kind == 'old' then @scheduler.add_extra_review(difficulty, topic)
+              else @scheduler.add_extra_new(difficulty, topic)
+              end
       save
-      unless added
-        what = difficulty ? " #{difficulty}" : ''
-        return @out.puts(kind == 'old' ? "Nothing#{what} is due for review." : "No new#{what} problem is eligible right now.")
-      end
+      return @out.puts(none_message(kind, difficulty, topic)) unless added
 
       @out.puts 'Extra problem:'
       show(*added)
+    end
+
+    def none_message(kind, difficulty, topic)
+      what = [difficulty, topic && "#{topic} "].compact.join(' ').strip
+      what = " #{what}" unless what.empty?
+      return "Nothing#{what} is due for review." if kind == 'old'
+
+      locked = topic && !Progress.new(@problems, @state).open?(topic)
+      locked ? "#{topic} is locked (needs #{Topics.prereqs(topic).join(' + ')})." : "No new#{what} problem is eligible right now."
     end
 
     def start(slot)
