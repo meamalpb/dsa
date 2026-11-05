@@ -714,7 +714,16 @@ problems:
       grade: good
     last_reviewed: 2026-11-04
     next_review: 2026-11-05
-last_new_on: 2026-11-04
+  design-add-and-search-words-data-structure:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-05
+      grade: good
+    last_reviewed: 2026-11-05
+    next_review: 2026-11-06
+last_new_on: 2026-11-05
 next_forced_pool: easy
 session:
   date: 2026-11-05
@@ -723,7 +732,7 @@ session:
       slug: design-add-and-search-words-data-structure
       kind: new
       forced: true
-      grade:
+      grade: good
     A:
       slug: reverse-linked-list
       kind: early
