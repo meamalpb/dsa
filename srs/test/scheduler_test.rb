@@ -277,6 +277,28 @@ class SchedulerTest < Minitest::Test # rubocop:disable Metrics/ClassLength
     assert_equal 'm2', sched.add_extra_review[1]['slug']
   end
 
+  def test_more_new_with_topic_takes_that_topics_first_problem
+    add('a1', 'arrays', 'Medium')
+    add('t1', 'trees', 'Medium')
+    add('t2', 'trees', 'Medium')
+    add('t3', 'trees', 'Medium')
+    seen('a1', TODAY + 5)
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    assert_equal 't1', sched.session['slots']['B']['slug']
+    assert_equal 't2', sched.add_extra_new(nil, 'trees')[1]['slug']
+    assert_nil sched.add_extra_new(nil, 'graphs')
+  end
+
+  def test_more_old_with_topic
+    add('a1', 'arrays', 'Medium')
+    add('t1', 'trees', 'Medium')
+    seen('a1', TODAY - 50)
+    seen('t1', TODAY - 5)
+    sched = Srs::Scheduler.new(@problems, @state, TODAY)
+    sched.session
+    assert_equal 't1', sched.add_extra_review(nil, 'trees')[1]['slug']
+  end
+
   def test_new_every_days_is_configurable
     configure('session' => { 'new_every_days' => 1 })
     add('m1', 'arrays', 'Medium')

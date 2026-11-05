@@ -11,10 +11,12 @@ module Srs
         start <file|slug>    practice a problem you pick, e.g. linked_list/medium/reorder_list.rb:
                              adds it as an extra slot today, graded like any other
         grade <slot> <how>   how = again | hard | good | easy  (`easy` unlocks slot C)
-        more [new|old] [easy|medium|hard|all]
+        more [new|old] [easy|medium|hard|all] [topic]
                              all done? get an extra problem (slots D, E, …):
                              new (default) = next new problem, old = most overdue review;
-                             easy/medium/hard limits the difficulty (all = any, default)
+                             easy/medium/hard limits the difficulty (all = any, default);
+                             a topic (e.g. backtracking, two_pointers) limits it to that topic,
+                             as long as it's open: `more new backtracking`
         status               coverage per topic, what's due
         overdue              list every overdue problem, most overdue first
         setup                build srs/problems.yml and seed srs/state.yml (safe to re-run)
@@ -73,16 +75,18 @@ module Srs
 
     # `more` words in any order, e.g. `more old easy` or `more medium`: [kind, difficulty or nil].
     def more_options(args)
-      words = args.map(&:downcase)
-      unknown = words - KINDS - DIFFICULTIES
+      words = args.map { |a| a.downcase.tr('-', '_') }
+      topics = words & Topics.roadmap.keys
+      unknown = words - KINDS - DIFFICULTIES - topics
       kinds = words & KINDS
       diffs = words & DIFFICULTIES
-      if unknown.any? || kinds.size > 1 || diffs.size > 1
-        raise Error, "more takes new|old and easy|medium|hard|all, one of each at most.\n\n#{USAGE}"
+      if unknown.any? || kinds.size > 1 || diffs.size > 1 || topics.size > 1
+        raise Error, "more takes new|old, easy|medium|hard|all and a topic (#{Topics.roadmap.keys.join(', ')}), " \
+                     "one of each at most.\n\n#{USAGE}"
       end
 
       difficulty = diffs.first
-      [kinds.first || 'new', difficulty.nil? || difficulty == 'all' ? nil : difficulty.capitalize]
+      [kinds.first || 'new', difficulty.nil? || difficulty == 'all' ? nil : difficulty.capitalize, topics.first]
     end
 
     def run_target(arg)
