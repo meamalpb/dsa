@@ -338,11 +338,11 @@ problems:
     - date: 2026-11-01
       grade: good
   linked-list-cycle:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-21
-    next_review: 2026-11-06
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-11-07
+    next_review: 2026-12-22
     history:
     - date: 2026-05-08
       grade: seed
@@ -350,18 +350,22 @@ problems:
       grade: easy
     - date: 2026-10-21
       grade: easy
+    - date: 2026-11-07
+      grade: easy
   invert-binary-tree:
-    reps: 3
-    ease: 2.7
-    interval: 16
-    last_reviewed: 2026-10-21
-    next_review: 2026-11-06
+    reps: 4
+    ease: 2.8
+    interval: 45
+    last_reviewed: 2026-11-07
+    next_review: 2026-12-22
     history:
     - date: 2026-07-21
       grade: seed
     - date: 2026-09-30
       grade: easy
     - date: 2026-10-21
+      grade: easy
+    - date: 2026-11-07
       grade: easy
   lowest-common-ancestor-of-a-binary-search-tree:
     reps: 2
@@ -375,14 +379,16 @@ problems:
     - date: 2026-11-02
       grade: easy
   binary-tree-level-order-traversal:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
-    last_reviewed: 2026-07-21
-    next_review: 2026-07-22
+    interval: 6
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-13
     history:
     - date: 2026-07-21
       grade: seed
+    - date: 2026-11-07
+      grade: good
   validate-binary-search-tree:
     reps: 1
     ease: 2.5
@@ -723,23 +729,37 @@ problems:
       grade: good
     last_reviewed: 2026-11-05
     next_review: 2026-11-06
-last_new_on: 2026-11-05
+  word-search-ii:
+    reps: 0
+    ease: 1.96
+    interval: 1
+    history:
+    - date: 2026-11-07
+      grade: again
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-08
+last_new_on: 2026-11-07
 next_forced_pool: easy
 session:
-  date: 2026-11-05
+  date: 2026-11-07
   slots:
     B:
-      slug: design-add-and-search-words-data-structure
+      slug: word-search-ii
       kind: new
       forced: true
-      grade: good
+      grade: again
     A:
-      slug: reverse-linked-list
-      kind: early
+      slug: linked-list-cycle
+      kind: review
       forced: false
       grade: easy
     C:
-      slug: merge-two-sorted-lists
-      kind: early
+      slug: invert-binary-tree
+      kind: review
       forced: false
       grade: easy
+    D:
+      slug: binary-tree-level-order-traversal
+      kind: review
+      forced: false
+      grade: good
