@@ -16,28 +16,43 @@ problems:
     done_on: 2026-11-03
   binary-search:
     done_on: 2026-11-03
-last_new_on: 2026-11-03
+  reverse-linked-list:
+    done_on: 2026-11-07
+  merge-two-sorted-lists:
+    done_on: 2026-11-07
+  top-k-frequent-elements:
+    done_on: 2026-11-07
+  linked-list-cycle:
+    done_on: 2026-11-07
+  product-of-array-except-self:
+    done_on: 2026-11-07
+last_new_on: 2026-11-07
 next_forced_pool: medium_hard
 session:
-  date: 2026-11-03
+  date: 2026-11-07
   slots:
     A:
-      slug: best-time-to-buy-and-sell-stock
+      slug: reverse-linked-list
       kind: new
       forced: false
       grade: easy
     B:
-      slug: valid-parentheses
+      slug: merge-two-sorted-lists
       kind: new
       forced: false
       grade: easy
     C:
-      slug: group-anagrams
+      slug: top-k-frequent-elements
       kind: new
       forced: false
       grade: easy
     E:
-      slug: binary-search
+      slug: linked-list-cycle
+      kind: new
+      forced: false
+      grade: easy
+    F:
+      slug: product-of-array-except-self
       kind: new
       forced: false
       grade: easy
