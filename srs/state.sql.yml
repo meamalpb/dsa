@@ -1,23 +1,27 @@
 ---
 problems:
   recyclable-and-low-fat-products:
-    reps: 1
-    ease: 2.6
-    interval: 1
+    reps: 2
+    ease: 2.7
+    interval: 6
     history:
     - date: 2026-11-03
       grade: easy
-    last_reviewed: 2026-11-03
-    next_review: 2026-11-04
+    - date: 2026-11-07
+      grade: easy
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-13
   find-customer-referee:
-    reps: 1
-    ease: 2.6
-    interval: 1
+    reps: 2
+    ease: 2.7
+    interval: 6
     history:
     - date: 2026-11-03
       grade: easy
-    last_reviewed: 2026-11-03
-    next_review: 2026-11-04
+    - date: 2026-11-07
+      grade: easy
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-13
   big-countries:
     reps: 1
     ease: 2.6
@@ -27,23 +31,102 @@ problems:
       grade: easy
     last_reviewed: 2026-11-03
     next_review: 2026-11-04
-last_new_on: 2026-11-03
-next_forced_pool: any
+  article-views-i:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-07
+      grade: easy
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-08
+  invalid-tweets:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-07
+      grade: easy
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-08
+  replace-employee-id-with-the-unique-identifier:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-07
+      grade: easy
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-08
+  product-sales-analysis-i:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-07
+      grade: easy
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-08
+  customer-who-visited-but-did-not-make-any-transactions:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-07
+      grade: easy
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-08
+  rising-temperature:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-07
+      grade: good
+    last_reviewed: 2026-11-07
+    next_review: 2026-11-08
+last_new_on: 2026-11-07
+next_forced_pool: easy
 session:
-  date: 2026-11-03
+  date: 2026-11-07
   slots:
-    A:
-      slug: recyclable-and-low-fat-products
+    B:
+      slug: article-views-i
       kind: new
       forced: true
       grade: easy
-    B:
-      slug: find-customer-referee
-      kind: new
+    A:
+      slug: recyclable-and-low-fat-products
+      kind: review
       forced: false
       grade: easy
     C:
-      slug: big-countries
+      slug: find-customer-referee
+      kind: review
+      forced: false
+      grade: easy
+    D:
+      slug: invalid-tweets
       kind: new
       forced: false
       grade: easy
+    E:
+      slug: replace-employee-id-with-the-unique-identifier
+      kind: new
+      forced: false
+      grade: easy
+    F:
+      slug: product-sales-analysis-i
+      kind: new
+      forced: false
+      grade: easy
+    G:
+      slug: customer-who-visited-but-did-not-make-any-transactions
+      kind: new
+      forced: false
+      grade: easy
+    H:
+      slug: rising-temperature
+      kind: new
+      forced: false
+      grade: good

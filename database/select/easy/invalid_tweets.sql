@@ -23,3 +23,4 @@ INSERT INTO expected VALUES
 
 -- Your query below this line ------------------------------------------------
 
+select tweet_id from tweets where length(content)>15;
