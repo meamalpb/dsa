@@ -421,9 +421,9 @@ problems:
     last_reviewed: 2026-09-24
     next_review: 2026-09-25
   maximum-depth-of-binary-tree:
-    reps: 3
-    ease: 2.7
-    interval: 16
+    reps: 4
+    ease: 2.8
+    interval: 45
     history:
     - date: 2026-09-27
       grade: good
@@ -431,8 +431,10 @@ problems:
       grade: easy
     - date: 2026-10-21
       grade: easy
-    last_reviewed: 2026-10-21
-    next_review: 2026-11-06
+    - date: 2026-11-09
+      grade: easy
+    last_reviewed: 2026-11-09
+    next_review: 2026-12-24
   encode-and-decode-strings:
     reps: 1
     ease: 2.6
@@ -738,28 +740,32 @@ problems:
       grade: again
     last_reviewed: 2026-11-07
     next_review: 2026-11-08
-last_new_on: 2026-11-07
+  k-closest-points-to-origin:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-09
+      grade: good
+    last_reviewed: 2026-11-09
+    next_review: 2026-11-10
+last_new_on: 2026-11-09
 next_forced_pool: easy
 session:
-  date: 2026-11-07
+  date: 2026-11-09
   slots:
     B:
-      slug: word-search-ii
+      slug: k-closest-points-to-origin
       kind: new
       forced: true
-      grade: again
+      grade: good
     A:
-      slug: linked-list-cycle
+      slug: maximum-depth-of-binary-tree
       kind: review
       forced: false
       grade: easy
     C:
-      slug: invert-binary-tree
+      slug: kth-largest-element-in-a-stream
       kind: review
       forced: false
-      grade: easy
-    D:
-      slug: binary-tree-level-order-traversal
-      kind: review
-      forced: false
-      grade: good
+      grade:
