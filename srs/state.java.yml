@@ -26,7 +26,21 @@ problems:
     done_on: 2026-11-07
   product-of-array-except-self:
     done_on: 2026-11-07
-last_new_on: 2026-11-07
+  valid-sudoku:
+    done_on: 2026-11-09
+  encode-and-decode-strings:
+    done_on: 2026-11-09
+  longest-consecutive-sequence:
+    done_on: 2026-11-09
+  merge-intervals:
+    done_on: 2026-11-09
+  two-sum-ii-input-array-is-sorted:
+    done_on: 2026-11-09
+  3sum:
+    done_on: 2026-11-09
+  container-with-most-water:
+    done_on: 2026-11-09
+last_new_on: 2026-11-09
 next_forced_pool: medium_hard
 session:
   date: 2026-11-09
@@ -35,14 +49,34 @@ session:
       slug: valid-sudoku
       kind: new
       forced: false
-      grade:
+      grade: good
     B:
       slug: encode-and-decode-strings
       kind: new
       forced: false
-      grade:
+      grade: good
     C:
       slug: longest-consecutive-sequence
       kind: new
       forced: false
-      grade:
+      grade: good
+    E:
+      slug: merge-intervals
+      kind: new
+      forced: false
+      grade: easy
+    F:
+      slug: two-sum-ii-input-array-is-sorted
+      kind: new
+      forced: false
+      grade: easy
+    G:
+      slug: 3sum
+      kind: new
+      forced: false
+      grade: easy
+    H:
+      slug: container-with-most-water
+      kind: new
+      forced: false
+      grade: easy
