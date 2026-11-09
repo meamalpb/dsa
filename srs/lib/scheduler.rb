@@ -147,8 +147,9 @@ module Srs
     # For one_pass tracks, always serve a new (unseen) problem.
     def pick(pool)
       if Srs.track.one_pass?
-        slug = next_new(pool)
-        return entry(slug, 'new')
+        # Stay in the current topic; when the pool (Easy or Medium+) runs dry there, take any difficulty.
+        slug = next_new(pool) || next_new(nil)
+        return entry(slug, slug ? 'new' : nil)
       end
 
       if (slug = first_due(reviews(pool))) then entry(slug, 'review')
@@ -167,6 +168,8 @@ module Srs
     end
 
     def in_pool?(slug, pool)
+      return true if pool.nil?
+
       @config.dig('pools', pool).include?(@problems.dig(slug, 'difficulty'))
     end
 
@@ -210,6 +213,8 @@ module Srs
 
     def eligible_new?(slug, problem, pool)
       topic = problem['topic']
+      return false if Srs.track.one_pass? && topic != @progress.current_topic
+
       !@progress.seen?(slug) && !picked?(slug) && in_pool?(slug, pool) && @progress.open?(topic) &&
         (problem['difficulty'] != 'Hard' || @progress.hards_unlocked?(topic))
     end

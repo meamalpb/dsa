@@ -5,6 +5,26 @@ module Srs
   module Report
     module_function
 
+    # One-pass (Java) tracks: topics are done one at a time, so show done/total and which is current.
+    def sequence(problems, state, out)
+      progress = Progress.new(problems, state)
+      current = progress.current_topic
+      out.puts "\n#{'Topic'.ljust(17)} #{'Done'.rjust(7)}   #{'Progress'.ljust(Charts::BAR_WIDTH)}  E / M / H     Status"
+      Topics.roadmap.each_key do |topic|
+        all = progress.in_topic(topic).keys
+        next if all.empty?
+
+        done = all.count { |s| progress.seen?(s) }
+        counts = %w[Easy Medium Hard].map { |d| progress.in_topic(topic, [d]).size }.join(' / ')
+        status = if done == all.size then 'done'
+                 elsif topic == current then '<- current'
+                 else 'queued'
+                 end
+        out.puts "#{topic.ljust(17)} #{"#{done}/#{all.size}".rjust(7)}   #{Charts.bar(done.fdiv(all.size))}  " \
+                 "#{counts.ljust(13)} #{status}"
+      end
+    end
+
     def coverage(problems, state, out)
       progress = Progress.new(problems, state)
       bar_head = 'Progress'.ljust(Charts::BAR_WIDTH)

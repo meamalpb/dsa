@@ -29,30 +29,20 @@ problems:
 last_new_on: 2026-11-07
 next_forced_pool: medium_hard
 session:
-  date: 2026-11-07
+  date: 2026-11-09
   slots:
     A:
-      slug: reverse-linked-list
+      slug: valid-sudoku
       kind: new
       forced: false
-      grade: easy
+      grade:
     B:
-      slug: merge-two-sorted-lists
+      slug: encode-and-decode-strings
       kind: new
       forced: false
-      grade: easy
+      grade:
     C:
-      slug: top-k-frequent-elements
+      slug: longest-consecutive-sequence
       kind: new
       forced: false
-      grade: easy
-    E:
-      slug: linked-list-cycle
-      kind: new
-      forced: false
-      grade: easy
-    F:
-      slug: product-of-array-except-self
-      kind: new
-      forced: false
-      grade: easy
+      grade:

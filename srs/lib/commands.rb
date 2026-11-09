@@ -127,7 +127,7 @@ module Srs
     end
 
     def status
-      Report.coverage(@problems, @state, @out)
+      @track.one_pass? ? Report.sequence(@problems, @state, @out) : Report.coverage(@problems, @state, @out)
       if @track.one_pass?
         done = @state['problems'].count { |slug, _| @problems.key?(slug) }
         @out.puts "\nDone #{done}/#{@problems.size}"

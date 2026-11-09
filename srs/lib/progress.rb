@@ -38,6 +38,12 @@ module Srs
         in_topic(topic).keys.any? { |s| seen?(s) }
     end
 
+    # One-pass (Java) tracks go one topic at a time, in roadmap order: the first topic that
+    # still has an unseen problem. nil when everything is done.
+    def current_topic
+      Topics.roadmap.each_key.find { |t| in_topic(t).keys.any? { |s| !seen?(s) } }
+    end
+
     def hards_unlocked?(topic)
       ratio(topic, %w[Medium]) >= @unlock['hard_ratio']
     end
