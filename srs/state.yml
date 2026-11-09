@@ -638,16 +638,18 @@ problems:
     last_reviewed: 2026-10-30
     next_review: 2026-10-31
   kth-largest-element-in-a-stream:
-    reps: 2
-    ease: 2.6
-    interval: 6
+    reps: 3
+    ease: 2.7
+    interval: 16
     history:
     - date: 2026-11-01
       grade: good
     - date: 2026-11-02
       grade: easy
-    last_reviewed: 2026-11-02
-    next_review: 2026-11-08
+    - date: 2026-11-09
+      grade: easy
+    last_reviewed: 2026-11-09
+    next_review: 2026-11-25
   last-stone-weight:
     reps: 2
     ease: 2.7
@@ -749,6 +751,15 @@ problems:
       grade: good
     last_reviewed: 2026-11-09
     next_review: 2026-11-10
+  kth-largest-element-in-an-array:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-09
+      grade: easy
+    last_reviewed: 2026-11-09
+    next_review: 2026-11-10
 last_new_on: 2026-11-09
 next_forced_pool: easy
 session:
@@ -768,4 +779,9 @@ session:
       slug: kth-largest-element-in-a-stream
       kind: review
       forced: false
-      grade:
+      grade: easy
+    D:
+      slug: kth-largest-element-in-an-array
+      kind: new
+      forced: false
+      grade: easy
