@@ -40,43 +40,54 @@ problems:
     done_on: 2026-11-09
   container-with-most-water:
     done_on: 2026-11-09
-last_new_on: 2026-11-09
+  trapping-rain-water:
+    done_on: 2026-11-10
+  longest-substring-without-repeating-characters:
+    done_on: 2026-11-10
+  longest-repeating-character-replacement:
+    done_on: 2026-11-10
+  permutation-in-string:
+    done_on: 2026-11-11
+  minimum-window-substring:
+    done_on: 2026-11-11
+  sliding-window-maximum:
+    done_on: 2026-11-11
+  min-stack:
+    done_on: 2026-11-11
+  generate-parentheses:
+    done_on: 2026-11-11
+last_new_on: 2026-11-11
 next_forced_pool: medium_hard
 session:
-  date: 2026-11-09
+  date: 2026-11-11
   slots:
     A:
-      slug: valid-sudoku
+      slug: permutation-in-string
       kind: new
       forced: false
-      grade: good
+      grade: easy
     B:
-      slug: encode-and-decode-strings
+      slug: minimum-window-substring
       kind: new
       forced: false
-      grade: good
+      grade: again
     C:
-      slug: longest-consecutive-sequence
+      slug: sliding-window-maximum
       kind: new
       forced: false
-      grade: good
+      grade: again
     E:
-      slug: merge-intervals
+      slug: min-stack
       kind: new
       forced: false
       grade: easy
     F:
-      slug: two-sum-ii-input-array-is-sorted
+      slug: generate-parentheses
       kind: new
       forced: false
-      grade: easy
+      grade: again
     G:
-      slug: 3sum
+      slug: daily-temperatures
       kind: new
       forced: false
-      grade: easy
-    H:
-      slug: container-with-most-water
-      kind: new
-      forced: false
-      grade: easy
+      grade:
