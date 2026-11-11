@@ -651,16 +651,18 @@ problems:
     last_reviewed: 2026-11-09
     next_review: 2026-11-25
   last-stone-weight:
-    reps: 2
+    reps: 3
     ease: 2.7
-    interval: 6
+    interval: 16
     history:
     - date: 2026-11-01
       grade: easy
     - date: 2026-11-02
       grade: easy
-    last_reviewed: 2026-11-02
-    next_review: 2026-11-08
+    - date: 2026-11-11
+      grade: good
+    last_reviewed: 2026-11-11
+    next_review: 2026-11-27
   merge-k-sorted-lists:
     reps: 1
     ease: 2.5
@@ -763,25 +765,15 @@ problems:
 last_new_on: 2026-11-09
 next_forced_pool: easy
 session:
-  date: 2026-11-09
+  date: 2026-11-11
   slots:
     B:
-      slug: k-closest-points-to-origin
+      slug: task-scheduler
       kind: new
       forced: true
-      grade: good
+      grade:
     A:
-      slug: maximum-depth-of-binary-tree
+      slug: last-stone-weight
       kind: review
       forced: false
-      grade: easy
-    C:
-      slug: kth-largest-element-in-a-stream
-      kind: review
-      forced: false
-      grade: easy
-    D:
-      slug: kth-largest-element-in-an-array
-      kind: new
-      forced: false
-      grade: easy
+      grade: good
