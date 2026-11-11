@@ -473,9 +473,9 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-09-30
   balanced-binary-tree:
-    reps: 3
-    ease: 2.8
-    interval: 17
+    reps: 4
+    ease: 2.9
+    interval: 49
     history:
     - date: 2026-09-30
       grade: easy
@@ -483,8 +483,10 @@ problems:
       grade: easy
     - date: 2026-10-28
       grade: easy
-    last_reviewed: 2026-10-28
-    next_review: 2026-11-14
+    - date: 2026-11-11
+      grade: easy
+    last_reviewed: 2026-11-11
+    next_review: 2026-12-30
   same-tree:
     reps: 3
     ease: 2.7
@@ -762,7 +764,25 @@ problems:
       grade: easy
     last_reviewed: 2026-11-09
     next_review: 2026-11-10
-last_new_on: 2026-11-09
+  task-scheduler:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-11
+      grade: good
+    last_reviewed: 2026-11-11
+    next_review: 2026-11-12
+  meeting-rooms:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-11
+      grade: easy
+    last_reviewed: 2026-11-11
+    next_review: 2026-11-12
+last_new_on: 2026-11-11
 next_forced_pool: easy
 session:
   date: 2026-11-11
@@ -771,9 +791,24 @@ session:
       slug: task-scheduler
       kind: new
       forced: true
-      grade:
+      grade: good
     A:
       slug: last-stone-weight
       kind: review
       forced: false
       grade: good
+    D:
+      slug: meeting-rooms
+      kind: new
+      forced: false
+      grade: easy
+    C:
+      slug: balanced-binary-tree
+      kind: early
+      forced: false
+      grade: easy
+    E:
+      slug: design-twitter
+      kind: new
+      forced: false
+      grade:
