@@ -56,38 +56,43 @@ problems:
     done_on: 2026-11-11
   generate-parentheses:
     done_on: 2026-11-11
-last_new_on: 2026-11-11
+  daily-temperatures:
+    done_on: 2026-11-13
+  car-fleet:
+    done_on: 2026-11-13
+  largest-rectangle-in-histogram:
+    done_on: 2026-11-13
+  search-a-2d-matrix:
+    done_on: 2026-11-13
+  koko-eating-bananas:
+    done_on: 2026-11-13
+last_new_on: 2026-11-13
 next_forced_pool: medium_hard
 session:
-  date: 2026-11-11
+  date: 2026-11-13
   slots:
     A:
-      slug: permutation-in-string
+      slug: daily-temperatures
       kind: new
       forced: false
-      grade: easy
+      grade: good
     B:
-      slug: minimum-window-substring
+      slug: car-fleet
       kind: new
       forced: false
-      grade: again
+      grade: good
     C:
-      slug: sliding-window-maximum
+      slug: largest-rectangle-in-histogram
       kind: new
       forced: false
       grade: again
     E:
-      slug: min-stack
+      slug: search-a-2d-matrix
       kind: new
       forced: false
       grade: easy
     F:
-      slug: generate-parentheses
+      slug: koko-eating-bananas
       kind: new
       forced: false
-      grade: again
-    G:
-      slug: daily-temperatures
-      kind: new
-      forced: false
-      grade:
+      grade: easy

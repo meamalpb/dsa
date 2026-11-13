@@ -23,23 +23,27 @@ problems:
     last_reviewed: 2026-11-07
     next_review: 2026-11-13
   big-countries:
-    reps: 1
-    ease: 2.6
-    interval: 1
+    reps: 2
+    ease: 2.7
+    interval: 6
     history:
     - date: 2026-11-03
       grade: easy
-    last_reviewed: 2026-11-03
-    next_review: 2026-11-04
+    - date: 2026-11-13
+      grade: easy
+    last_reviewed: 2026-11-13
+    next_review: 2026-11-19
   article-views-i:
-    reps: 1
-    ease: 2.6
-    interval: 1
+    reps: 2
+    ease: 2.7
+    interval: 6
     history:
     - date: 2026-11-07
       grade: easy
-    last_reviewed: 2026-11-07
-    next_review: 2026-11-08
+    - date: 2026-11-13
+      grade: easy
+    last_reviewed: 2026-11-13
+    next_review: 2026-11-19
   invalid-tweets:
     reps: 1
     ease: 2.6
@@ -85,48 +89,74 @@ problems:
       grade: good
     last_reviewed: 2026-11-07
     next_review: 2026-11-08
-last_new_on: 2026-11-07
-next_forced_pool: easy
+  average-time-of-process-per-machine:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-13
+      grade: good
+    last_reviewed: 2026-11-13
+    next_review: 2026-11-14
+  employee-bonus:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-13
+      grade: easy
+    last_reviewed: 2026-11-13
+    next_review: 2026-11-14
+  students-and-examinations:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-13
+      grade: good
+    last_reviewed: 2026-11-13
+    next_review: 2026-11-14
+  managers-with-at-least-5-direct-reports:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-13
+      grade: easy
+    last_reviewed: 2026-11-13
+    next_review: 2026-11-14
+last_new_on: 2026-11-13
+next_forced_pool: any
 session:
-  date: 2026-11-07
+  date: 2026-11-13
   slots:
-    B:
-      slug: article-views-i
+    A:
+      slug: average-time-of-process-per-machine
       kind: new
       forced: true
-      grade: easy
-    A:
-      slug: recyclable-and-low-fat-products
+      grade: good
+    B:
+      slug: big-countries
       kind: review
       forced: false
       grade: easy
     C:
-      slug: find-customer-referee
+      slug: article-views-i
       kind: review
       forced: false
       grade: easy
     D:
-      slug: invalid-tweets
+      slug: employee-bonus
       kind: new
       forced: false
       grade: easy
     E:
-      slug: replace-employee-id-with-the-unique-identifier
-      kind: new
-      forced: false
-      grade: easy
-    F:
-      slug: product-sales-analysis-i
-      kind: new
-      forced: false
-      grade: easy
-    G:
-      slug: customer-who-visited-but-did-not-make-any-transactions
-      kind: new
-      forced: false
-      grade: easy
-    H:
-      slug: rising-temperature
+      slug: students-and-examinations
       kind: new
       forced: false
       grade: good
+    F:
+      slug: managers-with-at-least-5-direct-reports
+      kind: new
+      forced: false
+      grade: easy
