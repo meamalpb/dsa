@@ -451,9 +451,9 @@ problems:
     last_reviewed: 2026-09-29
     next_review: 2026-10-03
   diameter-of-binary-tree:
-    reps: 3
-    ease: 2.26
-    interval: 14
+    reps: 4
+    ease: 2.36
+    interval: 33
     history:
     - date: 2026-09-29
       grade: good
@@ -467,8 +467,10 @@ problems:
       grade: easy
     - date: 2026-11-03
       grade: easy
-    last_reviewed: 2026-11-03
-    next_review: 2026-11-17
+    - date: 2026-11-14
+      grade: easy
+    last_reviewed: 2026-11-14
+    next_review: 2026-12-17
   trapping-rain-water:
     reps: 1
     ease: 2.5
@@ -784,16 +786,18 @@ problems:
     last_reviewed: 2026-11-11
     next_review: 2026-11-12
   meeting-rooms:
-    reps: 2
-    ease: 2.7
-    interval: 6
+    reps: 3
+    ease: 2.8
+    interval: 17
     history:
     - date: 2026-11-11
       grade: easy
     - date: 2026-11-12
       grade: easy
-    last_reviewed: 2026-11-12
-    next_review: 2026-11-18
+    - date: 2026-11-14
+      grade: easy
+    last_reviewed: 2026-11-14
+    next_review: 2026-12-01
   design-twitter:
     reps: 0
     ease: 1.96
@@ -803,38 +807,32 @@ problems:
       grade: again
     last_reviewed: 2026-11-13
     next_review: 2026-11-14
-last_new_on: 2026-11-13
+  find-median-from-data-stream:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-14
+      grade: good
+    last_reviewed: 2026-11-14
+    next_review: 2026-11-15
+last_new_on: 2026-11-14
 next_forced_pool: easy
 session:
-  date: 2026-11-13
+  date: 2026-11-14
   slots:
     B:
-      slug: design-twitter
+      slug: find-median-from-data-stream
       kind: new
       forced: true
-      grade: again
+      grade: good
     A:
-      slug: same-tree
+      slug: diameter-of-binary-tree
       kind: early
       forced: false
       grade: easy
     C:
-      slug: subtree-of-another-tree
+      slug: meeting-rooms
       kind: early
       forced: false
       grade: easy
-    D:
-      slug: validate-binary-search-tree
-      kind: review
-      forced: false
-      grade: good
-    E:
-      slug: permutation-in-string
-      kind: review
-      forced: false
-      grade: good
-    F:
-      slug: valid-sudoku
-      kind: review
-      forced: false
-      grade: good
