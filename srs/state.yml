@@ -669,9 +669,9 @@ problems:
     last_reviewed: 2026-11-15
     next_review: 2026-12-30
   last-stone-weight:
-    reps: 3
-    ease: 2.7
-    interval: 16
+    reps: 4
+    ease: 2.8
+    interval: 45
     history:
     - date: 2026-11-01
       grade: easy
@@ -679,8 +679,10 @@ problems:
       grade: easy
     - date: 2026-11-11
       grade: good
-    last_reviewed: 2026-11-11
-    next_review: 2026-11-27
+    - date: 2026-11-15
+      grade: easy
+    last_reviewed: 2026-11-15
+    next_review: 2026-12-30
   merge-k-sorted-lists:
     reps: 1
     ease: 2.5
@@ -829,6 +831,15 @@ problems:
       grade: good
     last_reviewed: 2026-11-15
     next_review: 2026-11-16
+  combination-sum:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-15
+      grade: good
+    last_reviewed: 2026-11-15
+    next_review: 2026-11-16
 last_new_on: 2026-11-15
 next_forced_pool: easy
 session:
@@ -848,4 +859,9 @@ session:
       slug: last-stone-weight
       kind: early
       forced: false
-      grade:
+      grade: easy
+    D:
+      slug: combination-sum
+      kind: new
+      forced: false
+      grade: good
