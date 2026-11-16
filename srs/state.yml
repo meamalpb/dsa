@@ -1,11 +1,11 @@
 ---
 problems:
   contains-duplicate:
-    reps: 4
-    ease: 2.8
-    interval: 45
-    last_reviewed: 2026-10-21
-    next_review: 2026-12-05
+    reps: 5
+    ease: 2.9
+    interval: 131
+    last_reviewed: 2026-11-16
+    next_review: 2027-03-27
     history:
     - date: 2026-03-14
       grade: seed
@@ -14,6 +14,8 @@ problems:
     - date: 2026-10-01
       grade: easy
     - date: 2026-10-21
+      grade: easy
+    - date: 2026-11-16
       grade: easy
   valid-anagram:
     reps: 4
@@ -792,9 +794,9 @@ problems:
     last_reviewed: 2026-11-11
     next_review: 2026-11-12
   meeting-rooms:
-    reps: 3
-    ease: 2.8
-    interval: 17
+    reps: 4
+    ease: 2.9
+    interval: 49
     history:
     - date: 2026-11-11
       grade: easy
@@ -802,8 +804,10 @@ problems:
       grade: easy
     - date: 2026-11-14
       grade: easy
-    last_reviewed: 2026-11-14
-    next_review: 2026-12-01
+    - date: 2026-11-16
+      grade: easy
+    last_reviewed: 2026-11-16
+    next_review: 2027-01-04
   design-twitter:
     reps: 0
     ease: 1.96
@@ -840,28 +844,32 @@ problems:
       grade: good
     last_reviewed: 2026-11-15
     next_review: 2026-11-16
-last_new_on: 2026-11-15
+  permutations:
+    reps: 1
+    ease: 2.36
+    interval: 1
+    history:
+    - date: 2026-11-16
+      grade: hard
+    last_reviewed: 2026-11-16
+    next_review: 2026-11-17
+last_new_on: 2026-11-16
 next_forced_pool: easy
 session:
-  date: 2026-11-15
+  date: 2026-11-16
   slots:
     B:
-      slug: subsets
+      slug: permutations
       kind: new
       forced: true
-      grade: good
+      grade: hard
     A:
-      slug: kth-largest-element-in-a-stream
+      slug: meeting-rooms
       kind: early
       forced: false
       grade: easy
     C:
-      slug: last-stone-weight
+      slug: contains-duplicate
       kind: early
       forced: false
       grade: easy
-    D:
-      slug: combination-sum
-      kind: new
-      forced: false
-      grade: good
