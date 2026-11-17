@@ -70,6 +70,12 @@ problems:
     done_on: 2026-11-17
   search-in-rotated-sorted-array:
     done_on: 2026-11-17
+  reorder-list:
+    done_on: 2026-11-17
+  remove-nth-node-from-end-of-list:
+    done_on: 2026-11-17
+  add-two-numbers:
+    done_on: 2026-11-17
 last_new_on: 2026-11-17
 next_forced_pool: medium_hard
 session:
@@ -85,8 +91,18 @@ session:
       kind: new
       forced: false
       grade: easy
-    C:
-      slug: time-based-key-value-store
+    E:
+      slug: reorder-list
       kind: new
       forced: false
-      grade:
+      grade: easy
+    F:
+      slug: remove-nth-node-from-end-of-list
+      kind: new
+      forced: false
+      grade: easy
+    H:
+      slug: add-two-numbers
+      kind: new
+      forced: false
+      grade: easy
