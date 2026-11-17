@@ -66,33 +66,27 @@ problems:
     done_on: 2026-11-13
   koko-eating-bananas:
     done_on: 2026-11-13
-last_new_on: 2026-11-13
+  find-minimum-in-rotated-sorted-array:
+    done_on: 2026-11-17
+  search-in-rotated-sorted-array:
+    done_on: 2026-11-17
+last_new_on: 2026-11-17
 next_forced_pool: medium_hard
 session:
-  date: 2026-11-13
+  date: 2026-11-17
   slots:
     A:
-      slug: daily-temperatures
+      slug: search-in-rotated-sorted-array
       kind: new
       forced: false
       grade: good
     B:
-      slug: car-fleet
+      slug: find-minimum-in-rotated-sorted-array
       kind: new
       forced: false
-      grade: good
+      grade: easy
     C:
-      slug: largest-rectangle-in-histogram
+      slug: time-based-key-value-store
       kind: new
       forced: false
-      grade: again
-    E:
-      slug: search-a-2d-matrix
-      kind: new
-      forced: false
-      grade: easy
-    F:
-      slug: koko-eating-bananas
-      kind: new
-      forced: false
-      grade: easy
+      grade:
