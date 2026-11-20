@@ -121,37 +121,43 @@ problems:
     - date: 2026-11-20
       grade: easy
   two-sum-ii-input-array-is-sorted:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-09-30
-    next_review: 2026-10-06
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-11-20
+    next_review: 2026-12-06
     history:
     - date: 2026-03-18
       grade: seed
     - date: 2026-09-30
       grade: easy
+    - date: 2026-11-20
+      grade: easy
   3sum:
-    reps: 2
-    ease: 2.5
-    interval: 6
-    last_reviewed: 2026-10-01
-    next_review: 2026-10-07
+    reps: 3
+    ease: 2.6
+    interval: 16
+    last_reviewed: 2026-11-20
+    next_review: 2026-12-06
     history:
     - date: 2026-03-22
       grade: seed
     - date: 2026-10-01
       grade: good
+    - date: 2026-11-20
+      grade: easy
   container-with-most-water:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-10-01
-    next_review: 2026-10-07
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-11-20
+    next_review: 2026-12-06
     history:
     - date: 2026-03-22
       grade: seed
     - date: 2026-10-01
+      grade: easy
+    - date: 2026-11-20
       grade: easy
   best-time-to-buy-and-sell-stock:
     reps: 4
@@ -230,15 +236,17 @@ problems:
     - date: 2026-11-04
       grade: easy
   min-stack:
-    reps: 2
-    ease: 2.6
-    interval: 6
-    last_reviewed: 2026-10-01
-    next_review: 2026-10-07
+    reps: 3
+    ease: 2.7
+    interval: 16
+    last_reviewed: 2026-11-20
+    next_review: 2026-12-06
     history:
     - date: 2026-03-24
       grade: seed
     - date: 2026-10-01
+      grade: easy
+    - date: 2026-11-20
       grade: easy
   daily-temperatures:
     reps: 2
@@ -944,3 +952,23 @@ session:
       kind: new
       forced: false
       grade: hard
+    K:
+      slug: two-sum-ii-input-array-is-sorted
+      kind: review
+      forced: false
+      grade: easy
+    L:
+      slug: 3sum
+      kind: review
+      forced: false
+      grade: easy
+    M:
+      slug: container-with-most-water
+      kind: review
+      forced: false
+      grade: easy
+    "N":
+      slug: min-stack
+      kind: review
+      forced: false
+      grade: easy
