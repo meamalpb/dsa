@@ -880,6 +880,15 @@ problems:
       grade: again
     last_reviewed: 2026-11-20
     next_review: 2026-11-21
+  combination-sum-ii:
+    reps: 1
+    ease: 2.36
+    interval: 1
+    history:
+    - date: 2026-11-20
+      grade: hard
+    last_reviewed: 2026-11-20
+    next_review: 2026-11-21
 last_new_on: 2026-11-20
 next_forced_pool: easy
 session:
@@ -928,5 +937,10 @@ session:
     I:
       slug: permutations
       kind: review
+      forced: false
+      grade: hard
+    J:
+      slug: combination-sum-ii
+      kind: new
       forced: false
       grade: hard
