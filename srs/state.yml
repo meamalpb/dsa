@@ -190,15 +190,17 @@ problems:
     - date: 2026-10-22
       grade: easy
   longest-repeating-character-replacement:
-    reps: 2
+    reps: 3
     ease: 2.5
-    interval: 6
-    last_reviewed: 2026-10-03
-    next_review: 2026-10-09
+    interval: 15
+    last_reviewed: 2026-11-22
+    next_review: 2026-12-07
     history:
     - date: 2026-04-01
       grade: seed
     - date: 2026-10-03
+      grade: good
+    - date: 2026-11-22
       grade: good
   permutation-in-string:
     reps: 2
@@ -288,26 +290,30 @@ problems:
     - date: 2026-11-01
       grade: easy
   search-in-rotated-sorted-array:
-    reps: 2
+    reps: 3
     ease: 2.5
-    interval: 6
-    last_reviewed: 2026-10-03
-    next_review: 2026-10-09
+    interval: 15
+    last_reviewed: 2026-11-22
+    next_review: 2026-12-07
     history:
     - date: 2026-04-07
       grade: seed
     - date: 2026-10-03
       grade: good
+    - date: 2026-11-22
+      grade: good
   find-minimum-in-rotated-sorted-array:
-    reps: 2
+    reps: 3
     ease: 2.5
-    interval: 6
-    last_reviewed: 2026-10-03
-    next_review: 2026-10-09
+    interval: 15
+    last_reviewed: 2026-11-22
+    next_review: 2026-12-07
     history:
     - date: 2026-04-07
       grade: seed
     - date: 2026-10-03
+      grade: good
+    - date: 2026-11-22
       grade: good
   reverse-linked-list:
     reps: 4
@@ -930,3 +936,18 @@ session:
       kind: early
       forced: false
       grade: easy
+    D:
+      slug: longest-repeating-character-replacement
+      kind: review
+      forced: false
+      grade: good
+    E:
+      slug: search-in-rotated-sorted-array
+      kind: review
+      forced: false
+      grade: good
+    F:
+      slug: find-minimum-in-rotated-sorted-array
+      kind: review
+      forced: false
+      grade: good
