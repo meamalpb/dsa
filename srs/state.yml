@@ -160,11 +160,11 @@ problems:
     - date: 2026-11-20
       grade: easy
   best-time-to-buy-and-sell-stock:
-    reps: 4
-    ease: 2.8
-    interval: 45
-    last_reviewed: 2026-11-03
-    next_review: 2026-12-18
+    reps: 5
+    ease: 2.9
+    interval: 131
+    last_reviewed: 2026-11-22
+    next_review: 2027-04-02
     history:
     - date: 2026-03-25
       grade: seed
@@ -173,6 +173,8 @@ problems:
     - date: 2026-10-21
       grade: easy
     - date: 2026-11-03
+      grade: easy
+    - date: 2026-11-22
       grade: easy
   longest-substring-without-repeating-characters:
     reps: 3
@@ -473,9 +475,9 @@ problems:
     last_reviewed: 2026-11-20
     next_review: 2026-11-26
   diameter-of-binary-tree:
-    reps: 4
-    ease: 2.36
-    interval: 33
+    reps: 5
+    ease: 2.46
+    interval: 81
     history:
     - date: 2026-09-29
       grade: good
@@ -491,8 +493,10 @@ problems:
       grade: easy
     - date: 2026-11-14
       grade: easy
-    last_reviewed: 2026-11-14
-    next_review: 2026-12-17
+    - date: 2026-11-22
+      grade: easy
+    last_reviewed: 2026-11-22
+    next_review: 2027-02-11
   trapping-rain-water:
     reps: 0
     ease: 1.96
@@ -897,78 +901,32 @@ problems:
       grade: hard
     last_reviewed: 2026-11-20
     next_review: 2026-11-21
-last_new_on: 2026-11-20
+  word-search:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-22
+      grade: good
+    last_reviewed: 2026-11-22
+    next_review: 2026-11-23
+last_new_on: 2026-11-22
 next_forced_pool: easy
 session:
-  date: 2026-11-20
+  date: 2026-11-22
   slots:
     B:
-      slug: subsets-ii
+      slug: word-search
       kind: new
       forced: true
-      grade: again
+      grade: good
     A:
-      slug: two-sum
+      slug: diameter-of-binary-tree
       kind: early
       forced: false
       grade: easy
     C:
-      slug: valid-palindrome
+      slug: best-time-to-buy-and-sell-stock
       kind: early
-      forced: false
-      grade: easy
-    D:
-      slug: encode-and-decode-strings
-      kind: review
-      forced: false
-      grade: easy
-    E:
-      slug: product-of-array-except-self
-      kind: review
-      forced: false
-      grade: easy
-    F:
-      slug: longest-consecutive-sequence
-      kind: review
-      forced: false
-      grade: easy
-    G:
-      slug: subsets
-      kind: review
-      forced: false
-      grade: hard
-    H:
-      slug: combination-sum
-      kind: review
-      forced: false
-      grade: hard
-    I:
-      slug: permutations
-      kind: review
-      forced: false
-      grade: hard
-    J:
-      slug: combination-sum-ii
-      kind: new
-      forced: false
-      grade: hard
-    K:
-      slug: two-sum-ii-input-array-is-sorted
-      kind: review
-      forced: false
-      grade: easy
-    L:
-      slug: 3sum
-      kind: review
-      forced: false
-      grade: easy
-    M:
-      slug: container-with-most-water
-      kind: review
-      forced: false
-      grade: easy
-    "N":
-      slug: min-stack
-      kind: review
       forced: false
       grade: easy
