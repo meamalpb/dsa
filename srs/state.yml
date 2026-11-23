@@ -225,11 +225,11 @@ problems:
     - date: 2026-11-01
       grade: good
   valid-parentheses:
-    reps: 4
-    ease: 2.8
-    interval: 45
-    last_reviewed: 2026-11-04
-    next_review: 2026-12-19
+    reps: 5
+    ease: 2.9
+    interval: 131
+    last_reviewed: 2026-11-23
+    next_review: 2027-04-03
     history:
     - date: 2026-03-21
       grade: seed
@@ -238,6 +238,8 @@ problems:
     - date: 2026-10-21
       grade: easy
     - date: 2026-11-04
+      grade: easy
+    - date: 2026-11-23
       grade: easy
   min-stack:
     reps: 3
@@ -916,38 +918,32 @@ problems:
       grade: good
     last_reviewed: 2026-11-22
     next_review: 2026-11-23
-last_new_on: 2026-11-22
+  palindrome-partitioning:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-23
+      grade: good
+    last_reviewed: 2026-11-23
+    next_review: 2026-11-24
+last_new_on: 2026-11-23
 next_forced_pool: easy
 session:
-  date: 2026-11-22
+  date: 2026-11-23
   slots:
     B:
-      slug: word-search
+      slug: palindrome-partitioning
       kind: new
       forced: true
       grade: good
     A:
-      slug: diameter-of-binary-tree
+      slug: valid-parentheses
       kind: early
       forced: false
       grade: easy
     C:
-      slug: best-time-to-buy-and-sell-stock
+      slug: binary-search
       kind: early
       forced: false
-      grade: easy
-    D:
-      slug: longest-repeating-character-replacement
-      kind: review
-      forced: false
-      grade: good
-    E:
-      slug: search-in-rotated-sorted-array
-      kind: review
-      forced: false
-      grade: good
-    F:
-      slug: find-minimum-in-rotated-sorted-array
-      kind: review
-      forced: false
-      grade: good
+      grade:
