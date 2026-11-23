@@ -266,11 +266,11 @@ problems:
     - date: 2026-10-21
       grade: easy
   binary-search:
-    reps: 4
-    ease: 2.8
-    interval: 45
-    last_reviewed: 2026-11-04
-    next_review: 2026-12-19
+    reps: 5
+    ease: 2.9
+    interval: 131
+    last_reviewed: 2026-11-23
+    next_review: 2027-04-03
     history:
     - date: 2026-04-07
       grade: seed
@@ -279,6 +279,8 @@ problems:
     - date: 2026-10-21
       grade: easy
     - date: 2026-11-04
+      grade: easy
+    - date: 2026-11-23
       grade: easy
   search-a-2d-matrix:
     reps: 2
@@ -927,6 +929,15 @@ problems:
       grade: good
     last_reviewed: 2026-11-23
     next_review: 2026-11-24
+  climbing-stairs:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-23
+      grade: easy
+    last_reviewed: 2026-11-23
+    next_review: 2026-11-24
 last_new_on: 2026-11-23
 next_forced_pool: easy
 session:
@@ -946,4 +957,9 @@ session:
       slug: binary-search
       kind: early
       forced: false
-      grade:
+      grade: easy
+    D:
+      slug: climbing-stairs
+      kind: new
+      forced: false
+      grade: easy
