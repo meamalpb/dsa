@@ -1041,3 +1041,8 @@ session:
       kind: new
       forced: false
       grade: easy
+    I:
+      slug: longest-palindromic-substring
+      kind: new
+      forced: false
+      grade:
