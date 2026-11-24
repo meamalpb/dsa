@@ -951,6 +951,15 @@ problems:
       grade: easy
     last_reviewed: 2026-11-24
     next_review: 2026-11-25
+  letter-combinations-of-a-phone-number:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-24
+      grade: good
+    last_reviewed: 2026-11-24
+    next_review: 2026-11-25
 last_new_on: 2026-11-24
 next_forced_pool: medium_hard
 session:
@@ -971,3 +980,8 @@ session:
       kind: review
       forced: false
       grade: easy
+    D:
+      slug: letter-combinations-of-a-phone-number
+      kind: new
+      forced: false
+      grade: good
