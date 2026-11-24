@@ -6,26 +6,15 @@
 # https://leetcode.com/problems/sliding-window-maximum/
 
 def max_sliding_window(nums, k)
-  left = 0
-  right = 0
+  head = 0
   q = []
-  qv = 0
   result = []
-  n = nums.length
-
-  while right < n
-    q.pop while q.length > qv && nums[q.last] < nums[right]
-    q << right
-
-    if right - left + 1 == k
-      qv += 1 if q[qv] < left
-      result << nums[q[qv]]
-      left += 1
-    end
-
-    right += 1
+  nums.each_with_index do |num, i|
+    head += 1 if head < q.length && q[head] <= i - k
+    q.pop while q.length > head && nums[q[-1]] <= num
+    q << i
+    result << nums[q[head]] if i >= k - 1
   end
-
   result
 end
 

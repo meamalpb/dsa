@@ -564,14 +564,16 @@ problems:
     last_reviewed: 2026-11-13
     next_review: 2026-12-26
   sliding-window-maximum:
-    reps: 1
+    reps: 2
     ease: 2.5
-    interval: 1
+    interval: 6
     history:
     - date: 2026-10-15
       grade: good
-    last_reviewed: 2026-10-15
-    next_review: 2026-10-16
+    - date: 2026-11-24
+      grade: good
+    last_reviewed: 2026-11-24
+    next_review: 2026-11-30
   evaluate-reverse-polish-notation:
     reps: 0
     ease: 1.96
@@ -930,36 +932,42 @@ problems:
     last_reviewed: 2026-11-23
     next_review: 2026-11-24
   climbing-stairs:
+    reps: 2
+    ease: 2.7
+    interval: 6
+    history:
+    - date: 2026-11-23
+      grade: easy
+    - date: 2026-11-24
+      grade: easy
+    last_reviewed: 2026-11-24
+    next_review: 2026-11-30
+  min-cost-climbing-stairs:
     reps: 1
     ease: 2.6
     interval: 1
     history:
-    - date: 2026-11-23
+    - date: 2026-11-24
       grade: easy
-    last_reviewed: 2026-11-23
-    next_review: 2026-11-24
-last_new_on: 2026-11-23
-next_forced_pool: easy
+    last_reviewed: 2026-11-24
+    next_review: 2026-11-25
+last_new_on: 2026-11-24
+next_forced_pool: medium_hard
 session:
-  date: 2026-11-23
+  date: 2026-11-24
   slots:
-    B:
-      slug: palindrome-partitioning
+    A:
+      slug: min-cost-climbing-stairs
       kind: new
       forced: true
+      grade: easy
+    B:
+      slug: sliding-window-maximum
+      kind: review
+      forced: false
       grade: good
-    A:
-      slug: valid-parentheses
-      kind: early
-      forced: false
-      grade: easy
     C:
-      slug: binary-search
-      kind: early
-      forced: false
-      grade: easy
-    D:
       slug: climbing-stairs
-      kind: new
+      kind: review
       forced: false
       grade: easy
