@@ -987,6 +987,15 @@ problems:
       grade: good
     last_reviewed: 2026-11-24
     next_review: 2026-11-25
+  house-robber-ii:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-24
+      grade: easy
+    last_reviewed: 2026-11-24
+    next_review: 2026-11-25
 last_new_on: 2026-11-24
 next_forced_pool: medium_hard
 session:
@@ -1031,4 +1040,4 @@ session:
       slug: house-robber-ii
       kind: new
       forced: false
-      grade:
+      grade: easy
