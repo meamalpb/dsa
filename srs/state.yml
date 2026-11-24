@@ -960,6 +960,15 @@ problems:
       grade: good
     last_reviewed: 2026-11-24
     next_review: 2026-11-25
+  n-queens:
+    reps: 1
+    ease: 2.5
+    interval: 1
+    history:
+    - date: 2026-11-24
+      grade: good
+    last_reviewed: 2026-11-24
+    next_review: 2026-11-25
 last_new_on: 2026-11-24
 next_forced_pool: medium_hard
 session:
@@ -982,6 +991,11 @@ session:
       grade: easy
     D:
       slug: letter-combinations-of-a-phone-number
+      kind: new
+      forced: false
+      grade: good
+    E:
+      slug: n-queens
       kind: new
       forced: false
       grade: good
