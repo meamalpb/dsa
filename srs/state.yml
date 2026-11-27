@@ -574,15 +574,6 @@ problems:
       grade: good
     last_reviewed: 2026-11-24
     next_review: 2026-11-30
-  evaluate-reverse-polish-notation:
-    reps: 0
-    ease: 1.96
-    interval: 1
-    history:
-    - date: 2026-10-21
-      grade: again
-    last_reviewed: 2026-10-21
-    next_review: 2026-10-22
   generate-parentheses:
     reps: 1
     ease: 2.5
@@ -932,9 +923,9 @@ problems:
     last_reviewed: 2026-11-23
     next_review: 2026-11-24
   climbing-stairs:
-    reps: 3
-    ease: 2.7
-    interval: 16
+    reps: 4
+    ease: 2.8
+    interval: 45
     history:
     - date: 2026-11-23
       grade: easy
@@ -942,8 +933,10 @@ problems:
       grade: easy
     - date: 2026-11-26
       grade: good
-    last_reviewed: 2026-11-26
-    next_review: 2026-12-12
+    - date: 2026-11-27
+      grade: easy
+    last_reviewed: 2026-11-27
+    next_review: 2027-01-11
   min-cost-climbing-stairs:
     reps: 3
     ease: 2.7
@@ -1011,7 +1004,16 @@ problems:
       grade: easy
     last_reviewed: 2026-11-26
     next_review: 2026-11-27
-last_new_on: 2026-11-26
+  max-area-of-island:
+    reps: 1
+    ease: 2.6
+    interval: 1
+    history:
+    - date: 2026-11-27
+      grade: easy
+    last_reviewed: 2026-11-27
+    next_review: 2026-11-28
+last_new_on: 2026-11-27
 next_forced_pool: easy
 session:
   date: 2026-11-27
@@ -1020,7 +1022,7 @@ session:
       slug: max-area-of-island
       kind: new
       forced: true
-      grade:
+      grade: easy
     A:
       slug: min-cost-climbing-stairs
       kind: early
@@ -1030,4 +1032,4 @@ session:
       slug: climbing-stairs
       kind: early
       forced: false
-      grade:
+      grade: easy
